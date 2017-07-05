@@ -1,0 +1,13 @@
+*.aux
+*.log
+*.nav
+*.toc
+*.aux
+*.out
+*.bbl
+*.blg
+*.maf
+*.mtc*
+*~
+*backup
+*.backup
