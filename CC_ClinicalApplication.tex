@@ -39,7 +39,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Physics in Medicine and Biology,   J.-L. Ley
+%    J.-L. Ley
 %
 \documentclass[12pt]{iopart}
 \newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
@@ -72,13 +72,13 @@
 \author{J.-L. Ley$^1$, C. Abellan$^2$, J.-P. Cachemiche$^2$, M. Dahoumane$^1$, D. Dauvergne$^1$, N. Freud$^3$, B. Joly$^4$, J. Krimmer$^1$, J. M. Létang$^3$, L. Lestand$^4$, H. Mathez$^1$, G. Montarou$^4$, M. Pinto$^1$, M-.H. Richard$^1$, E. Testa$^1$ and Y. Zoccarato$^1$}
 
 \address{$^1$Université de Lyon, Université Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique Nucléaire de Lyon, 69622 Villeurbanne; MICRHAU pôle de Microélectronique Rhône Auvergne, France}
-\address{$^2$CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille}
-\address{$^3$Univ Lyon, INSA-Lyon, Université Claude Bernard Lyon 1, UJM-Saint Étienne, CNRS, Inserm, Centre Léon Bérard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
+\address{$^2$ CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille}
+\address{$^3$ Université de Lyon, CREATIS; CNRS UMR5220; Inserm U1044; INSA - Lyon; Université Lyon 1; Centre Léon Bérard, France}
 \address{$^4$Laboratoire de Physique Corpusculaire de Clermont-Ferrand, France}
 \ead{jeanluc.ley@gmail.com}
 
 \begin{abstract}
-The aim of irradiation monitoring during a treatment in ion therapy is to control in real time the agreement between the delivered dose and the planned treatment. In fact, the discrepancies might come from uncertainties such as the planning accuracy by itself, or by variations due to the positioning or the anatomical changes of the patient. This can lead to ion-range variations of a few millimeters. Several devices are under development over the world to detect secondary radiations, which are correlated to the dose deposited by incident ions [1]. Compton cameras are in particular investigated for their potential high efficiency to detect prompt-gammas [2-5]. The present work aims at discussing the clinical applicability of a Compton camera design by means of Monte Carlo simulations validated against measurements of single and coincidence rates.
+The aim of irradiation monitoring during a treatment in ion therapy is to control in real time the agreement between the delivered dose and the planned treatment. In fact, the discrepancies might come from uncertainties such as the planning accuracy by itself, or by variations due to the positioning or the anatomical changes of the patient. This can lead to ion-range variations of a few millimeters. Several devices are under development over the world to detect secondary radiation, which are correlated to the dose deposited by incident ions [1]. Compton cameras are in particular investigated for their potential high efficiency to detect prompt-gammas [2-5]. The present work aims at discussing the clinical applicability of a Compton camera design by means of Monte Carlo simulations validated against measurements of single and coincidence rates.
 
 \end{abstract}
 
@@ -93,53 +93,12 @@ The aim of irradiation monitoring during a treatment in ion therapy is to contro
 % Comment out if separate title page not required
 \maketitle
 %
-
-
 \newpage
 
-%\textbf{Liste des choses Ã  faire}\newline
-%
-%\begin{itemize}
-%	\item Modifier figure couleur setup Silicum
-%	\item Faire figure du setup complet ! Demander figure Jochen
-%	\item Mise Ã  jour setup simulation avec remarques de la rÃ©union du 12 mars 2014
-%	\item Quel fil conducteur pour l'article ? dans quel ordre les Ã©lÃ©ments ? (voir formation B4)
-%	\item RÃ©daction rÃ©sultats simulations
-%	\item Mettre figure au bon format -> ROOT\newline
-%\end{itemize}
-%
-%\textbf{IdÃ©e du papier}\newline
-%
-%\begin{itemize}
-%	\item Montrer que CC marche pas pour utilisations Ã  2 x 10 10
-%	\item  Utilisation d'une intensitÃ© plus faible ok
-%	\item  Spectre de fall off pour montrer coincs true/false
-%	\item Avoir taux de comptage rÃ©aliste avec manip
-%	\item avoir qq coincs de reconstruite Si/BGO
-%\end{itemize}
-%
-%
-%\newpage
+\tableofcontents
+
 
 \section{Introduction}
-
-
-%In 2012, cancer was the leading cause of death, causing 8.2 million deaths worldwide. Studies are showing that within two decades, cancer cases will increase from 14 million (2012) to 22 million [1]. The most frenquent cancers, for both sexes, are the lung, the breast, the colorectum, the prostate and the stomach cancer. Once detected, the cancer treatment requires surgery, radiotherapy or chemotherapy. \newline
-%A new type of radiotherapy emerged a few years ago: the ion therapy. The idea is to use charged paticles, like protons or carbon ions, to irradiate the patient instead of doing X-rays.
-%There are mainly two advantages compare to the conventional radiotherapy using X-rays. Firstly, the balistic precision is higher for the ions due to the process of interaction in the matter. The ion energy is almost completely deposited in a small range (few millimeters) nammed Bragg peak. The normal tissues surrounding the tumor are therefore less irradiated. Secondly, the carbon ions have a better relative biological effectiveness compare to the X-rays in the Bragg peak region. It means that for the same amount of absorbed energy, the carbon ions are more effective [2].\newline
-%%Ref Michael Goiten pour les incertitudes en ref.
-%The quality assurance in ion therapy appears mandatory in the light of the energies involved and need an irradiation monitoring in real time [ref]. 
-%The aim of irradiation monitoring during a treatment in ion therapy is to control in real time the agreement between the delivered dose and the planned treatment. In fact, the discrepancies might come from uncertainties such as the planning accuracy by itself, or by variations due to the positioning or the anatomical changes of the patient. This can lead to ion-range variations of a few millimeters. 
-%Several devices are under development, worldwide, to detect secondary radiations, which are correlated to the dose deposited by incident ions [3]. Compton cameras are particularly investigated for their potential high efficiency to detect prompt-gammas [4-7]. 
-%In the group in Lyon, a Compton camera with electronic collimation was designed by GEANT4 9.6 simulations, in order to optimize the detection of prompt gammas and to discriminate the neutrons by the time of flight [8]. 
-%According to the Monte Carlo design, a prototype, which is composed of three parts, is under development: a hodoscope , a scatterer and an absorber. The hodoscope is made of \newline 2 x 128 square scintillating fibers of one millimeter and represents a total area of 14.1$\rm{cm}^2$. The hodoscope is used to tag the incidents ions in time and position. The scatterer is a stack of seven double-sided silicon strip detectors of 90 x 90 x 2 $\rm{mm}^3$. Each silicon layer has 2 x 64 strips with a pitch of 1.41 mm. The absorber is composed of 96 blocks of streaked BGO of 38 x 35 x 30 $\rm{mm}^3$.  
-%Dedicated electronic-readout systems have been homemade designed for the three detection systems. Moreover, a micro-TCA acquisition system is under development.
-%All these developments' main goal is to verify in real time the accuracy of the irradiation. Therefore, it is mandatory to certify that the camera could work in clinical conditions. The main issues are the beam intensity and the time structure of the extraction from the accelerator. This time structure changes with the energy of the particles and type of accelerator (cyclotron or synchrotron). We simulate the detection of secondary particles, thanks to our Compton camera prototype, coming from the interaction between the incident ions (protons or carbon ions) and the target in polymethyl methacrylate (PMMA). The clinical beam intensities and the time structure of the beam are taking into account to treat the results. To validate the results obtained by the simulations, we made an experiment at the Heidelberg Ion Therapy Center in Germany. A small prototype of the Compton camera was used (the full prototype is under construction) and we extrapolated the results to the full size prototype.
-
-
-%at the "Institut de Physique NuclÃ©aire de Lyon" (IPNL) and the "Laboratoire de Physique Corpusculaire" (LPC)
-%
-%\textbf{metre figure MH camera Compton}
 
 %%%----------------------------------------------------------------------
 %%%----------------------------------------------------------------------
@@ -149,20 +108,12 @@ The aim of irradiation monitoring during a treatment in ion therapy is to contro
 
 \section{Material and methods}
 
-%For the purpose of this study, we have used Monte Carlo simulations Geant4. The group made experiments at different ion beam facilities. 
-
 \subsection{Simulation setup\newline}
 
-
-The simulation consists of the irradiation of a patient by an ion beam and the detection of the secondary particles emitted by mean of the Compton camera prototype. The patient is replaced by a cylindrical PMMA\footnotemark[1] phantom of 15 centimeters diameter and 20 centimeters length. The Compton camera prototype is composed by a scatterer, an absorber and a scintillating fiber hodoscope. The scatterer is a stack of seven layers of double-sided silicon strip detectors (DSSD) of 90 $\times$ 90 $\times$ 2 $\rm{mm}^3$ with 64 strips on each side. The absorber consists of 96 blocks of streaked BGO\footnotemark[2] crystals of 38 $\times$ 38 $\times$ 30 $\rm{mm}^3$. The hodoscope is formed by $2\times128$ square scintillating fibers of 1 $\rm{mm}^2$ and 140 mm length of BCF 12. The mechanical structures of the detectors, the scatterer's strips and the hodoscope are not modelled in this study. Moreover, the absorber is modelled by a monoblock of BGO crystal of 380 $\times$ 380 $\times$ 30 $\rm{mm}^3$ equivalent to 100 single blocks. The distance between the camera and the center of the PMMA phantom is set at 20 centimeters in order to fit with a realistic distance to the patient. The distance between each silicon layer is one centimeter and the distance from the last silicon layer to the absorber is 40 centimeters. The distance between the stack of silicon layers and the absorber is a compromise between the camera efficiency and the discrimination by time of flight measurement. The setup is described figure \ref{fig:fig_setup_CC_simulation_Hadronth}.\newline
-
-%A Monte Carlo code is used to simulated the interaction of the ion in a phantom of PMMA and to simulated the detection of the secondary particle by a Compton Camera.
-
-%The time-of-flight Compton camera prototype is composed of three parts: a hodoscope (2x128 square scintillating fibers), a stack of scatterers (seven Double-sided Silicon Strip Detector) and an absorber (96 blocks of streaked BGO).
+The simulation consists of the irradiation of a patient by an ion beam and the detection of the secondary particles emitted by means of the Compton camera prototype. The patient is replaced by a cylindrical PMMA\footnotemark[1] phantom of 15 centimeters diameter and 20 centimeters length. The Compton camera prototype is composed of a scatterer, an absorber and a scintillating fiber hodoscope. The mechanical structures of the detectors, the scatterer's strips and the hodoscope are not modelled in this study. The scatterer is a stack of seven layers of double-sided silicon strip detectors (DSSD) of 90 $\times$ 90 $\times$ 2 $\rm{mm}^3$ with 64 strips on each side. The absorber consists of 96 blocks of streaked BGO\footnotemark[2] crystals of 38 $\times$ 38 $\times$ 30 $\rm{mm}^3$. . Moreover, the absorber is modelled by a monoblock of BGO crystal of 380 $\times$ 380 $\times$ 30 $\rm{mm}^3$ equivalent to 100 single blocks. The distance between the camera and the center of the PMMA phantom is set at 20 centimeters in order to fit with a realistic distance to the patient. The distance between each silicon layer is one centimeter and the distance from the last silicon layer to the absorber is 40 centimeters. The distance between the stack of silicon layers and the absorber is a compromise between the camera efficiency and the discrimination by time of flight measurement. The setup is described figure \ref{fig:fig_setup_CC_simulation_Hadronth}.\newline
 
 	\begin{figure} [!hbtp]	
 	\centering
-	%\caption{Setup used in the Monte Carlo Geant4 simulation including the Compton camera and the PMMA target.}	
 	\includegraphics[width=0.7\textwidth]{./Figure/Material_Methods/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.eps}
 		\caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. This configuration is used for all the results presented in this paper.}
 	\label{fig:fig_setup_CC_simulation_Hadronth}
@@ -173,7 +124,7 @@ The simulation consists of the irradiation of a patient by an ion beam and the d
 
 \subsection{Hadronic models used in Geant4\newline}
 
-The study is based on the Monte Carlo methods with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed by the CERN for the high energy physics experiments. It was shown, that it could be also used in ion therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements remains to do in order to adjust the hadronic models \cite{dedes_assessment_2014} .
+The study is based on the Monte Carlo methods with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed by the CERN for the high energy physics experiments. It was shown that it could also be used in ion therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements remains to do in order to adjust the hadronic models \cite{dedes_assessment_2014} .
 The interaction processes in the matter are described by means of different models according to the type of particles. A resume of those different models is given table \ref{table:table_modele_physic_CC_simulation_Hadronth}. Additionally, the Doppler broadening and the polarization is taking into account. 
 
 \definecolor{Gray}{gray}{0.9}
@@ -204,18 +155,16 @@ The interaction processes in the matter are described by means of different mode
 \subsection{Particles of interest}
 \label{subsection:Particules_Etudiees_CC_hadrontherapy_Geant4}
 
-We study the two main particles used in clinic, namely the protons and the carbon ions. The ion range of interest is 15.2 cm in the PMMA target. The energies associated to the range is 160 MeV for the protons and 305 MeV/n for the carbon ions. The beam delivered during a real treatment has a gaussian profile at the enter of the patient. The standard deviation for a proton beam is 5 mm at 160 MeV and 3.5 mm for a carbon ion beam at 305 MeV/n. The modelling of the Compton camera does not change with the type of incident particles. The statistic for a spot in pencil beam scanning (PBS) mode for protons is $10^8$ particles and $10^5$ particles for carbon ions. The beam time structure is applied during the post treatment.\newline
+We study the two main particles used in clinics, namely the protons and the carbon ions. The ion range of interest is 15.2 cm in the PMMA target. The energy associated with the range is 160 MeV for the protons and 305 MeV/n for the carbon ions. The beam delivered during a real treatment has a Gaussian profile at the enter of the patient. The standard deviation for a proton beam is 5 mm at 160 MeV and 3.5 mm for a carbon ion beam at 305 MeV/n. The modelling of the Compton camera does not change with the type of incident particles. The statistic for a spot in pencil beam scanning (PBS) mode for protons is $10^8$ particles and $10^5$ particles for carbon ions. The beam time structure is applied during the post treatment.\newline
 
 
 \subsection{Data treatment}
 \label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
 
-\subsubsection{Detector's resolutions\newline}
+\subsubsection{Detector resolutions\newline}
 \label{subsubsection:Resolution_detector_CC_hadrontherapy_Geant4}
 
 The Monte Carlo simulation parameters are as close to reality as possible in order to get relevant results. The detector resolutions play an important role in the Compton camera performances. The absorber's spatial resolution influences the position of the apex of the Compton cone and influences its axis orientation. The energy resolution has effect on the  Compton cone aperture angle and the timing resolution impacts the coincidence windows between the absorber and the scatterer. The hodoscope is not included in the simulation but its timing resolution is taking into account for the time of flight discrimination. The detector resolutions are modelled in relation to the resolutions measured or estimated for each detector. The spatial resolution, the energy resolution and the timing resolution are presented in the table \ref{table:table_resolution_detecteurs_CC_simulation_Hadronth}.
-
-%However, in order to simplify the geometry of the camera,  the strips are not modeled on the silicon layers and the monoblock of BGO is not divided into ninety six parts as it is in reality. Moreover, the hodoscope is not introduced in the simulations.
 
 \begin{table} [!htbp]
 \centering
@@ -223,7 +172,7 @@ The Monte Carlo simulation parameters are as close to reality as possible in ord
 \caption{Realistic resolutions applied during the simulations.}
 \begin{tabular}{cccc}
 \hline
-\textbf{Résolution (FWHM) à 1 MeV} & \textbf{Scatterer Si} & \textbf{Absorber BGO} &\textbf{Hodoscope}\\
+\textbf{Resolution (FWHM) at 1 MeV} & \textbf{Scatterer} & \textbf{Absorber} &\textbf{Hodoscope}\\
 \hline 
 \textbf{spatial [mm]	}			 &     0.9		 &  5	 			&   /	\\
 %\hline
@@ -241,47 +190,23 @@ The Monte Carlo simulation parameters are as close to reality as possible in ord
 
 
 The beam time structure should have a direct impact on the Compton camera capacities to detect a particle in coincidence between the scatterer and the absorber.
-%A beam time structure is modeled and applied to the simulation data in order to estimate the coincidence rates (true/random) for a clinical application of the Compton camera. 
-Two beam time structures have been modelled: one of IBA cyclotron C230 for protons (used in 16 clinical centers worldwide) and one of synchrotron installed at the Heidelberg Ion Therapy Center (HIT) in Germany for carbon ions. Depending the ion energy and the beam intensity, the beam microstructure will change. We are focusing in this study to the microstructure at a specific energy and at the influence of the variation of the intensity. In the case of protons at 160 MeV, the ions are grouped in bunches of 2 ns at a frequency of 106 MHz (9.42 ns) \cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2 nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305 MeV/u, the estimated microstructure is a bunch of 30 ns at a frequency of 5.9 MHz (170 ns). The clinical beam intensity for carbon ions is $5\times10^7$ ions/s which corresponds to about 9 ions per bunch This beam structure is extrapolated from measurements done by our team in 2013 at HIT. The time beam structure was measured for 200 MeV/u and 400 MeV/u carbon ions beam with a two scintillating fibers hodoscope and the spill signal given by the accelerator. The figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400 MeV/u. The pulses have a spill period of 150.2 ns and a bunch is 21.5 ns. A dedicated measure should be done for the energy of interest for this study (305 MeV/u).\newline
-Moreover, the measurements have showed that the spill phase change during the extraction which involves that the HF signal from the synchrotron can not be used to locate the pulses. The use of the hodoscope seems required.\newline
+Two beam time structures have been modelled: one of IBA cyclotron C230 for protons (used in 16 clinical centers worldwide) and one of synchrotron installed at the Heidelberg Ion Therapy Center (HIT) in Germany for carbon ions. Depending on the ion energy and the beam intensity, the beam microstructure will change. We are focusing in this study to the microstructure at a specific energy and also at the influence of the variation of the intensity. In the case of protons at 160 MeV, the ions are grouped in bunches of 2 ns at a frequency of 106 MHz (9.42 ns) \cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2 nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305 MeV/u, the estimated microstructure is a bunch of 30 ns at a frequency of 5.9 MHz (170 ns). The clinical beam intensity for carbon ions is $5\times10^7$ ions/s which corresponds to about 9 ions per bunch. This beam structure is extrapolated from measurements done by our team in 2013 at HIT. The time beam structure was measured for 200 MeV/u and 400 MeV/u carbon ion beams with a two scintillating fiber hodoscope and the spill signal given by the accelerator. The figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400 MeV/u. The pulses have a spill period of 150.2 ns and a bunch is 21.5 ns. A dedicated measure should be done for the energy of interest for this study (305 MeV/u).\newline
+Moreover, the measurements have shown that the spill phase change during the extraction which involves  the HF signal from the synchrotron can not be used to locate the pulses. The use of the hodoscope seems required.\newline
 
 	\begin{figure} [!hbtp]	
 	\centering
 	\includegraphics[width=0.5\textwidth]{./Figure/Material_Methods/2013_Structure_Time_Beam_400MeV.png}
-	\caption{Time structure measured from a carbon ion beam at 400 MeV/u delivered at HIT. The pulses have an extraction period of 150.2 ns and the bunches are 21.5 ns FWHM. The measure was done with a two scintillating fibers hodoscope.}
+	\caption{Time structure measured from a carbon ion beam at 400 MeV/u delivered at HIT. The pulses have an extraction period of 150.2 ns and the bunches are 21.5 ns FWHM. The measure was done with a two scintillating fiber hodoscope.}
 	\label{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth}
 	\end{figure}
 
 
-%The Compton camera has to work for the highest beam intensity available during a treatment. 
-
-%The IBA cyclotron C230 allows an intensity of 3.7 nA which corresponds to $2\times10^{10}$ protons/s in average. \newline
-%The number of particles per packet (or bunch) is defined by the beam intensity and the spill period.    \newline
-%Two types of configurations are taking into account for the detectors. In the first case, the detectors (silicon layer and the BGO) are considered as perfect in the point of view of timing resolution. Therefore, no timing resolution is applied and the coincidence window used to define a coincidence is the time of flight for a gamma ray to reach the silicon to the absorber. 
-%The time defined to allow a coincidence between the scatterer and the absorber is forty nanoseconds. It is applied if the detectors are considered as real. The table 4 resumes those characteristics for specific ions.\newline	
-
-%The beam time structure should have a direct impact on the Compton camera capacities to detect a particle in coincidence between the scatterer and the absorber.
-%%A beam time structure is modeled and applied to the simulation data in order to estimate the coincidence rates (true/random) for a clinical application of the Compton camera. 
-%Two beam time structures have been modeled: one of IBA cyclotron C230 for protons and one of synchrotron installed at the Heidelberg Ion Therapy Center (HIT) in Germany for carbon ions. Depending the ion energy and the beam intensity, the beam microstructure will change. We are focusing in this study to the microstructure at a specific energy and at the influence of the variation of the intensity. In the case of protons at 160 MeV, the ions are grouped in bunches of 2 ns at a frequency of 106 MHz (9.42 ns). The modification of the beam intensity will change the number of particles included in a bunch. For instance, at the clinical intensity in proton, there is in average 217 protons in a bunch. Concerning the carbon ion beam at 305 MeV/u, the estimated microstructure is a bunch of 30 ns at a frequency of 5.9 MHz (170 ns).\newline
-
-In term of the coincidence between the scatterer and the absorber, we allow a time window of 40 ns around an absorber event. It means that for an event detected in the absorber, it will be flagged as a coincidence if an event (corresponding to a deposit energy) in one the scatterer layers is detected in a window of -20 ns and + 20 ns around the absorber event. This coincidence windows is defined regarding of the silicon timing resolution which is 15 ns at the full width at half maximum. 
-
-
-%The Compton camera has to work for the highest beam intensity available during a treatment. 
-
-%The IBA cyclotron C230 allows an intensity of 3.7 nA which corresponds to $2\times10^{10}$ protons/s in average. \newline
-%The number of particles per packet (or bunch) is defined by the beam intensity and the spill period.    \newline
-%Two types of configurations are taking into account for the detectors. In the first case, the detectors (silicon layer and the BGO) are considered as perfect in the point of view of timing resolution. Therefore, no timing resolution is applied and the coincidence window used to define a coincidence is the time of flight for a gamma ray to reach the silicon to the absorber. 
-%The time defined to allow a coincidence between the scatterer and the absorber is forty nanoseconds. It is applied if the detectors are considered as real. The table 4 resumes those characteristics for specific ions.\newline
-
-%A particle detected by the scatterer and the absorber is considered as in coincidence 
-%Mettre spectre mesurÃ© Ã  HIT pour la structure en temps ?\newline
-
+Concerning the coincidence between the scatterer and the absorber, we allow a time window of 40 ns around an absorber event. It means that for an event detected in the absorber, it will be flagged as a coincidence if an event (corresponding to a deposit energy) in one the scatterer layers is detected in a window of -20 ns and + 20 ns around the absorber event. This coincidence windows is defined regarding of the silicon timing resolution which is 15 ns at the full width at half maximum. The table \ref{table:definition_beam_structure_CC_hadrontherapy_Geant4} resumes those characteristics for specific ions.
 
 \begin{table} [!htbp]
 \footnotesize
 \centering
-\caption{Beam structure applied to the simulation datas.}
+\caption{Beam structure applied to the simulation data.}
 \setlength{\tabcolsep}{2pt}
 %\hspace{-2.1cm}
 \begin{tabular}{c>{\columncolor[gray]{0.9}}ccc}
@@ -302,6 +227,7 @@ In term of the coincidence between the scatterer and the absorber, we allow a ti
 											&\textbf{Timing resolution [ns]} & \multicolumn{2}{c}{Si: 15 and BGO: 3}\\
 \cline{2-4}%\hline
 \end{tabular}
+\label{table:definition_beam_structure_CC_hadrontherapy_Geant4}
 \end{table}
 
 
@@ -310,71 +236,51 @@ In term of the coincidence between the scatterer and the absorber, we allow a ti
 %---------------------------------------------------------------
 %---------------------------------------------------------------
 \subsubsection{Coincidence\newline}
-\label{subsubsection:definition_coincidences_CC_hadrontherapy_Geant4}
+\label{subsubsection:definition_beam_structure_CC_hadrontherapy_Geant4}
 
-A coincidence is defined as one energy deposit in the scatterer and one energy deposit in the absorber in a coincidence time windows given.
-The Compton camera is based on a double interaction inside the scatterer and the absorber. However, a number of events will be considered as background: quasi-simultaneous interaction from 
+The Compton camera is based on a double interaction inside the scatterer and the absorber. A coincidence is defined as one energy deposit in the scatterer and one energy deposit in the absorber in a coincidence time windows given. A number of coincidence will be considered as background: quasi-simultaneous interaction from two secondary particles or a double interaction from the same particle different from a gamma.\newline
+If a coincidence is detected but the two particles are not coming from the same incident ion, the coincidence is named fortuitous.
+Otherwise, if a single particle from the same incident ion leaves energy in the absorber and the scatterer, the coincidence is named true.\newline
+It can be distinguish two types of true coincidence: a single gamma ray, which is a true gamma, and the rest of possibilities (electron, proton, neutron) which is background. The coincidences of interest are the true gamma. 
 
-%Cependant un certain nombre d'événements seront considérés comme du bruit de fond : interaction quasi-simultanée de deux particules secondaires dans le diffuseur et l'absorbeur, et double interaction d'une même particule autre que par diffusion Compton d'un photon (par exemple une particule chargée qui traverserait un plan de silicium et l'absorbeur).\newline
-%Lorsque deux particules interagissant respectivement dans le diffuseur pour l'une et dans l'absorbeur pour l'autre n'ont pas été créées par le même ion incident, on parle de coïncidence fortuite. En effet, si plusieurs ions incidents se trouvent dans le même paquet, chacun des ions incidents va créer des particules secondaires en interagissant avec le patient. Il en résulte qu'une particule correspondant à l'ion$_1$ dépose de l'énergie dans un plan de silicium et qu'une particule correspondant à l'ion$_2$ dépose de l'énergie dans l'absorbeur. Cette coïncidence est appelée \textit{fortuite} ou \textit{random}. Dans le cas contraire, si les deux dépôts d'énergie (dans le diffuseur et dans l'absorbeur) proviennent de particules issues d'un même ion incident, alors on parle d'une coïncidence \textit{vraie}.\newline
-%À présent, il est nécessaire d'affiner la définition d'une coïncidence vraie qui contient différents cas de figure. Il est possible de mettre ces cas de figure dans deux catégories : les évènements indésirables \textit{background} ou les évènements d'intérêt qui sont les photons gamma et que nous appellerons \textit{true gamma}.\newline
-%La catégorie \textit{background} comprend :
-%\begin{itemize}
-%	\item Évènements fortuits venant de deux ions incidents distincts.
-%	\item Une même particule déposant de l'énergie dans le diffuseur et l'absorbeur, mais n'étant pas un photon gamma	: proton, neutron, électron.
-%	\item Deux particules distinctes générées par le même ion incident et dont l'une interagit dans un plan de silicium et l'autre dans l'absorbeur BGO. Toutes les combinaisons sont possibles, telles que par exemple : deux photons gamma, un proton et un photon gamma, un proton et un neutron, etc.\newline
-%\end{itemize}
-%La deuxième catégorie \textit{true gamma} est celle que l'on souhaite détecter avec le moins d'évènements \textit{background} possible. Comme explicité plus haut, on sélectionne les photons gamma ayant diffusé dans un plan de silicium puis absorbés dans l'absorbeur. Parmi ces évènements, il est possible de distinguer les photons gamma créés par une réaction nucléaire de l'ion incident et le lieu de cette création va donner une information relative au parcours de l'ion. On peut différencier ces photons par rapport à ceux ayant diffusé, une ou plusieurs fois, dans le patient avant d'être détectés par la caméra Compton. Les photons ayant été créés par le processus d'annihilation sont également pris en compte dans la catégorie \textit{true gamma}, mais ne renseignent pas sur le parcours de l'ion car ils ne se sont pas directement créés par l'interaction de l'ion lui-même. La figure \ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} reprend les différentes définitions des coïncidences. 
-
+The figure \ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} resumes the different definitions of coincidendes in the Compton camera.
 	\begin{figure} [!hbtp]	
 	\centering
 	\includegraphics[width=0.9\textwidth]{./Figure/Material_Methods/Schema_coincidence_EN.eps}
-	\caption{Diagramme reprenant la définition d'une coïncidence et des distinctions faites pour classifier les différents cas de figure.}
+	\caption{Diagram showing the different definitions of coincidendes in the Compton camera.}
 	 \label{fig:fig_explication_coincidence_CC_simulation_Hadronth}
 	\end{figure}
-
-
-
-As mentioned before, a coincidence is defined as an energy deposit in one silicon layer of the scatterer stack and an energy deposit in the BGO absorber. The deposit energies in the detectors can come from the same particle or can come from two different one. In the case of distinct radiations, if the the two particles are originated from the same incident ion on the target, the coincidence is named true coincidence. Otherwise, if this is not, so the coincidence is named a random coincidence. A more detailed analysis leads to separate the true coincidences in subparts.
-\begin{itemize}
-%	\item All the true coincidences is analyzed 
-	\item The same secondary particle interacts in the scatterer and the absorber and make a coincidence. The secondary particle can be:
-	\begin{itemize}
-		\item A gamma ray.
-		\item An other type of charged particles: neutron, proton, electron.
-	\end{itemize}
-	\item Two different types of secondary particle makes a coincidence: one interacts in the scatterer and the other in the absorber.
-\end{itemize}
-As the Compton camera's goal is to detect the gamma's scattering in the scatterer then its full absorption in the absorber, a coincidence corresponding to this definition is named a true gamma coincidence. The other type of coincidences is labeled background.
 
 
 \subsubsection{Time of flight discrimination and energy cuts\newline}
 
 \textit{Time of flight (TOF) information}\newline
 
-The objective is to eliminate the massive or charged particles (proton, electron, neutron) creating a coincidence in the Compton camera thanks to their speed. In fact, the photons are moving at the light speed when the other particles are moving slower due to their mass. To discriminate the particles with their speed, the time information coming from the hodoscope and the time information coming from the absorber are used. The difference between those informations is named time of flight (equation 1). However, the hodoscope is not modeling in this study. As the Monte Carlo code consists to follow all story individually, the time between the incident particle's creation and the secondary particle detection in the absorber is considered as the time of flight. Moreover, the hodoscope has a timing resolution about one nanosecond at full width at half maximum, so it is taking into account in the TOF estimation.
+The goal is to eliminate the massive or charged particles (proton, electron, neutron) creating a coincidence in the Compton camera thanks to their speed. In fact, the photons are moving at the light speed when the other particles are moving slower due to their mass. To discriminate the particles with their speed, the time information coming from the hodoscope and the time information coming from the absorber are used. The difference between that information is named time of flight (equation 1). However, the hodoscope is not modelling in this study. As the Monte Carlo code consists to follow all stories individually, the time between the incident particle's creation and the secondary particle detection in the absorber is considered as the time of flight. Moreover, the hodoscope has a timing resolution about one nanosecond at full width at half maximum, so it is taking into account in the TOF estimation.
 
 \begin{eqnarray*}
 TOF_{theoretical} = t_{absorber}-t_{hodoscope}\\
 TOF_{simulation} = t_{absorber}+t_{creation} + u_{hodoscope}
 \end{eqnarray*}
-With $u_{hodoscope}$  the hodoscope resolution modeled by a gaussian with a sigma of 1/2.35 ns. 
+With $u_{hodoscope}$  the hodoscope resolution modelled by a Gaussian with a sigma of 1/2.35 ns. 
 
-The time of flight spectrum resulting from the simulation shows that the coincidences of interest are included in a window between 0 and 6 ns (Fig. X). Therefore, all the coincidences with a TOF higher than 6 ns will be excluded of the results. 
+The time of flight spectrum resulting from the simulation shows that the coincidences of interest are included in a window between 0 and 6 ns (figure \ref{fig:fig_TOF_distribution_CC_simulation_Hadronth}). Therefore, all the coincidences with a TOF higher than 6 ns will be excluded from the results. 
 
 	\begin{figure} [!hbtp]	
 	\centering
-	\caption{Time of flight spectrum obtained by mean of the simulation and for a proton beam.}	
-	\includegraphics[width=0.7\textwidth]{./Figure/Material_Methods/2014_10_15_1Proton_TOF_Spectrum_NO_cutTOF.jpg}
+	\caption{Time of flight spectrum obtained by means of the simulation and for a proton beam.}	
+	\includegraphics[width=0.6\textwidth]{./Figure/Material_Methods/2015_01_04_TOF_spectra_NoCut_1Proton_ResolTemporelle_applied_these.jpg}
+	\label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 	\end{figure}
 
 \textit{Energy cuts}\newline
 
-Energy triggers are also defined for the detectors: 50 keV for the silicon layers and 100 keV for the absorber. An additional energy cut is practiced to the total energy absorbed in the camera and it is set at one MeV. In fact, the main gamma rays of interest have an energy upper at one MeV.
+Energy triggers are also defined for the detectors: 50 keV for the silicon layers and 100 keV for the absorber. An additional energy cut is practiced to the total energy absorbed in the camera and it is set at 1 MeV. In fact, the main gamma rays of interest have an energy upper at 1 MeV.
 
-\subsection{Reconstruction algorithm\newline}
+\subsection{Reconstruction algorithm}
 
-A simple method is used to reconstructed the emission position of the events detect in coincidence: the reconstruction line-cone. Thanks to the energies deposited in the detectors and the interaction positions, a cone is calculated which contains the event emission point. The energies enable to calculate the aperture of the Compton's cone by way of the following equation:
+\subsubsection{Line-cone algorithm\newline}
+A simple method is used to reconstruct the emission position of the events detect in coincidence: the reconstruction line-cone. Thanks to the deposited energies in the detectors and the interaction positions, a cone is calculated which contains the event emission point. The energies enable to calculate the aperture of the Compton cone by way of the following equation:
 
 \begin{equation}
 cos(\theta_{Compton}) = 1-m_ec^2\left(\frac{1}{E_{absorber}}-\frac{1}{E_{initial}}\right)
@@ -384,13 +290,46 @@ cos(\theta_{Compton}) = 1-m_ec^2\left(\frac{1}{E_{absorber}}-\frac{1}{E_{initial
 With $E_{initial} = E_{absorber} + E_{silicon}$\newline
 $E_{absorber}$ the energy deposited in the absorber and $E_{silicon}$ the energy deposited in the scatterer.\newline
 
-We assume that the initial energy of the gamma ray is fully absorbed in the absorber. This hypothesis combined to the detector energy resolutions lead to a potentiel uncertainty on the cone aperture. The interaction position in the scatter gives the cone apex and the position in the absorber gives the cone axis. The intersection of all the reconstructed cones gives the emission source point. In order to simplify the reconstruction and limit the possibilities, the beam direction is used to obtain just two solutions: the beam direction intersects the cone in two points. Only one of those solutions is the good one and the other will give a wrong information. As the original position is unknown when the gamma ray is detected in coincidence, the results presented in the next section take into account the two solutions.\newline
-	
+We assume that the initial energy of the gamma ray is fully absorbed in the absorber. This hypothesis combined to the detector energy resolutions lead to a potential uncertainty on the cone aperture. The interaction position in the scatter gives the cone apex and the position in the absorber gives the cone axis. The intersection of all the reconstructed cones gives the emission source point. In order to simplify the reconstruction and limit the possibilities, the beam direction is used to obtain just two solutions: the beam direction intersects the cone in two points. Only one of those solutions is the good one and the other will give a wrong information. As the original position is unknown when the gamma ray is detected in coincidence, the results presented in the next section take into account the two solutions.\newline
+
+\subsubsection{LM-MLEM algorithm\newline}	
+
+The iterative method allows to get a 3D image and allows to take into account the spatial resolution and the energy resolution of the detectors. Few iterative algorithms have been developed for the hadrontherapy  \cite{schone_common_2010, zoglauer_design_2011,gillam_compton_2011,mackin_evaluation_2012,lojacono_low_2013}.
+
+The iterative algorithm  \textit{List-Mode Maximum Likelihood Expectation Maximization} (LM-MLEM) is a MLEM version which allows to free from sinograms and to reconstruct the image directly from the list of events detected. \newline
+The objective is to find the emission point of the gamma ray which produces the coincidence detected in the Compton Camera. 
+The first step is to define the volume which includes the origin of the prompt gamma ray detected. This volume is divided in equal voxels and the emission intensity is assumed homogeneous for each voxel $j$ and follows a Poisson distribution of parameter $\lambda_j$. The vector contains the emissions intensities of all the voxels and the algorithm has to work it out. The system matrix $T$ is composed of the coefficients  $t_{ij}$ which represents the probability that a photon produce by the voxel $j$ is detected as a coincidence $i$ by the Compton camera. The probability for a gamma detected in coincidence to be emitted by the voxel $j$ is $s_j$.
+The LM-MLEM algorithm starts with an initial value $\lambda^{(0)}$, which can be the simple backprojection.
+The algorithm iterations are given by the following recurrence relation:
+
+\begin{equation}
+\lambda_j^{(l+1)} =  \frac{\lambda_j^{(l)} }{s_j} \sum\limits_{i=1}^{N_{\gamma}} t_{ij} \frac{1}{P_i^{(l)}},\quad \rm{avec}\quad  P_i^{(l)}=\sum\limits_{k=1}^{N_{v}} t_{ij}\lambda_k^{(l)},
+ \label{eq:equation_lambda_compton_med_nucleaire}\newline
+\end{equation}
+where $N_{\gamma}$ is the number of detected events and $N_v$ is the number of voxels in the image.\newline
+
+The LM-MLEM algorithm uses for this study is the one developed by the labortarory CREATIS in Lyon \cite{maxim_analytical_2009,lojacono_low_2013,maxim_filtered_2014,hilaire_compton_2014}.\newline
+For each photon detected, the matrix $T$ is calculated by taking into account the uncertainties on the angle between the source and the scatterer and the angle between the scatterer and the absorber.
+The matrix elements  $t_{ij}$  are calculated by:
+\begin{equation}
+ t_{ij} = K(\beta_i,E_{tot})\frac{|\rm{cos}(\theta_{\overrightarrow{V2V1})} |}{V_2V_1^2} \int\limits_{M\in v_j} \frac{|\rm{cos}(\theta_{\overrightarrow{V_1M})}| }{V_1M^2} h_i(M)dv,
+ \label{eq:equation_lambda_compton_med_nucleaire}\newline
+\end{equation}
+where $\beta_i$ is the Compton scattering angle, $V_1$ the interaction position in the scatterer, $V_2$ the interaction position in the absorber, $h_i$ the spatial kernel which models the uncertainties on the Compton angle for each voxel $M$, $K(\beta_i,E_{tot})$ the differential cross section and $v$ the reconstructed volume.\newline
+
+In order to simplify and speed up the work out of the $t_{ij}$ matrix, the voxels located far from the cone are set to 0. The distance between the cone and the voxel is calculated for the center of the voxel. The spatial resolutions are not considered for the algorithm.\newline
+The images are finally created from the matrix T thanks to Matlab software.
 
 \subsection{Precision estimation\newline}
 
+It is critical to know the precision of the Compton camera in clinical conditions in order to associate a decision threshold during the treatment.
+The concept is to use reconstructed emission vertex profiles at high statistics from an analytic (line cone) and an iterative (LM-MLEM) algorithms.
+From those high statistic profiles, different profiles are created at lower statistics.
+The precision is estimated in function of the number of incident ions. 
+
+
 \begin{figure} [!h]
-\caption{Line cone - MLEM. }
+\caption{Line cone - LM-MLEM. }
 \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_10_Profil_Reconstruction_ligne_cone_centre_pic_de_bragg_stat_26e9.pdf}}
  \subfloat[]{\includegraphics[width=0.35\textwidth]{./Figure/Material_Methods/2016_10_20_Volume_100x200x5_voxels_and_size_20x40x1_Protons_1e10_1coinc_NoCutSum_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_cutx_Filtre_median_iteration_Profil_Y_CUTX_4cm_iteration_20.eps}}\\
  \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_15_SmoothCurve_vs_1iterationPoisson.pdf}}
@@ -404,33 +343,22 @@ We assume that the initial energy of the gamma ray is fully absorbed in the abso
 	
 \newpage
 	
-	
-%	The other possibilities (except the same gamma ray) are regrouped. For instance, this subsection is composed by coincidences of two different kinds of particles, two different gamma rays or the same particle but different than gamma\newline
-%According to the type of the coincidence, a distinction can be done. 
-
-
-%The random coincidence occurs  when the energies deposited in the scatterer and the absorber are induced by radiations coming from two different incident particles (on the target). The true coincidence is on contrary when  the energies deposited in the scatterer and the absorber are induced by one or several radiations coming from a single incident particle.
-%The true coincidence can also be divided into three subsections to refine the analysis:
-
-	
 
 \section{Results}
 
 \subsection{CC efficiency\newline}
-	
-	\begin{figure} [!h]
-\caption{Detection efficiency function of the Compton Camera position.}
-\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/Efficiency/2017-07-03_Efficiency_CC_No_energy_cuts.eps}}
- \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/Efficiency/2017-07-03_Efficiency_CC_Cut_energy_Si50keV_BGO100keV.eps}}
-  \label{}
-\end{figure}
-	
+
+	\begin{figure} [!hbtp]	
+	\centering
+	\caption{Detection efficiency function of the Compton Camera position.}	
+	\includegraphics[width=0.7\textwidth]{./Figure/Efficiency/2017-06-26_Efficiency_CC_articles.eps}
+	\end{figure}
 
 
 \subsection{Beam intensity \newline}
 Je traite les simulations pour une statistique de $10^{8}$ pour les protons et une statistique de $2\times10^{5}$ pour les ions carbone.\newline
 J'assigne à chaque particule interagissant dans le diffuseur et l'absorbeur un numéro de paquet auquel elle est théoriquement rattachée au vu de la structure en temps choisie et de l'intensité du faisceau.
-The modification of the beam intensity will change the number of particles included in a bunch. For instance, at the clinical intensity in proton, there is in average 217 protons in a bunch.
+The modification of the beam intensity will change the number of particles included in a bunch. For instance, at the clinical intensity in protons, there is in average 217 protons in a bunch.
 
 
 
@@ -445,28 +373,8 @@ The beam intensity plays an important role for the Compton camera concerning its
 \end{figure}
 
 \newpage
-At the clinical beam intensity, the high background level is mainly due to the random coincidences. In fact, the probability to detect two radiations coming from two different incident particles increases with the number of incident particles per bunch. An other issue is the single rate of events detected by each detectors at those high intensities. For instance, at the clinic beam intensity in proton therapy, the single rate on the absorber is around 300 MHz and on the first silicon layer it is around 20 MHz. The current electronic front end and acquisition system are not able to treat this amount of data coming from all the detectors. As a result, it appears that it is impossible to use the Compton camera at a clinical beam intensity for the treatment monitoring in ion therapy.\newline
-Nevertheless, if the intensity decreases enough to avoid almost all the random coincidences, the monitoring seems more feasible. In addition, it can be suppose that the time of flight discrimination will improve the signal to background ratio at low intensities by suppress the coincidences induced by charged particles. Indeed, the charged particles are slower than gamma rays which move at the light speed.\newline
-
-%\subsubsection{Reconstruction vertex\newline}
-%
-%Appart from the coincidence yield, which inform in a first analysis the technical feasibility, the emission position reconstruction provides to the physicist the material to detect if the Bragg peak is in the tumor or out of the limit. The photon's emission position is reconstructed by means of the line cone method (described in the previous section). The time of flight discrimination and energy cuts are applied. \newline
-%To highlight the impossibility to monitor the treatment at the clinical beam intensity, the reconstructed vertex is given at the high nominal intensity and at an intensity of one particle per bunch. The figure X presents the number of reconstructed events per incident ion in function of the PMMA target depth along the beam axis. The target starts at - 100 mm and finishes at + 100 mm. The Bragg peak position is around + 50 mm. The statistic used for the figures is the spot scale for protons ($10^8$) and an energy slice for carbon ions ($4\times 10^7$). The curves represent the same data types than the figure X.
-%
-%
-%\begin{figure} [!h]
-%\caption{On one hand (a)(b), there is the comparaison between the reconstructed vertex at the clinical beam intensity (217 protons/bunch) and at a realistic beam intensity for the monitoring (1 proton/bunch). On the other hand (c)(d), the same comparaison for a carbon ion beam at the clinical intensity (9 ions/bunch) and a lower intensity (1 ion/bunch). In both cases, the number of reconstructed events per incident ion is represented in function of the PMMA target depth along the beam axis. }
-%\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2014_09_24_217Proton160MeV_Windowcoinc40ns_BGO3ns_Si15ns_NIM_Proceedings.pdf}}
-% \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2014_10_15_9Carbon_ReconstructionLine_Cone_Allok_NO_cut_TOF_6ns_presentation.jpg}}\\
-%  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2014_09_24_1Protons160MeV_Windowcoinc40ns_BGO3ns_Si15ns_NIM_Proceeding.pdf}}
-% \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2014_10_15_9Carbon_ReconstructionLine_Cone_Allok_NO_cut_TOF_6ns_presentation.jpg}}\\
-%  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2014_09_24_1Protons160MeV_Windowcoinc40ns_BGO3ns_Si15ns_NIM_Proceeding.pdf}}
-% \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2014_10_15_9Carbon_ReconstructionLine_Cone_Allok_NO_cut_TOF_6ns_presentation.jpg}}
-%  \label{}
-%\end{figure}
-%
-%For the protons, a clear drop can be distinguished at the Bragg Peak position (+ 50 mm). The background is at a enough low level to exploit directly the falloff information and control the treatment. On the other hand, the profile shape obtained in carbon is hardly workable.  \textcolor{red}{add something here on the carbon profile shape.}\newline
-%The intensity reduction after one particle per bunch will lightly improve the signal to background ratio but the random coincidences are yet almost eliminate at these intensity.
+At the clinical beam intensity, the high background level is mainly due to the random coincidences. In fact, the probability to detect two radiation coming from two different incident particles increases with the number of incident particles per bunch. Another issue is the single rate of events detected by each detector at those high intensities. For instance, at the clinic beam intensity in proton therapy, the single rate on the absorber is around 300 MHz and on the first silicon layer it is around 20 MHz. The current electronic front end and acquisition system are not able to treat this amount of data coming from all the detectors. As a result, it appears that it is impossible to use the Compton camera at a clinical beam intensity for the treatment monitoring in ion therapy.\newline
+Nevertheless, if the intensity decreases enough to avoid almost all the random coincidences, the monitoring seems more feasible. In addition, it can be supposed that the time of flight discrimination will improve the signal to the background ratio at low intensities by suppressing the coincidences induced by charged particles. Indeed, the charged particles are slower than gamma rays which move at the light speed.\newline
 
 \subsection{Comparaison LM-MLEM vs Line cone reconstruction\newline}
 
@@ -482,7 +390,7 @@ Nevertheless, if the intensity decreases enough to avoid almost all the random c
 
 \subsection{Compton camera precision\newline}
 
-The informations given by a control device as the Compton camera have to be viable and as precise as possible. In order to estimate the precision of the Compton camera, a method is used. 
+The information given by a control device as the Compton camera has to be viable and as precise as possible. In order to estimate the precision of the Compton camera, a method is used. 
 
 	\begin{figure} [!hbtp]	
 	\centering
@@ -494,172 +402,10 @@ The informations given by a control device as the Compton camera have to be viab
 \section{Discussion}
 
 
-
-%The gamma ray emission is correlated to the ion range in the patient especially at the Bragg peak position. Thanks to this correspondance, the reconstruction of the gamma ray emission points 
-
-
-%\subsection{Experiments}
-%\subsection{Comparaison simulations / experiments}
-%
-%\section{Discussion}
-%
-%\subsection{Simulations}
-%\subsection{Experiments}
-%
-%\section{Conclusion}
-
-
 \newpage
 \ack
 
 This work is supported by the FP7-ENVISION program WP3, the FP7-ENTERVISION program, the FP7- ULICE program, the ANR Gamhadron project, the Rhone-Alpes Regional Program for Hadrontherapy Research, the MI2B GDR and the LabEx PRIMES.\newline
-
-
-%
-%[1] GLOBOCAN 2012, IARC, http://www.who.int/mediacentre/factsheets/fs297/fr/
-%[2] Paganetti, 2013. Biological Consideration when comparing Proton Therapy with photon therapy
-%
-
-
-
-%
-%
-%
-%
-%
-%
-%\newpage
-%
-%
-%\section{other for the moment}
-%
-%Using the \verb"eqnarray" environment equations will naturally be aligned left without the use of any ampersands for alignment, see equations (\ref{eq1}) and (\ref{eq2})
-%\begin{eqnarray}
-%\alpha + \beta =\gamma^2 \label{eq1}\\
-%\alpha^2 + 2\gamma + \cos\theta = \delta \label{eq2} 
-%\end{eqnarray}
-%This is the normal equation style for our journals.
-%
-%Where some secondary alignment is needed, for instance a second part of an equation on a second line, a single ampersand is added at the point of alignment in each line  (see  (\ref{eq3}) and (\ref{eq4})).
-%\begin{eqnarray}
-%\alpha &=2\gamma^2 + \cos\theta + \frac{XY \sin\theta}{X+ Y\cos\theta} \label{eq3}\\
-% & = \delta\theta PQ \cos\gamma. \label{eq4} 
-%\end{eqnarray}
-% 
-%Two points of alignment are possible using two ampersands for alignment (see  (\ref{eq5}) and (\ref{eq6})).  Note in this case extra space \verb"\qquad" is added before the second ampersand in the longest line (the top one) to separate the condition from the equation. 
-%\begin{eqnarray}
-%\alpha &=2\gamma^2 + \cos\theta + \frac{XY \sin\theta}{X+ Y\cos\theta}\qquad& \theta > 1 \label{eq5}\\
-% & = \delta\theta PQ \cos\gamma &\theta \leq 1\label{eq6} 
-%\end{eqnarray}
-%
-%For a long equation which has to be split over more than one line the first line should start at the left margin, this is achieved by inserting \verb"\fl" (full left) at the start of the line, the use of the alignment parameter \verb"&" is not necessary unless some secondary alignment is needed.
-%\begin{eqnarray}
-%\fl \alpha + 2\gamma^2 = \cos\theta + \frac{XY \sin\theta}{X+ Y\cos\theta} +  \frac{XY \sin\theta}{X- Y\cos\theta} +
-%+ \left(\frac{XY \sin\theta}{X+ Y\cos\theta}\right)^2 \nonumber\\
-%+  \left(\frac{XY \sin\theta}{X- Y\cos\theta}\right)^2\label{eq7} 
-%\end{eqnarray}
-%
-%The Plain \TeX\ command \verb"\eqalign" can be used within an \verb"equation" environment to obtain a multiline equation with a single centred number, for example
-%\begin{equation}
-%\eqalign{\alpha + \beta =\gamma^2 \cr
-%\alpha^2 + 2\gamma + \cos\theta = \delta.}\label{eq2} 
-%\end{equation}
-%
-%\numparts
-%\begin{eqnarray}
-%T_{11}&=(1+P_\e)I_{\uparrow\uparrow}-(1-P_\e)
-%I_{\uparrow\downarrow}\\
-%T_{-1-1}&=(1+P_\e)I_{\downarrow\downarrow}-(1-P_\e)I_{\uparrow\downarrow}\\
-%S_{11}&=(3+P_\e)I_{\downarrow\uparrow}-(3-P_e)I_{\uparrow\uparrow}\\
-%S_{-1-1}&=(3+P_\e)I_{\uparrow\downarrow}-(3-P_\e)
-%I_{\downarrow\downarrow}
-%\end{eqnarray}
-%\endnumparts
-%
-%
-%\subsection{Miscellaneous extra commands for displayed equations}
-%The \verb"\cases" command of Plain \TeX\ is available
-%for use with \LaTeX\ but has been amended slightly to 
-%increase the space between the equation and the condition. 
-%\Eref{cases} 
-%demonstrates simply the output from the \verb"\cases" command
-%\begin{equation}
-%\label{cases}
-%X=\cases{1&for $x \ge 0$\\
-%-1&for $x<0$\\}
-%\end{equation}
-%%The code used was:
-%%\small\begin{verbatim}
-%%\begin{equation}
-%%\label{cases}
-%%X=\cases{1&for $x \ge 0$\\
-%%-1&for $x<0$\\}
-%%\end{equation}
-%%\end{verbatim}
-%%\normalsize
-%
-%
-%
-%\begin{table}
-%\caption{\label{tabone}A simple example produced using the standard table commands 
-%and $\backslash${\tt lineup} to assist in aligning columns on the 
-%decimal point. The width of the 
-%table and rules is set automatically by the 
-%preamble.} 
-%
-%\begin{indented}
-%\lineup
-%\item[]\begin{tabular}{@{}*{7}{l}}
-%\br                              
-%$\0\0A$&$B$&$C$&\m$D$&\m$E$&$F$&$\0G$\cr 
-%\mr
-%\0\023.5&60  &0.53&$-20.2$&$-0.22$ &\01.7&\014.5\cr
-%\0\039.7&\-60&0.74&$-51.9$&$-0.208$&47.2 &146\cr 
-%\0123.7 &\00 &0.75&$-57.2$&\m---   &---  &---\cr 
-%3241.56 &60  &0.60&$-48.1$&$-0.29$ &41   &\015\cr 
-%\br
-%\end{tabular}
-%\end{indented}
-%\end{table}
-%
-%   
-%\Table{\label{tabl3}A table with headings spanning two columns and containing notes. 
-%To improve the 
-%visual effect a negative skip ($\backslash${\tt ns})
-%has been put in between the lines of the 
-%headings. Commands set-up by $\backslash${\tt lineup} are used to aid 
-%alignment in columns. $\backslash${\tt lineup} is defined within
-%the $\backslash${\tt Table} definition.}
-%\br
-%&&&\centre{2}{Separation energies}\\
-%\ns
-%&Thickness&&\crule{2}\\
-%Nucleus&(mg\,cm$^{-2}$)&Composition&$\gamma$, n (MeV)&$\gamma$, 2n (MeV)\\
-%\mr
-%$^{181}$Ta&$19.3\0\pm 0.1^{\rm a}$&Natural&7.6&14.2\\
-%$^{208}$Pb&$\03.8\0\pm 0.8^{\rm b}$&99\%\ enriched&7.4&14.1\\
-%$^{209}$Bi&$\02.86\pm 0.01^{\rm b}$&Natural&7.5&14.4\\
-%\br
-%\end{tabular}
-%\item[] $^{\rm a}$ Self-supporting.
-%\item[] $^{\rm b}$ Deposited over Al backing.
-%\end{indented}
-%\end{table}
-%
-%
-%\clearpage
-%
-%\appendix
-%\section{List of macros for formatting text, figures and tables}
-%
-
-%
-%\section*{References}
-%\begin{thebibliography}{10}
-%\bibitem{book1} Goosens M, Rahtz S and Mittelbach F 1997 {\it The \LaTeX\ Graphics Companion\/} 
-%(Reading, MA: Addison-Wesley)
-%\bibitem{eps} Reckdahl K 1997 {\it Using Imported Graphics in \LaTeX\ } (search CTAN for the file `epslatex.pdf')
-%\end{thebibliography}
 
 \bibliographystyle{apalike}
 \addcontentsline{toc}{part}{Bibliographie}
