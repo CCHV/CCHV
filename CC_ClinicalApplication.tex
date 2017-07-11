@@ -313,7 +313,7 @@ For each photon detected, the matrix $T$ is calculated by taking into account th
 The matrix elements  $t_{ij}$  are calculated by:
 \begin{equation}
  t_{ij} = K(\beta_i,E_{tot})\frac{|\rm{cos}(\theta_{\overrightarrow{V2V1})} |}{V_2V_1^2} \int\limits_{M\in v_j} \frac{|\rm{cos}(\theta_{\overrightarrow{V_1M})}| }{V_1M^2} h_i(M)dv,
- \label{eq:equation_lambda_compton_med_nucleaire}\newline
+ \label{eq:equation_tij_compton_med_nucleaire}\newline
 \end{equation}
 where $\beta_i$ is the Compton scattering angle, $V_1$ the interaction position in the scatterer, $V_2$ the interaction position in the absorber, $h_i$ the spatial kernel which models the uncertainties on the Compton angle for each voxel $M$, $K(\beta_i,E_{tot})$ the differential cross section and $v$ the reconstructed volume.\newline
 
@@ -338,7 +338,7 @@ The precision is estimated in function of the number of incident ions.
  \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_LineCone_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_UP_1e8.eps}}\\
   \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_LineCone_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8.eps}}
  \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_Moyenne_1e8.eps}}
-  \label{}
+  \label{fig:line-cone}
 \end{figure}
 	
 \newpage
@@ -369,7 +369,7 @@ The beam intensity plays an important role for the Compton camera concerning its
 \caption{Coincidences yield for protons (a) and carbon ions (b) in function of the beam intensity. The intensity is given for a number of incident particles per bunch.  The distinction between the filled markers and the empty ones are that the time of flight discrimination is applied in the case of empty markers.}
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/Beam_Intensity/2017_06_28_Taux_coincidences_variation_protons_New_design_4EntreesLegend_LogXLogY.eps}}
  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/Beam_Intensity/2017_06_28_Taux_coincidences_variation_carbonIons_New_design_4EntreesLegend_LogXLogY.eps}}
-  \label{}
+  \label{fig:coincidences}
 \end{figure}
 
 \newpage
@@ -384,7 +384,7 @@ Nevertheless, if the intensity decreases enough to avoid almost all the random c
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM/2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_median_iteration_10.eps}}
  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM/2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_selectionX_20mm_Filtre_median_iteration_Profil_Y_iteration_10.eps}}\\
   \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
-  \label{}
+  \label{fig:comparaison}
 \end{figure}
 
 
