@@ -52,10 +52,10 @@
 \usepackage{colortbl}
 
 \usepackage{caption}
-\usepackage{tabularx} % Pour avoir des tableaux d'une largeur bien dï¿½finie
+\usepackage{tabularx} % Pour avoir des tableaux d'une largeur bien dÃ¯Â¿Â½finie
 \usepackage{graphicx} 
 \usepackage{amsfonts}
- \usepackage[squaren,Gray,cdot]{SIunits} % pour avoir de jolies unitï¿½s
+ \usepackage[squaren,Gray,cdot]{SIunits} % pour avoir de jolies unitÃ¯Â¿Â½s
  \usepackage{subfig} % Pour avoir des sous-figures.
 \usepackage{multirow}
 \usepackage{lscape}
@@ -69,11 +69,11 @@
 
 \title{Monitoring Ion Therapy with a Compton Camera: Simulation Studies of the Clinical Feasibility}
 
-\author{J.-L.~Ley$^1$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~Létang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
+\author{J.-L.~Ley$^1$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~LÃ©tang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
 
-\address{$^1$Univ Lyon, Université Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique Nucléaire de Lyon, 69622 Villeurbanne, France}
-\address{$^2$Univ Lyon, INSA-Lyon, Université Claude Bernard Lyon 1, UJM-Saint Étienne, CNRS, Inserm, Centre Léon Bérard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
-\address{$^3$LPSC, Université Grenoble-Alpes, CNRS/IN2P3 UMR5821, F-38026 Grenoble, France}
+\address{$^1$Univ Lyon, UniversitÃ© Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique NuclÃ©aire de Lyon, 69622 Villeurbanne, France}
+\address{$^2$Univ Lyon, INSA-Lyon, UniversitÃ© Claude Bernard Lyon 1, UJM-Saint Ã‰tienne, CNRS, Inserm, Centre LÃ©on BÃ©rard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
+\address{$^3$LPSC, UniversitÃ© Grenoble-Alpes, CNRS/IN2P3 UMR5821, F-38026 Grenoble, France}
 \ead{jeanluc.ley@gmail.com}
 
 \begin{abstract}
@@ -321,23 +321,32 @@ The images are finally created from the matrix T thanks to Matlab software.
 
 \subsection{Precision estimation\newline}
 
-It is critical to know the precision of the Compton camera in clinical conditions in order to associate a decision threshold during the treatment.
-The concept is to use reconstructed emission vertex profiles at high statistics from an analytic (line cone) and an iterative (LM-MLEM) algorithms.
-From those high statistic profiles, different profiles are created at lower statistics.
-The precision is estimated in function of the number of incident ions. 
+It is critical to know the Compton camera precision in clinical conditions in order to associate a decision threshold during the treatment. The precision is equivalent to a shift between the treatment planning (reference) and the reality. The study compare the relative position between a reference profile (reconstructed emission vertex profile at high statistics) and profiles at lower statistics. The analysis is done for a reference profile obtained from an analytic (line cone) and an iterative (LM-MLEM) algorithms.\newline
+The high statistic profile obtain with the line cone method corresponds to $2\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) and the one with the LM-MLEM method correspond to $1\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}). The \textit{SmoothKern} method, with the Nadaraya-Watson regression, is used to smooth the reference profiles in order to minimize relative statistic fluctuations.\newline
+The region of interest (ROI) is from $y=0$ mm to $y=+100$ mm knowing that the Bragg peak is located around $y=+50$ mm. The reference profiles are modelled in the ROI by a linear combination named Non-Uniform Rational Basis Splines (NURBS). \newline
+In theory, a new independent profile should be simulated at low statistics. However, to speed up the analysis, a random draw from Poisson's law is done from the NURBS profile (\ref {fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} and \ref {fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}). The low statistics of interest are from $10^8$ to $5\times10^9$ incident protons.\newline
+The smallest distance between the NURBS profil and a low statistic profile is estimated thanks to the method $\chi^2$. For the $\chi^2$ estimation, the low statistic profile is defined around the fall-off from $y=+30$ mm to $y=+70$ mm. The minimization process moves the profile at low statistics on 60 mm from $-30$ mm to $+30$ mm around the initial position with a step of $0.1$ mm. At each move, the $\chi^2$ is calculated as :
+
+ \begin{eqnarray}
+\chi^2 = \sum\limits_{i=1} {(y_{sample,i}-y_{NURBS,i})^2},
+\end{eqnarray}
+
+where $y_{sample}$ is the value of the number of coincidences for the low statistic profile, $y_{NURBS}$ is the value of coincidences for the reference profile NURBS (scaled at the same low statistic) and i the step number.\newline
+The global minimum correspond to the smallest distance between the two profiles. The figures \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and  \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons.\newline
+A total of a thousand profiles at the low statistic are generated (named realizations) and the $\chi^2$ minimization is done for all those. The standard deviation of the distribution resulting of the thousand results give the precision of the camera for a given number of incident protons. The figure  \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distributions at $10^8$ incident protons for the line cone and LM-MLEM algorithms.
 
 
 \begin{figure} [!h]
 \caption{Line cone - LM-MLEM. }
-\subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_10_Profil_Reconstruction_ligne_cone_centre_pic_de_bragg_stat_26e9.pdf}}
- \subfloat[]{\includegraphics[width=0.35\textwidth]{./Figure/Material_Methods/2016_10_20_Volume_100x200x5_voxels_and_size_20x40x1_Protons_1e10_1coinc_NoCutSum_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_cutx_Filtre_median_iteration_Profil_Y_CUTX_4cm_iteration_20.eps}}\\
- \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_15_SmoothCurve_vs_1iterationPoisson.pdf}}
- \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_Poisson_Smooth_example_binning_1mm_ShiftNurbs0_1mm_1e8.eps}}\\
-  \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_27_chi2_vs_Shift_Stat1e8_1sample_Shift-30mm_30mm_Range_30_70mm_Example2_1.eps}}
- \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_LineCone_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_UP_1e8.eps}}\\
-  \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_LineCone_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8.eps}}
- \subfloat[]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-06-21_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_Moyenne_1e8.eps}}
-  \label{fig:line-cone}
+\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_10_Profil_Reconstruction_ligne_cone_centre_pic_de_bragg_stat_26e9.pdf}}
+ \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.35\textwidth]{./Figure/Material_Methods/2016_10_20_Volume_100x200x5_voxels_and_size_20x40x1_Protons_1e10_1coinc_NoCutSum_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_cutx_Filtre_median_iteration_Profil_Y_CUTX_4cm_iteration_20.eps}}\\
+ \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Poisson_Nurbs_1e8_Article_LC.eps}}
+ \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Nurbs_Poisson_1e8_Article_MLEM.eps}}\\
+  \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Distribution_Chi2_1e8_LC.eps}}
+ \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Distribution_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_1e8_article_MLEM.eps}}\\
+  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Distribution_finale_1e8_Article_LC.eps}}
+ \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8_Article_MLEM.eps}}
+  \label{}
 \end{figure}
 	
 \newpage
@@ -356,7 +365,7 @@ The precision is estimated in function of the number of incident ions.
 
 \subsection{Beam intensity \newline}
 Je traite les simulations pour une statistique de $10^{8}$ pour les protons et une statistique de $2\times10^{5}$ pour les ions carbone.\newline
-J'assigne à chaque particule interagissant dans le diffuseur et l'absorbeur un numéro de paquet auquel elle est théoriquement rattachée au vu de la structure en temps choisie et de l'intensité du faisceau.
+J'assigne Ã  chaque particule interagissant dans le diffuseur et l'absorbeur un numÃ©ro de paquet auquel elle est thÃ©oriquement rattachÃ©e au vu de la structure en temps choisie et de l'intensitÃ© du faisceau.
 The modification of the beam intensity will change the number of particles included in a bunch. For instance, at the clinical intensity in protons, there is in average 217 protons in a bunch.
 
 
@@ -394,7 +403,7 @@ The information given by a control device as the Compton camera has to be viable
 	\begin{figure} [!hbtp]	
 	\centering
 	\caption{Precision function of the incident protons .}	
-	\includegraphics[width=0.7\textwidth]{./Figure/Precision/2017-06-26_Precision_Comparaison_linecone_MLEM_Article_Slopes.eps}
+	\includegraphics[width=0.7\textwidth]{./Figure/Precision/2017-08-02_Precision_Comparaison_linecone_MLEM_Article_Fit.eps}
 	\end{figure}
 
 \newpage
