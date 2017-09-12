@@ -63,17 +63,23 @@
 \usepackage{footnote}
 %\usepackage{amsmath}
 
+% Package pour gerer les commentaires dans la marge
+\usepackage{xargs} % Use more than one optional parameter in a new commands
+% \usepackage[colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
+\usepackage[disable,colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
+\newcommandx{\com}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+
 
 
 \begin{document}
 
 \title{Monitoring Ion Therapy with a Compton Camera: Simulation Studies of the Clinical Feasibility}
 
-\author{J.-L.~Ley$^1$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~Létang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
+\author{J.-L.~Ley$^1$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~L\'etang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
 
-\address{$^1$Univ Lyon, Université Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique Nucléaire de Lyon, 69622 Villeurbanne, France}
-\address{$^2$Univ Lyon, INSA-Lyon, Université Claude Bernard Lyon 1, UJM-Saint Étienne, CNRS, Inserm, Centre Léon Bérard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
-\address{$^3$LPSC, Université Grenoble-Alpes, CNRS/IN2P3 UMR5821, F-38026 Grenoble, France}
+\address{$^1$Univ Lyon, Universit\'e Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique Nucl\'eaire de Lyon, 69622 Villeurbanne, France}
+\address{$^2$Univ Lyon, INSA-Lyon, Universit\'e Claude Bernard Lyon 1, UJM-Saint \'Etienne, CNRS, Inserm, Centre L\'eon B\'erard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
+\address{$^3$LPSC, Universit\'e Grenoble-Alpes, CNRS/IN2P3 UMR5821, F-38026 Grenoble, France}
 \ead{jeanluc.ley@gmail.com}
 
 \begin{abstract}
@@ -365,7 +371,7 @@ A total of a thousand profiles at the low statistic are generated (named realiza
 
 \subsection{Beam intensity \newline}
 Je traite les simulations pour une statistique de $10^{8}$ pour les protons et une statistique de $2\times10^{5}$ pour les ions carbone.\newline
-J'assigne à chaque particule interagissant dans le diffuseur et l'absorbeur un numéro de paquet auquel elle est théoriquement rattachée au vu de la structure en temps choisie et de l'intensité du faisceau.
+J'assigne à chaque particule interagissant dans le diffuseur et l'absorbeur un num\'ero de paquet auquel elle est th\'eoriquement rattach\'ee au vu de la structure en temps choisie et de l'intensit\'e du faisceau.
 The modification of the beam intensity will change the number of particles included in a bunch. For instance, at the clinical intensity in protons, there is in average 217 protons in a bunch.
 
 
