@@ -65,8 +65,8 @@
 
 % Package pour gerer les commentaires dans la marge
 \usepackage{xargs} % Use more than one optional parameter in a new commands
-% \usepackage[colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
-\usepackage[disable,colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
+\usepackage[colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
+% \usepackage[disable,colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
 \newcommandx{\com}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 
 
@@ -83,7 +83,7 @@
 \ead{jeanluc.ley@gmail.com}
 
 \begin{abstract}
-The aim of irradiation monitoring during a treatment in ion therapy is to control in real time the agreement between the delivered dose and the planned treatment. In fact, the discrepancies might come from uncertainties such as the planning accuracy by itself, or by variations due to the positioning or the anatomical changes of the patient. This can lead to ion-range variations of a few millimeters. Several devices are under development over the world to detect secondary radiation, which are correlated to the dose deposited by incident ions [1]. Compton cameras are in particular investigated for their potential high efficiency to detect prompt-gammas [2-5]. The present work aims at discussing the clinical applicability of a Compton camera design by means of Monte Carlo simulations validated against measurements of single and coincidence rates.
+The aim of irradiation monitoring during a treatment in ion therapy is to control in real time the agreement between the delivered dose and the planned treatment. In fact, the discrepancies might come from uncertainties such as the planning accuracy by itself, or by variations due to the positioning or the anatomical changes of the patient. This can lead to ion-range variations of a few millimeters.\com{This first part should be shorter (just speak about treatment uncertainties} Several devices are under development over the world to detect secondary radiation, which are correlated to the dose deposited by incident ions [1]. Compton cameras are in particular investigated for their potential high efficiency to detect prompt-gammas [2-5]. The present work aims at discussing the clinical applicability of a Compton camera design by means of Monte Carlo simulations validated against measurements of single and coincidence rates.\com{There is no validation of the simulation against experimental data. The abstract should provide a summary of the paper results}
 
 \end{abstract}
 
@@ -102,6 +102,7 @@ The aim of irradiation monitoring during a treatment in ion therapy is to contro
 
 \tableofcontents
 
+\newpage
 
 \section{Introduction}
 
@@ -113,21 +114,25 @@ The aim of irradiation monitoring during a treatment in ion therapy is to contro
 
 \section{Material and methods}
 
-\subsection{Simulation setup\newline}
+\subsection{Simulation setup}
 
-The simulation consists of the irradiation of a patient by an ion beam and the detection of the secondary particles emitted by means of the Compton camera prototype. The patient is replaced by a cylindrical PMMA\footnotemark[1] phantom of 15 centimeters diameter and 20 centimeters length. The Compton camera prototype is composed of a scatterer, an absorber and a scintillating fiber hodoscope. The mechanical structures of the detectors, the scatterer's strips and the hodoscope are not modelled in this study. The scatterer is a stack of seven layers of double-sided silicon strip detectors (DSSD) of 90 $\times$ 90 $\times$ 2 $\rm{mm}^3$ with 64 strips on each side. The absorber consists of 96 blocks of streaked BGO\footnotemark[2] crystals of 38 $\times$ 38 $\times$ 30 $\rm{mm}^3$. . Moreover, the absorber is modelled by a monoblock of BGO crystal of 380 $\times$ 380 $\times$ 30 $\rm{mm}^3$ equivalent to 100 single blocks. The distance between the camera and the center of the PMMA phantom is set at 20 centimeters in order to fit with a realistic distance to the patient. The distance between each silicon layer is one centimeter and the distance from the last silicon layer to the absorber is 40 centimeters. The distance between the stack of silicon layers and the absorber is a compromise between the camera efficiency and the discrimination by time of flight measurement. The setup is described figure \ref{fig:fig_setup_CC_simulation_Hadronth}.\newline
+The monitoring system consists of a beam hodoscope and Compton prototypes under development within a French collaboration (CLaRyS - Contr\^ole en Ligne avec Rayonnements Secondaires) including five institutions: IPN Lyon, CREATIS Lyon, LPC Clermont-Ferrand, CPP Marseille and LPSC Grenoble. The detectors characteristics can be found in \cite{Krimmer2015}. For the sake of simplicity, the beam hodoscope is not modeled in this study to focus on PG detection. A scheme of the simulation setup is given in Figure~\ref{fig:fig_setup_CC_simulation_Hadronth}.
 
-	\begin{figure} [!hbtp]	
-	\centering
-	\includegraphics[width=0.7\textwidth]{./Figure/Material_Methods/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.eps}
-		\caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. This configuration is used for all the results presented in this paper.}
-	\label{fig:fig_setup_CC_simulation_Hadronth}
-	\end{figure}
+\begin{figure} [!hbtp]	
+  \centering
+  \includegraphics[width=0.7\textwidth]{./Figure/Material_Methods/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.eps}
+	  \caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. This configuration is used for all the results presented in this paper.}
+  \label{fig:fig_setup_CC_simulation_Hadronth}
+\end{figure}
 
- \footnotetext[1]{PolyMethylMethAcrylate}
+Like most Compton camera devices, the CLaRyS prototype uses a scatterer and an absorber. The scatterer consists of seven parallel planes of silicon detectors (double-sided silicon strip detectors, DSSD) , $9\times9\times0.2$~cm$^3$, with 1~cm distance between the centers of two neighboring planes while the absorber is a array of $10\times10$ BGO blocks ($3.5\times3.5\times3.0$~cm$^3$ each block) placed at 40~cm from the last silicon layer. A cylindrical PMMA\footnotemark[1] phantom is placed in front of the Compton camera to mimic the patient body. This cylinder of 15~cm in diameter and 20~cm in length is set at 20 centimeters in order to fit with a realistic distance to the patient.
+
+Regarding spatial resolution\dots\com{Detail here how the spatial resolution is modeled (see Mattia's paper.}
+
+\footnotetext[1]{PolyMethylMethAcrylate}
 \footnotetext[2]{Bismuth Germanate} 
 
-\subsection{Hadronic models used in Geant4\newline}
+\subsection{Hadronic models used in Geant4}
 
 The study is based on the Monte Carlo methods with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed by the CERN for the high energy physics experiments. It was shown that it could also be used in ion therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements remains to do in order to adjust the hadronic models \cite{dedes_assessment_2014} .
 The interaction processes in the matter are described by means of different models according to the type of particles. A resume of those different models is given table \ref{table:table_modele_physic_CC_simulation_Hadronth}. Additionally, the Doppler broadening and the polarization is taking into account. 
@@ -166,7 +171,7 @@ We study the two main particles used in clinics, namely the protons and the carb
 \subsection{Data treatment}
 \label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
 
-\subsubsection{Detector resolutions\newline}
+\subsubsection{Detector resolutions}
 \label{subsubsection:Resolution_detector_CC_hadrontherapy_Geant4}
 
 The Monte Carlo simulation parameters are as close to reality as possible in order to get relevant results. The detector resolutions play an important role in the Compton camera performances. The absorber's spatial resolution influences the position of the apex of the Compton cone and influences its axis orientation. The energy resolution has effect on the  Compton cone aperture angle and the timing resolution impacts the coincidence windows between the absorber and the scatterer. The hodoscope is not included in the simulation but its timing resolution is taking into account for the time of flight discrimination. The detector resolutions are modelled in relation to the resolutions measured or estimated for each detector. The spatial resolution, the energy resolution and the timing resolution are presented in the table \ref{table:table_resolution_detecteurs_CC_simulation_Hadronth}.
@@ -189,7 +194,7 @@ The Monte Carlo simulation parameters are as close to reality as possible in ord
 \label{table:table_resolution_detecteurs_CC_simulation_Hadronth}
 \end{table}
 
-\subsubsection{Modelling of the ion beam structure\newline}
+\subsubsection{Modelling of the ion beam structure}
 \label{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}
  
 
@@ -240,7 +245,7 @@ Concerning the coincidence between the scatterer and the absorber, we allow a ti
 \newpage
 %---------------------------------------------------------------
 %---------------------------------------------------------------
-\subsubsection{Coincidence\newline}
+\subsubsection{Coincidence}
 \label{subsubsection:definition_beam_structure_CC_hadrontherapy_Geant4}
 
 The Compton camera is based on a double interaction inside the scatterer and the absorber. A coincidence is defined as one energy deposit in the scatterer and one energy deposit in the absorber in a coincidence time windows given. A number of coincidence will be considered as background: quasi-simultaneous interaction from two secondary particles or a double interaction from the same particle different from a gamma.\newline
@@ -257,7 +262,7 @@ The figure \ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} resumes 
 	\end{figure}
 
 
-\subsubsection{Time of flight discrimination and energy cuts\newline}
+\subsubsection{Time of flight discrimination and energy cuts}
 
 \textit{Time of flight (TOF) information}\newline
 
@@ -284,7 +289,7 @@ Energy triggers are also defined for the detectors: 50 keV for the silicon layer
 
 \subsection{Reconstruction algorithm}
 
-\subsubsection{Line-cone algorithm\newline}
+\subsubsection{Line-cone algorithm}
 A simple method is used to reconstruct the emission position of the events detect in coincidence: the reconstruction line-cone. Thanks to the deposited energies in the detectors and the interaction positions, a cone is calculated which contains the event emission point. The energies enable to calculate the aperture of the Compton cone by way of the following equation:
 
 \begin{equation}
@@ -297,7 +302,7 @@ $E_{absorber}$ the energy deposited in the absorber and $E_{silicon}$ the energy
 
 We assume that the initial energy of the gamma ray is fully absorbed in the absorber. This hypothesis combined to the detector energy resolutions lead to a potential uncertainty on the cone aperture. The interaction position in the scatter gives the cone apex and the position in the absorber gives the cone axis. The intersection of all the reconstructed cones gives the emission source point. In order to simplify the reconstruction and limit the possibilities, the beam direction is used to obtain just two solutions: the beam direction intersects the cone in two points. Only one of those solutions is the good one and the other will give a wrong information. As the original position is unknown when the gamma ray is detected in coincidence, the results presented in the next section take into account the two solutions.\newline
 
-\subsubsection{LM-MLEM algorithm\newline}	
+\subsubsection{LM-MLEM algorithm}	
 
 The iterative method allows to get a 3D image and allows to take into account the spatial resolution and the energy resolution of the detectors. Few iterative algorithms have been developed for the hadrontherapy  \cite{schone_common_2010, zoglauer_design_2011,gillam_compton_2011,mackin_evaluation_2012,lojacono_low_2013}.
 
@@ -325,7 +330,7 @@ where $\beta_i$ is the Compton scattering angle, $V_1$ the interaction position 
 In order to simplify and speed up the work out of the $t_{ij}$ matrix, the voxels located far from the cone are set to 0. The distance between the cone and the voxel is calculated for the center of the voxel. The spatial resolutions are not considered for the algorithm.\newline
 The images are finally created from the matrix T thanks to Matlab software.
 
-\subsection{Precision estimation\newline}
+\subsection{Precision estimation}
 
 It is critical to know the Compton camera precision in clinical conditions in order to associate a decision threshold during the treatment. The precision is equivalent to a shift between the treatment planning (reference) and the reality. The study compare the relative position between a reference profile (reconstructed emission vertex profile at high statistics) and profiles at lower statistics. The analysis is done for a reference profile obtained from an analytic (line cone) and an iterative (LM-MLEM) algorithms.\newline
 The high statistic profile obtain with the line cone method corresponds to $2\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) and the one with the LM-MLEM method correspond to $1\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}). The \textit{SmoothKern} method, with the Nadaraya-Watson regression, is used to smooth the reference profiles in order to minimize relative statistic fluctuations.\newline
@@ -360,7 +365,7 @@ A total of a thousand profiles at the low statistic are generated (named realiza
 
 \section{Results}
 
-\subsection{CC efficiency\newline}
+\subsection{CC efficiency}
 
 	\begin{figure} [!hbtp]	
 	\centering
@@ -369,7 +374,7 @@ A total of a thousand profiles at the low statistic are generated (named realiza
 	\end{figure}
 
 
-\subsection{Beam intensity \newline}
+\subsection{Beam intensity }
 Je traite les simulations pour une statistique de $10^{8}$ pour les protons et une statistique de $2\times10^{5}$ pour les ions carbone.\newline
 J'assigne à chaque particule interagissant dans le diffuseur et l'absorbeur un num\'ero de paquet auquel elle est th\'eoriquement rattach\'ee au vu de la structure en temps choisie et de l'intensit\'e du faisceau.
 The modification of the beam intensity will change the number of particles included in a bunch. For instance, at the clinical intensity in protons, there is in average 217 protons in a bunch.
@@ -390,7 +395,7 @@ The beam intensity plays an important role for the Compton camera concerning its
 At the clinical beam intensity, the high background level is mainly due to the random coincidences. In fact, the probability to detect two radiation coming from two different incident particles increases with the number of incident particles per bunch. Another issue is the single rate of events detected by each detector at those high intensities. For instance, at the clinic beam intensity in proton therapy, the single rate on the absorber is around 300 MHz and on the first silicon layer it is around 20 MHz. The current electronic front end and acquisition system are not able to treat this amount of data coming from all the detectors. As a result, it appears that it is impossible to use the Compton camera at a clinical beam intensity for the treatment monitoring in ion therapy.\newline
 Nevertheless, if the intensity decreases enough to avoid almost all the random coincidences, the monitoring seems more feasible. In addition, it can be supposed that the time of flight discrimination will improve the signal to the background ratio at low intensities by suppressing the coincidences induced by charged particles. Indeed, the charged particles are slower than gamma rays which move at the light speed.\newline
 
-\subsection{Comparaison LM-MLEM vs Line cone reconstruction\newline}
+\subsection{Comparaison LM-MLEM vs Line cone reconstruction}
 
 
 \begin{figure} [!h]
@@ -402,7 +407,7 @@ Nevertheless, if the intensity decreases enough to avoid almost all the random c
 \end{figure}
 
 
-\subsection{Compton camera precision\newline}
+\subsection{Compton camera precision}
 
 
 The information given by a control device as the Compton camera has to be viable and as precise as possible. In order to estimate the precision of the Compton camera, a method is used. 
