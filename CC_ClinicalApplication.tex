@@ -41,7 +41,7 @@
 %
 %    J.-L. Ley
 %
-\documentclass[12pt]{iopart}
+\documentclass[11pt]{iopart}
 \newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}  
@@ -106,6 +106,12 @@ The aim of irradiation monitoring during a treatment in ion therapy is to contro
 
 \section{Introduction}
 
+The exploitation of the high ballistic precision of hadrontherapy is currently limited by treatment uncertainties such like patient mispositioning, organ motion or morphological  changes between treatment fractions. These uncertainties lead to the definition of relatively large safety margins around the planning treatment volume. Moreover the optimal treatment fields with a better sparing of healthy tissues are often discarded to avoid the irradiation of tumor with an organ at risk located downstream. There is therefore a global consensus in the community that ion-range verification is one of the conditions required for a broader usage of hadrontherapy. 
+
+Several techniques have been considered worldwide for twenty years. Most of them rely on the detection of secondary radiations generated during nuclear reactions undergone by a fraction of incident ions. Among theses secondary radiations, prompt gamma-rays (PG) has the advantage to be emitted almost instantaneously which could allow for online treatment verification. In addition to this temporal feature, most of PG have well-defined energies corresponding to discrete transitions of incident ions (for ions heavier than protons) or target nuclei (mainly carbon and oxygen). Three observables can be therefore considered: emission point, PG energy and time-of-flight (TOF). Various modalities have been investigated taking benefit from one or several observables: PG imaging with or without collimation (i.e. collimated gamma camera or Compton camera, respectively)
+
+
+
 %%%----------------------------------------------------------------------
 %%%----------------------------------------------------------------------
 %%%------------- Materials and methods    -----------------------------------
@@ -120,7 +126,7 @@ The monitoring system consists of a beam hodoscope and Compton prototypes under 
 
 \begin{figure} [!hbtp]	
   \centering
-  \includegraphics[width=0.7\textwidth]{./Figure/Material_Methods/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.eps}
+  \includegraphics[width=0.7\textwidth]{./Figure/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.pdf}
 	  \caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. This configuration is used for all the results presented in this paper.}
   \label{fig:fig_setup_CC_simulation_Hadronth}
 \end{figure}
@@ -205,7 +211,7 @@ Moreover, the measurements have shown that the spill phase change during the ext
 
 	\begin{figure} [!hbtp]	
 	\centering
-	\includegraphics[width=0.5\textwidth]{./Figure/Material_Methods/2013_Structure_Time_Beam_400MeV.png}
+	\includegraphics[width=0.5\textwidth]{./Figure/2013_Structure_Time_Beam_400MeV.png}
 	\caption{Time structure measured from a carbon ion beam at 400 MeV/u delivered at HIT. The pulses have an extraction period of 150.2 ns and the bunches are 21.5 ns FWHM. The measure was done with a two scintillating fiber hodoscope.}
 	\label{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth}
 	\end{figure}
@@ -256,7 +262,7 @@ It can be distinguish two types of true coincidence: a single gamma ray, which i
 The figure \ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} resumes the different definitions of coincidendes in the Compton camera.
 	\begin{figure} [!hbtp]	
 	\centering
-	\includegraphics[width=0.9\textwidth]{./Figure/Material_Methods/Schema_coincidence_EN.eps}
+	\includegraphics[width=0.9\textwidth]{./Figure/Schema_coincidence_EN.eps}
 	\caption{Diagram showing the different definitions of coincidendes in the Compton camera.}
 	 \label{fig:fig_explication_coincidence_CC_simulation_Hadronth}
 	\end{figure}
@@ -279,7 +285,7 @@ The time of flight spectrum resulting from the simulation shows that the coincid
 	\begin{figure} [!hbtp]	
 	\centering
 	\caption{Time of flight spectrum obtained by means of the simulation and for a proton beam.}	
-	\includegraphics[width=0.6\textwidth]{./Figure/Material_Methods/2015_01_04_TOF_spectra_NoCut_1Proton_ResolTemporelle_applied_these.jpg}
+	\includegraphics[width=0.6\textwidth]{./Figure/2015_01_04_TOF_spectra_NoCut_1Proton_ResolTemporelle_applied_these.jpg}
 	\label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 	\end{figure}
 
@@ -349,17 +355,19 @@ A total of a thousand profiles at the low statistic are generated (named realiza
 
 \begin{figure} [!h]
 \caption{Line cone - LM-MLEM. }
-\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2015_04_10_Profil_Reconstruction_ligne_cone_centre_pic_de_bragg_stat_26e9.pdf}}
- \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.35\textwidth]{./Figure/Material_Methods/2016_10_20_Volume_100x200x5_voxels_and_size_20x40x1_Protons_1e10_1coinc_NoCutSum_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_cutx_Filtre_median_iteration_Profil_Y_CUTX_4cm_iteration_20.eps}}\\
- \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Poisson_Nurbs_1e8_Article_LC.eps}}
- \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Nurbs_Poisson_1e8_Article_MLEM.eps}}\\
-  \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Distribution_Chi2_1e8_LC.eps}}
- \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Distribution_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_1e8_article_MLEM.eps}}\\
-  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_Distribution_finale_1e8_Article_LC.eps}}
- \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.4\textwidth]{./Figure/Material_Methods/2017-08-02_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8_Article_MLEM.eps}}
+\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.33\textwidth]{./Figure/2015_04_10_Profil_Reconstruction_ligne_cone_centre_pic_de_bragg_stat_26e9.pdf}}
+ \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/MLEM.eps}}\\
+ \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Poisson_Nurbs_1e8_Article_LC.eps}}
+ \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Nurbs_Poisson_1e8_Article_MLEM.eps}}\\
+  \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_Chi2_1e8_LC.pdf}}
+ \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_1e8_article_MLEM.eps}}\\
+  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_finale_1e8_Article_LC.pdf}}
+ \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8_Article_MLEM.eps}}
   \label{}
 \end{figure}
-	
+
+% b) 2016_10_20_Volume_100x200x5_voxels_and_size_20x40x1_Protons_1e10_1coinc_NoCutSum_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_cutx_Filtre_median_iteration_Profil_Y_CUTX_4cm_iteration_20.eps
+
 \newpage
 	
 
@@ -370,7 +378,7 @@ A total of a thousand profiles at the low statistic are generated (named realiza
 	\begin{figure} [!hbtp]	
 	\centering
 	\caption{Detection efficiency function of the Compton Camera position.}	
-	\includegraphics[width=0.7\textwidth]{./Figure/Efficiency/2017-06-26_Efficiency_CC_articles.eps}
+	\includegraphics[width=0.7\textwidth]{./Figure/2017-06-26_Efficiency_CC_articles.eps}
 	\end{figure}
 
 
@@ -386,8 +394,8 @@ The beam intensity plays an important role for the Compton camera concerning its
 
 \begin{figure} [!h]
 \caption{Coincidences yield for protons (a) and carbon ions (b) in function of the beam intensity. The intensity is given for a number of incident particles per bunch.  The distinction between the filled markers and the empty ones are that the time of flight discrimination is applied in the case of empty markers.}
-\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/Beam_Intensity/2017_06_28_Taux_coincidences_variation_protons_New_design_4EntreesLegend_LogXLogY.eps}}
- \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/Beam_Intensity/2017_06_28_Taux_coincidences_variation_carbonIons_New_design_4EntreesLegend_LogXLogY.eps}}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2017_06_28_Taux_coincidences_variation_protons_New_design_4EntreesLegend_LogXLogY.eps}}
+ \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2017_06_28_Taux_coincidences_variation_carbonIons_New_design_4EntreesLegend_LogXLogY.eps}}
   \label{fig:coincidences}
 \end{figure}
 
@@ -399,13 +407,19 @@ Nevertheless, if the intensity decreases enough to avoid almost all the random c
 
 
 \begin{figure} [!h]
-\caption{Comparaison LM-MLEM vs Line cone reconstruction}
-\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM/2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_median_iteration_10.eps}}
- \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM/2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_selectionX_20mm_Filtre_median_iteration_Profil_Y_iteration_10.eps}}\\
-  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM_2D.pdf}}
+ \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM_1D.pdf}}\\
+  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
   \label{fig:comparaison}
+  \caption{Comparaison LM-MLEM vs Line cone reconstruction}
+
 \end{figure}
 
+%   \begin{verbatim}
+% a) 2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_median_iteration_10.
+% b) 2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_selectionX_20mm_Filtre_median_iteration_Profil_Y_iteration_10. 
+% c)  2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom               
+%  \end{verbatim}
 
 \subsection{Compton camera precision}
 
@@ -415,7 +429,7 @@ The information given by a control device as the Compton camera has to be viable
 	\begin{figure} [!hbtp]	
 	\centering
 	\caption{Precision function of the incident protons .}	
-	\includegraphics[width=0.7\textwidth]{./Figure/Precision/2017-08-02_Precision_Comparaison_linecone_MLEM_Article_Fit.eps}
+	\includegraphics[width=0.7\textwidth]{./Figure/2017-08-02_Precision_Comparaison_linecone_MLEM_Article_Fit.pdf}
 	\end{figure}
 
 
