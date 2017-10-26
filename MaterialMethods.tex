@@ -8,7 +8,7 @@ The monitoring system consists of a beam hodoscope and Compton prototypes under 
 \begin{figure} [!hbtp]	
   \centering
   \includegraphics[width=0.7\textwidth]{./Figure/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.pdf}
-	  \caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. This configuration is used for all the results presented in this paper.}
+  \caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. The Compton camera is composed of a stack of 7 DSSDs (scatterer) and a plan of 100 single BGO blocks. The distances use are realistic with a clinical treatment. This configuration is used for all the results presented in this paper.}
   \label{fig:fig_setup_CC_simulation_Hadronth}
 \end{figure}
 
@@ -28,7 +28,7 @@ The interaction processes in the matter are described by means of different mode
 
 \begin{table}[ht]
 \label{physlist_ion}
-\caption{Hadronic models used in the simulations Geant4.}
+\caption{Hadronic models used in the Geant4 simulations.}
 \begin{scriptsize}
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
@@ -66,7 +66,7 @@ The Monte Carlo simulation parameters are as close to reality as possible in ord
 \begin{table} [!htbp]
 \centering
 %\begin{tabular}{>{\columncolor[gray]{0.9}}ccc}
-\caption{Realistic resolutions applied during the simulations.}
+\caption{Estimations of reachable resolutions with the detectors. Those resolutions are applied during the simulations.}
 \begin{tabular}{cccc}
 \hline
 \textbf{Resolution (FWHM) at 1 MeV} & \textbf{Scatterer} & \textbf{Absorber} &\textbf{Hodoscope}\\
@@ -103,7 +103,7 @@ Concerning the coincidence between the scatterer and the absorber, we allow a ti
 \begin{table} [!htbp]
 \footnotesize
 \centering
-\caption{Beam structure applied to the simulation data.}
+\caption{Description of the two beam structures studied: the IBA cyclotron C230 for protons and the synchrotron installed at the Heidelberg Ion Therapy Center (HIT) in Germany for carbon ions. The beam structures are applied to the simulation data.}
 \setlength{\tabcolsep}{2pt}
 %\hspace{-2.1cm}
 \begin{tabular}{c>{\columncolor[gray]{0.9}}ccc}
@@ -144,7 +144,7 @@ The figure \ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} resumes 
 	\begin{figure} [!hbtp]	
 	\centering
 	\includegraphics[width=0.9\textwidth]{./Figure/Schema_coincidence_EN.eps}
-	\caption{Diagram showing the different definitions of coincidendes in the Compton camera.}
+	\caption{Diagram showing the different definitions of coincidences in the Compton camera.}
 	 \label{fig:fig_explication_coincidence_CC_simulation_Hadronth}
 	\end{figure}
 
@@ -165,7 +165,7 @@ The time of flight spectrum resulting from the simulation shows that the coincid
 
 	\begin{figure} [!hbtp]	
 	\centering
-	\caption{Time of flight spectrum obtained by means of the simulation and for a proton beam.}	
+	\caption{Time of flight spectrum obtained by means of the simulation for a proton beam at 160 MeV and $1\times10^{8}$ incident protons. The detection time for the absorder is given by the tag for the first deposit energy. The blue curve represents the time of flight for true events and the black one represents the background.}	
 	\includegraphics[width=0.6\textwidth]{./Figure/2015_01_04_TOF_spectra_NoCut_1Proton_ResolTemporelle_applied_these.jpg}
 	\label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 	\end{figure}
@@ -235,7 +235,6 @@ A total of a thousand profiles at the low statistic are generated (named realiza
 
 
 \begin{figure} [!h]
-\caption{Line cone - LM-MLEM. }
 \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.33\textwidth]{./Figure/2015_04_10_Profil_Reconstruction_ligne_cone_centre_pic_de_bragg_stat_26e9.pdf}}
  \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/MLEM.eps}}\\
  \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Poisson_Nurbs_1e8_Article_LC.eps}}
@@ -244,7 +243,7 @@ A total of a thousand profiles at the low statistic are generated (named realiza
  \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_1e8_article_MLEM.eps}}\\
   \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_finale_1e8_Article_LC.pdf}}
  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8_Article_MLEM.eps}}
-  \label{}
+\caption{Treatment comparaison for the same proton simulation with the line cone algorithm (left column: figures \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}, \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}, \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}, \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC}) and the LM-MLEM algorithm (right column: figures \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}, \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}, \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}, \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM}). The first row give the reconstructed profils for $2\times10^{10}$ incident protons (figure \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) and for $1\times10^{10}$ incident protons (figure \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}) respectively. The figures \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} and \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM} are showing the reference curve (blue) and the estimated curve with Poisson's law at $1\times10^8$ incident protons. The figures \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} are the $\chi^2$ minimization results for one realization. The minimum of the curve gives the best fit between the reference curve and the low statistics one. Finally, the figures  \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} represents the results for 1000 $\chi^2$ minimizations. The Compton camera precision is estimated thanks to the standard deviation of the distribution. }
 \end{figure}
 
 % b) 2016_10_20_Volume_100x200x5_voxels_and_size_20x40x1_Protons_1e10_1coinc_NoCutSum_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_cutx_Filtre_median_iteration_Profil_Y_CUTX_4cm_iteration_20.eps
