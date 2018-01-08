@@ -3,26 +3,50 @@
 
 \subsection{Simulation setup}
 
-The monitoring system consists of a beam hodoscope and Compton prototypes under development within a French collaboration (CLaRyS - Contr\^ole en Ligne avec Rayonnements Secondaires) including five institutions: IPN Lyon, CREATIS Lyon, LPC Clermont-Ferrand, CPP Marseille and LPSC Grenoble. The detectors characteristics can be found in \cite{krimmer_development_2015}. For the sake of simplicity, the beam hodoscope is not modeled in this study to focus on PG detection. A scheme of the simulation setup is given in Figure~\ref{fig:fig_setup_CC_simulation_Hadronth}.
+The monitoring system consists of a beam hodoscope and Compton prototypes under development within a French collaboration (CLaRyS - Contr\^ole en Ligne avec Rayonnements Secondaires) including five institutions: IPN Lyon, CREATIS Lyon, LPC Clermont-Ferrand, CPP Marseille and LPSC Grenoble. The detectors detailed characteristics can be found in \cite{krimmer_development_2015}. For the sake of simplicity, the beam hodoscope is not modeled in this study, which focuses on prompt gamma detection via the Compton camera prototype. A scheme of the simulation setup is given in Figure~\ref{fig:fig_setup_CC_simulation_Hadronth}.
 
 \begin{figure} [!hbtp]	
   \centering
   \includegraphics[width=0.7\textwidth]{./Figure/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.pdf}
-  \caption{Modelling of the patient (PMMA cylinder) and the Compton camera prototype. The Compton camera is composed of a stack of 7 DSSDs (scatterer) and a plan of 100 single BGO blocks. The distances use are realistic with a clinical treatment. This configuration is used for all the results presented in this paper.}
+  \caption{Model of the phantom (PMMA cylinder) and the Compton camera prototype. The Compton camera is composed of a stack of 7 DSSDs (scatterer) and a plan of 100 single BGO blocks. The set distances are realistic for clinical conditions. This configuration has been used for all the simulations presented in this paper.}
   \label{fig:fig_setup_CC_simulation_Hadronth}
 \end{figure}
 
-Like most Compton camera devices, the CLaRyS prototype uses a scatterer and an absorber. The scatterer consists of seven parallel planes of silicon detectors (double-sided silicon strip detectors, DSSD) , $9\times9\times0.2$~cm$^3$, with 1~cm distance between the centers of two neighboring planes while the absorber is a array of $10\times10$ BGO blocks ($3.5\times3.5\times3.0$~cm$^3$ each block) placed at 40~cm from the last silicon layer. A cylindrical PMMA\footnotemark[1] phantom is placed in front of the Compton camera to mimic the patient body. This cylinder of 15~cm in diameter and 20~cm in length is set at 20 centimeters in order to fit with a realistic distance to the patient.
+Like most of the Compton camera devices, the CLaRyS prototype includes a scatterer and an absorber. The scatterer consists of seven parallel planes of silicon detectors (double-sided silicon strip detectors, DSSD) , $9\times9\times0.2$~cm$^3$, with 1~cm distance between the centers of two neighboring planes, while the absorber is composed of an array of $10\times10$ BGO blocks ($3.5\times3.5\times3.0$~cm$^3$ each) placed at 40~cm from the last silicon layer (center-to-center distance). The ion beam interacts with a cylindrical PMMA\footnotemark[1] phantom (15~cm diameter and 20~cm length) placed in front of the Compton camera to mimic the patient body. It is placed 20~cm far from the first silicon plane (center-to-center distance) in order to fit with realistic clinical conditions.\\
+The silicon detectors have a strip pitch of 1.4~mm, for a total of 64 strips per side (double sided readout based on electron and hole pairs collection). The strips are not reproduced in the simulation code, and the transverse spatial resolution is set to 0.9~mm FWHM at the reference energy of 1 MeV, according to preliminary measurements performed on small detector prototypes. Concerning the parallel direction, the interaction position is set to the center of the involved silicon plane.\\
+Regarding the BGO blocks, their entrance surface is streaked in a 8$\times$8 matrix of pseudo-pixels, 4.4~mm$^{2}$ side, and the readout is performed via 4 photo multiplier tubes. The position reconstruction is achieved via Anger logic for the real detector, but a mono-block crystal is simulated for simplicity. The events are selected to be limited to a single block component based on spatial analysis, and the interaction spatial resolution is set to 5~mm FWHM to fit with the geometrical features. For what concerns the parallel direction, given the fact that the employed BGO blocks have not depth of interaction reconstruction capabilities, the interaction position is fixed to the center of the mono-block crystal. (Put in the discussion some words about the possible improvement given by a new absorber with DOI capabilities)\\
+Preliminary characterization measurements allowed to estimate the energy resolution of the BGO blocks, which is then set to 17\% FWHM at the reference energy of 667~keV (a 137-cesium source has been used for the measurements). The energy resolution of the silicon detector is set to 2.3~keV according to the design expectation; no characterization data are yet available for an instrumental estimate.\\
+The time resolution has been set to 3.0~ns FWHM for the BGO blocks and to 15.0~ns FWHM for the silicon slabs, according to preliminary measurements performed on test detector modules at the GANIL (Grand Accelerateur National d'Ions Lourds) center in France.\\ (ALL THESE VALUES MUST BE VERIFIED -> see table 2)
+The detector resolutions play an important role in the Compton camera performances. The absorber spatial resolution influences the position of the apex of the Compton cone, as well as its axis orientation. The scatterer energy resolution determines the Compton cone aperture angle. The time resolution impacts the coincidence window between the absorber and the scatterer. As already mentioned, the hodoscope is not included in the simulation but its time resolution has to be taken into account for the time of flight discrimination. It is set to 1~ns FWHM.\\ 
+The detector spatial, energy and time resolution are summarized in table \ref{table:table_resolution_detecteurs_CC_simulation_Hadronth}.
 
-Regarding spatial resolution\dots\com{Detail here how the spatial resolution is modeled (see Mattia's paper.}
+\begin{table} [!htbp]
+\centering
+%\begin{tabular}{>{\columncolor[gray]{0.9}}ccc}
+\caption{Estimations of reachable resolutions with the detectors. Those resolutions are applied during the simulations.}
+\begin{tabular}{cccc}
+\hline
+\textbf{Resolution (FWHM) at 1 MeV} & \textbf{Scatterer} & \textbf{Absorber} & \textbf{Hodoscope}\\
+\hline 
+\textbf{spatial [mm]	}			 &     0.9		 &  5 &	 /\\
+%\hline
+\textbf{energy [\%]}				&	2.3			&  17	&	/\\
+%\hline
+\textbf{timing [ns]}	        		&	15			&	3 	&  1\\
+\hline
+\end{tabular}
+\label{table:table_resolution_detecteurs_CC_simulation_Hadronth}
+\end{table}
+       
+
 
 \footnotetext[1]{PolyMethylMethAcrylate}
 \footnotetext[2]{Bismuth Germanate} 
 
 \subsection{Hadronic models used in Geant4}
 
-The study is based on the Monte Carlo methods with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed by the CERN for the high energy physics experiments. It was shown that it could also be used in ion therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements remains to do in order to adjust the hadronic models \cite{dedes_assessment_2014} .
-The interaction processes in the matter are described by means of different models according to the type of particles. A resume of those different models is given table \ref{table:table_modele_physic_CC_simulation_Hadronth}. Additionally, the Doppler broadening and the polarization is taking into account. 
+The Monte Carlo simulation study is performed with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed by the CERN for high energy physics experiments, but it has been shown that it can be used for ion beam therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements are still needed in order to extend the hadronic models to low energy applications\cite{dedes_assessment_2014}.\\
+The particle interactions in matter are described in this work by means of different models, listed in table~\ref{table:table_modele_physic_CC_simulation_Hadronth}. Additionally, the Doppler broadening and the photon polarization effects are taken into account.\\ 
 
 \definecolor{Gray}{gray}{0.9}
 
@@ -52,43 +76,18 @@ The interaction processes in the matter are described by means of different mode
 \subsection{Particles of interest}
 \label{subsection:Particules_Etudiees_CC_hadrontherapy_Geant4}
 
-We study the two main particles used in clinics, namely the protons and the carbon ions. The ion range of interest is 15.2 cm in the PMMA target. The energy associated with the range is 160 MeV for the protons and 305 MeV/n for the carbon ions. The beam delivered during a real treatment has a Gaussian profile at the enter of the patient. The standard deviation for a proton beam is 5 mm at 160 MeV and 3.5 mm for a carbon ion beam at 305 MeV/n. The modelling of the Compton camera does not change with the type of incident particles. The statistic for a spot in pencil beam scanning (PBS) mode for protons is $10^8$ particles and $10^5$ particles for carbon ions. The beam time structure is applied during the post treatment.\newline
+The two main beam particles used in clinics are considered in this work: protons and carbon ions. The beam range of interest is 15.2 cm in the PMMA phantom, and the associated energy is 160 MeV for protons and 305 MeV/n for carbon ions.\\ 
+In order to reproduce a realistic clinical beam, the beam transverse dimension is modeled with a gaussian distribution with a standard deviation of 5 mm for protons at 160 MeV and 3.5 mm for carbon ions at 305 MeV/n. The Compton camera setup does not change for the different incident particles. The beam intensity for a spot in pencil beam scanning (PBS) mode for protons is $10^8$ particles and $10^5$ particles for carbon ions. The beam time structure is applied in the data analysis stage, described below.\newline
 
 
 \subsection{Data treatment}
 \label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
 
-\subsubsection{Detector resolutions}
-\label{subsubsection:Resolution_detector_CC_hadrontherapy_Geant4}
-
-The Monte Carlo simulation parameters are as close to reality as possible in order to get relevant results. The detector resolutions play an important role in the Compton camera performances. The absorber's spatial resolution influences the position of the apex of the Compton cone and influences its axis orientation. The energy resolution has effect on the  Compton cone aperture angle and the timing resolution impacts the coincidence windows between the absorber and the scatterer. The hodoscope is not included in the simulation but its timing resolution is taking into account for the time of flight discrimination. The detector resolutions are modelled in relation to the resolutions measured or estimated for each detector. The spatial resolution, the energy resolution and the timing resolution are presented in the table \ref{table:table_resolution_detecteurs_CC_simulation_Hadronth}.
-
-\begin{table} [!htbp]
-\centering
-%\begin{tabular}{>{\columncolor[gray]{0.9}}ccc}
-\caption{Estimations of reachable resolutions with the detectors. Those resolutions are applied during the simulations.}
-\begin{tabular}{cccc}
-\hline
-\textbf{Resolution (FWHM) at 1 MeV} & \textbf{Scatterer} & \textbf{Absorber} &\textbf{Hodoscope}\\
-\hline 
-\textbf{spatial [mm]	}			 &     0.9		 &  5	 			&   /	\\
-%\hline
-\textbf{energy [\%]}				&	2.3		&  17				&   /     \\
-%\hline
-\textbf{timing [ns]}	        			&	15		&	3 			&  1     \\
-\hline
-\end{tabular}
-\label{table:table_resolution_detecteurs_CC_simulation_Hadronth}
-\end{table}
-
-\subsubsection{Modelling of the ion beam structure}
+\subsubsection{Ion beam time structure}
 \label{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}
  
-
-
-The beam time structure should have a direct impact on the Compton camera capacities to detect a particle in coincidence between the scatterer and the absorber.
-Two beam time structures have been modelled: one of IBA cyclotron C230 for protons (used in 16 clinical centers worldwide) and one of synchrotron installed at the Heidelberg Ion Therapy Center (HIT) in Germany for carbon ions. Depending on the ion energy and the beam intensity, the beam microstructure will change. We are focusing in this study to the microstructure at a specific energy and also at the influence of the variation of the intensity. In the case of protons at 160 MeV, the ions are grouped in bunches of 2 ns at a frequency of 106 MHz (9.42 ns) \cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2 nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305 MeV/u, the estimated microstructure is a bunch of 30 ns at a frequency of 5.9 MHz (170 ns). The clinical beam intensity for carbon ions is $5\times10^7$ ions/s which corresponds to about 9 ions per bunch. This beam structure is extrapolated from measurements done by our team in 2013 at HIT. The time beam structure was measured for 200 MeV/u and 400 MeV/u carbon ion beams with a two scintillating fiber hodoscope and the spill signal given by the accelerator. The figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400 MeV/u. The pulses have a spill period of 150.2 ns and a bunch is 21.5 ns. A dedicated measure should be done for the energy of interest for this study (305 MeV/u).\newline
-Moreover, the measurements have shown that the spill phase change during the extraction which involves  the HF signal from the synchrotron can not be used to locate the pulses. The use of the hodoscope seems required.\newline
+Two different beam time structures have been considered for this study, related to two kinds of accelerators used in clinical practice: the IBA C230 cyclotron for protons (used in 16 clinical centers worldwide) and the Heidelberg (Germany) synchrotron installed in the Ion Therapy Center (HIT) for carbon ions. Even if the beam microstructure changes depending on the ion energy and the beam intensity, the microstructure at a specific energy and intensity is modeled in this work for simplicity. For protons at 160 MeV, the primary particles are grouped in bunches of 2 ns at a frequency of 106 MHz (9.42 ns) \cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2 nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305 MeV/u, the estimated microstructure is composed of 30 ns bunches at a frequency of 5.9 MHz (170 ns). The clinical beam intensity for carbon ions is $5\times10^7$ ions/s, corresponding to about 9 ions per bunch. This beam structure is extrapolated from measurements performed by our group in 2013 at HIT; the beam time structure was measured for 200 MeV/u and 400 MeV/u primary ion energy with a two scintillating fiber hodoscope (basic prototype of the one at present under development) and the spill signal was given by the accelerator. Figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400 MeV/u. The pulses have a spill period of 150.2~ns and each bunch is approximately 21.5~ns.
+The mentioned measurements have shown that the spill phase changes during the extraction: this implies that the HF signal from the synchrotron can not be used to locate the pulses, so that the use of the hodoscope seems required for time of flight background rejection purposes.\newline
 
 	\begin{figure} [!hbtp]	
 	\centering
@@ -98,7 +97,8 @@ Moreover, the measurements have shown that the spill phase change during the ext
 	\end{figure}
 
 
-Concerning the coincidence between the scatterer and the absorber, we allow a time window of 40 ns around an absorber event. It means that for an event detected in the absorber, it will be flagged as a coincidence if an event (corresponding to a deposit energy) in one the scatterer layers is detected in a window of -20 ns and + 20 ns around the absorber event. This coincidence windows is defined regarding of the silicon timing resolution which is 15 ns at the full width at half maximum. The table \ref{table:definition_beam_structure_CC_hadrontherapy_Geant4} resumes those characteristics for specific ions.
+The coincidence window (between scatterer and absorber events) is set to 40 ns, centered on each absorber detected interaction. This value is adapted to the detectors time resolutions.\\ 
+Table~\ref{table:definition_beam_structure_CC_hadrontherapy_Geant4} resumes the presented beam time structures and coincidence reconstruction features.
 
 \begin{table} [!htbp]
 \footnotesize
@@ -112,16 +112,16 @@ Concerning the coincidence between the scatterer and the absorber, we allow a ti
 		\multicolumn{2}{c}{ }		 & 					\textbf{Protons} & \textbf{Carbon ions}\\ 
 %\hline
 \cline{2-4}%\hline
-\multirow{3}{*}\textbf{Clinical characteristics}		&	\textbf{Facility}	& IBA Cyclotron C230&   Synchrotron at HIT\\
+\multirow{3}{*}\textbf{Clinical features}		&	\textbf{Facility}	& IBA Cyclotron C230&   Synchrotron at HIT\\
 											& \textbf{Clinical intensity}& $  2\times10^{10}$ p/s  & $  5\times10^{7}$ ions/s\\
 											& \textbf{Energy} 			&160 MeV 			&    305 MeV/u\\
 \cline{2-4}%\hline
 \multirow{3}{*}\textbf{Beam structure}		&	\textbf{Bunch time [ns]}			& 3.2				&  30\\
 											& \textbf{Period [ns]}		&   9.4 				& 170\\
-											& \textbf{Particles/bunch} 	&217 			& 9\\
+											& \textbf{Primaries  /bunch} 	&217 			& 9\\
 \cline{2-4}%\hline
 \multirow{2}{*}\textbf{Detectors}						& \textbf{Coincidence window [ns]}		& 40 	&  40 \\
-											&\textbf{Timing resolution [ns]} & \multicolumn{2}{c}{Si: 15 and BGO: 3}\\
+											&\textbf{Time resolution [ns]} & \multicolumn{2}{c}{Si: 15 and BGO: 3}\\
 \cline{2-4}%\hline
 \end{tabular}
 \label{table:definition_beam_structure_CC_hadrontherapy_Geant4}
