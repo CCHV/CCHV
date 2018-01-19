@@ -145,11 +145,11 @@ In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} a schemat
 
 In addition to this, the prompt gamma measurement is contaminated by other secondary particles produced by the beam interaction with the patient/phantom, mainly massive and charged particles (protons, neutrons). 
 As already mentioned, it has been demonstrated in previous work by our group that a time-of-flight discrimination is possible and effective in reducing this source of background. In fact, the photons are moving at the speed of light while the massive particles approach the detector at a lowest speed. The time information coming from the hodoscope and from the absorber can be then combined to define fixed detection time window and reject all the events outside the window (\ref{TOF_equation}). In this work, the time between the incident particle creation and the secondary particle detection in the absorber is considered as the time-of-flight. The hodoscope time resolution $u_{hodoscope}$ (1~ns FWHM) is applied to the primary particle creation time, with a contribution randomply extracted from a gaussian with $\sigma\,=$ 1/2.35~ns, while the detection time in the absorber is affected by the absorber time resolution.\\
-\begin{equation}
+ \begin{eqnarray}
 TOF_{theoretical} = t_{absorber}-t_{hodoscope} \\
 TOF_{simulation} = t_{absorber}+t_{creation} + u_{hodoscope}
 \label{TOF_equation}
-\end{equation} 
+\end{eqnarray} 
 
 The time-of-flight spectrum resulting from the simulation shows that the coincidences of interest (produced by prompt-gamma rays) are included in a window between 0 and 6~ns (figure \ref{fig:fig_TOF_distribution_CC_simulation_Hadronth}). Therefore, all the coincidences with a TOF higher than 6~ns have been rejected, reproducing a possible clinical background rejection scenario. 
 
