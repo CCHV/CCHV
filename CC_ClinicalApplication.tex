@@ -83,9 +83,9 @@ citecolor=blue, %couleur des références
 
 \begin{document}
 
-\title{Monitoring Ion Therapy with a Compton Camera: Simulation Studies of the Clinical Feasibility}
+\title{Monitoring ion beam therapy with a Compton Camera: simulation studies of the clinical feasibility}
 
-\author{J.-L.~Ley$^1$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~L\'etang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
+\author{J.-L.~Ley$^1$, D.~Dauvergne$^3$, M.~Fontana$^1$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~L\'etang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
 
 \address{$^1$Univ Lyon, Universit\'e Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique Nucl\'eaire de Lyon, 69622 Villeurbanne, France}
 \address{$^2$Univ Lyon, INSA-Lyon, Universit\'e Claude Bernard Lyon 1, UJM-Saint \'Etienne, CNRS, Inserm, Centre L\'eon B\'erard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
@@ -93,7 +93,7 @@ citecolor=blue, %couleur des références
 \ead{jeanluc.ley@gmail.com}
 
 \begin{abstract}
-The aim of irradiation monitoring during a treatment in ion therapy is to control in real time the agreement between the delivered dose and the planned treatment. In fact, the discrepancies might come from uncertainties such as the planning accuracy by itself, or by variations due to the positioning or the anatomical changes of the patient. This can lead to ion-range variations of a few millimeters.\com{This first part should be shorter (just speak about treatment uncertainties} Several devices are under development over the world to detect secondary radiation, which are correlated to the dose deposited by incident ions [1]. Compton cameras are in particular investigated for their potential high efficiency to detect prompt-gammas [2-5]. The present work aims at discussing the clinical applicability of a Compton camera design by means of Monte Carlo simulations validated against measurements of single and coincidence rates.\com{There is no validation of the simulation against experimental data. The abstract should provide a summary of the paper results}
+Technological progress and new experimental evidences guaranteed in the last years an important spread of particle therapy worldwide~\cite{PTCOG_stats}. Anyway, the present clinical routine is not yet completely exploiting the benefits of this treatment technique, due to treatment planning and delivery incertitude~\cite{Paganetti:2012aa}. In order to further advance in this promising field, the need of a treatment monitoring method, ideally in real-time, results undeniable. Several techniques have been proposed, most of them based on the detection of secondary radiation produced by the beam interaction in the patient body~\cite{Knopf:2013aa, PARODI2016}. Among them, the detection of prompt-gamma rays has been deeply investigated in the last year~\cite{krimmer:hal-00873701}, and many detectors are under construction by different research group in the world, in order to exploit spatial, energy and time information carried by this secondary particles. In particular, by detecting and analyzing the three variables at the same time, the beam depth-dose distribution can be retrieved by imaging techniques. Two main kind of detectors are suitable for this application: gamma cameras with mechanical collimation and Compton cameras. The ClaRyS French collaboration is developing a Compton camera prototype based on silicon detectors and BGO scintillator blocks~\cite{krimmer:hal-01101334}, and the present work aims at discussing the clinical applicability of this design by means of Monte Carlo simulations. The Compton camera performance have been studied for different configurations: the Compton camera absolute efficiency varies in the range 1-4 $\times 10^{-4}$ with energy variations in the prompt gamma energy range; the number of detected coincidences as a function of the beam intensity shows that a beam intensity reduction is needed with respect to standard clinical intensity in order to allow a proper monitoring functionality; two different events reconstruction methods have been compared, showing the possibility to reconstruct the beam depth-dose profile and to retrieve the dose fall-off with millimeter precision.         
 
 \end{abstract}
 
@@ -122,9 +122,9 @@ The aim of irradiation monitoring during a treatment in ion therapy is to contro
 
 \include{Discussion}
 % 
-% \section*{Acknowledgments}
-% 
-% This work is supported by the FP7-ENVISION program WP3, the FP7-ENTERVISION program, the FP7- ULICE program, the ANR Gamhadron project, the Rhone-Alpes Regional Program for Hadrontherapy Research, the MI2B GDR and the LabEx PRIMES.
+\section*{Acknowledgments}
+
+This work is supported by the FP7-ENVISION program WP3, the FP7-ENTERVISION program, the FP7- ULICE program, the ANR Gamhadron project, the Rhone-Alpes Regional Program for Hadrontherapy Research, the MI2B GDR and the LabEx PRIMES.
 
 \section*{References}
 \bibliographystyle{apalike}
