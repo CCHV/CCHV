@@ -49,36 +49,38 @@ In figure~\ref{fig:coincidences} the different components of the resulting secon
   \label{fig:coincidences}
 \end{figure}
 
-At the clinical beam intensity, the high background level is mainly due to the random coincidences. In fact, the probability to detect two radiation coming from two different incident particles increases with the number of incident particles per bunch. Another issue is the single rate of events detected by each detector at those high intensities. For instance, at the clinic beam intensity in proton therapy, the single rate on the absorber is around 300 MHz and on the first silicon layer it is around 20 MHz. The current electronic front end and acquisition system are not able to treat this amount of data coming from all the detectors. As a result, it appears that it is impossible to use the Compton camera at a clinical beam intensity for the treatment monitoring in ion therapy.\newline
-Nevertheless, if the intensity decreases enough to avoid almost all the random coincidences, the monitoring seems more feasible. In addition, it can be supposed that the time of flight discrimination will improve the signal to the background ratio at low intensities by suppressing the coincidences induced by charged particles. Indeed, the charged particles are slower than gamma rays which move at the light speed.
+In figure~\ref{fig:coincidences}(a) and (b) the amount of true gamma coincidences and background events are reported before and after reconstruction (the reconstruction algorithms select the events according to the chosen reconstruction parameters) as a function of the beam intensity for proton (a) and carbon ion (b) beams. In addition to this, for each curve realized with the complete collected data set, the related one realized after time-of-flight selection of events is sketched. All the curves have been normalized to the number of incident ions.\newline
+As expected, the amount of background events (mainly random coincidences) increases with the increasing beam intensity: a factor of about 30 with respect to true gamma events is obtained for proton beams at clinical intensity (200 proton/bunch) with no event selection, while a factor more than two times higher is reported for carbon ions in the same conditions. Even if the time-of-flight selection can slightly improve this result by reducing the amount of background events, it is evident that such a beam intensity is not optimal for a proper monitoring. Furthermore, considering the rate of single interactions per detector, the results obtained by a preliminary analysis showed, as an example, a single rate of about 300~MHz on the absorber and 20~MHz on the first scatterer planes. These rates are not compatible with the detection rate capabilities of the detector read-out chains. As a result, it appears not possible to perform a valuable treatment monitoring with the CLaRyS Compton camera at a clinical beam intensity.\newline
+Nevertheless, the monitoring objective becomes feasible in a reduced beam intensity scenario for proton irradiation. Figure~\ref{fig:coincidences}(a) shows how the amount of true gamma events and background events becomes compatible at the intensity of about 1 proton per bunch. In the case of carbon ions, the larger amount of secondary neutron produced during the patient treatment seems to require other background rejection methods in order to lead to an advantageous signal-over-background ratio.\\
+\newline
+Given the results presented in this paragraph, in the following the attention will be focused on proton beams at reduced intensities, with the aim of comparing the line-cone reconstruction and the MLEM reconstruction algorithm and to estimate the camera fall-off identification precision.
 
-\subsection{Comparaison LM-MLEM vs Line cone reconstruction}
-\label{Results::reconstruction}
+\subsection{Compton camera precision: comparaison LM-MLEM vs Line cone reconstruction}
+\label{Results::precision_reconstruction}
+
+The simulation setup shown in figure~\ref{fig:fig_setup_CC_simulation_Hadronth} has been implemented to test the line-cone analytic reconstruction method and compare it to the iterative LM-MLEM algorithm developed in Lyon by the CREATIS group~\cite{maxim_filtered_2014,hilaire_compton_2014}. A single data set has been collected, corresponding to the irradiation of the PMMA phatom with a proton 160~MeV monoenergetic beam, with a reduced intensity of 1 proton per bunch. A total of 10$^10$ protons has been simulated to define the reference Bragg peak, and then different sub-data sets have been extracted for the precision estimate at different statistics, as explained in section~\ref{MatMeth:precision}. 
+Figure~\ref{fig:comparison} shows the results of the reconstruction of the data set obtained for the selection of 10$^8$ primary protons of 160~MeV, via the two reconstruction method already detailed before. To be noticed that the two reconstruction methods produce different results: the line-cone method is based on the beam direction information, so that it naturally produce a mono-dimensional image as result, while the MLEM method is able to reconstruct the prompt-gamma emission distribution in 3 dimensions. A projection along the beam direction is then extracted from the MLEM reconstructed image in order to allow a direct comparison.\\  
 
 \begin{figure} [!h]
-  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM_2D.pdf}}
-  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/MLEM_1D.pdf}}\\
-  \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
-  \caption{LM-MLEM reconstruction for a proton beam at 160 MeV and $10^{8}$ incident protons. The events are detected in coincidence and the beam intensity is reduced to 1 proton per bunch. The PMMA target has a diameter of 15 cm and is 20 cm long. The Compton camera is centred at $y=+50\;$mm. The time of flight discrimination is applied and 20 iterations are realized. The figure (a) represents the reconstruction in 2D for the plan (x,y). The position $x=0\;$mm is the center of the PMMA phantom and y axis the direction of the proton beam. The figure (b) shows the profil corresponding to the figure (a) and following the $y$ axis. The Bragg peak is localized at $y=+50\;$mm. The figure (c) is the profil obtained by means of line cone algorithm for the same simulation datas.}
-  \label{fig:comparaison}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/projection2D_Z_corr_r20.png}}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/profileY_corr_r20.png}}\\
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
+\caption{Line cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 1 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50 mm$. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.\\
+Figure (a) represents the MLEM reconstructed 2D image in the plan (x,y), parallel to the camera entrance surface. The position $x=0 mm$ corresponds to the center of the PMMA phantom and the y direction corresponds to the beam axis.  In figure (b) the mono-dimensional profile along the y axis is sketched. The profile peak is located at $y=+50 mm$. Figure (c) shows the profile obtained by means of line-cone algorithm for the same time-of.flight selected data.}
+\label{fig:comparison}
 \end{figure}
 
-%   \begin{verbatim}
-% a) 2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_median_iteration_10.
-% b) 2015_10_20_Volume_100x100x5_voxels_and_size_20x40x1_source_Proton160MeV_camera_50mm_stat_2175events_sans_MatriceSensibility_bordYplusmoins-3_bordXplusmoins-3_selectionX_20mm_Filtre_median_iteration_Profil_Y_iteration_10. 
-% c)  2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom               
-%  \end{verbatim}
-
-\subsection{Compton camera precision}
-\label{Results::precision}
-
-The information given by a control device as the Compton camera has to be viable and as precise as possible. In order to estimate the precision of the Compton camera, a method is used. 
+Starting from the reference data setwith 10$^10$ primary protons, 11 subsets are extracted to mimic the dose profile falloff reconstruction fro different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. To be noticed that the delivered beam intensity is always fo 1 proton per bunch, as a consequence of the results presented in the previous paragraph.\\
+The analysis method described in section~\ref{MatMeth:precision} is then applied to the different data set to retrive the camera precision in the  dose profile falloff identification. The results are shown in figure~\ref{fig:precision}, where the two reconstruction methods are represented by different markers.\\
 
 \begin{figure}[!hbtp]	
 \centering
-\caption{The Compton camera precision is estimated with two different algorithms: line cone and LM-MLEM. The precision is given for $1\times10^{8}$ to $5\times10^{9}$ incident protons. A linear fit is realized in order to obtain the slope of the results (p1 parameter). The graphic is scaled in log-log. }	
+\caption{Compton camera precision for two different reconstruction algorithms: line-cone and LM-MLEM. The precision is shown as a function of the total number of incident protons, in the range $1\times10^{8}$ to $5\times10^{9}$. A linear fit is realized on the results in order to obtain the slope of the results (p1 parameter in legend). A logarithmic scale is used on both axes. }	
 \includegraphics[width=0.7\textwidth]{./Figure/2017-10-21_Precision_Comparaison_linecone_MLEM_Article_Fit.eps}
+\label{fig:precision}
 \end{figure}
+
+COMMENTARE!
 
 
 
