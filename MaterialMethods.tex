@@ -12,13 +12,20 @@ The monitoring system modeled in this simulation work is a Compton camera protot
   \label{fig:fig_setup_CC_simulation_Hadronth}
 \end{figure}
 
-Like most of the Compton camera devices, the CLaRyS prototype includes a scatterer and an absorber. The scatterer consists of seven parallel planes of silicon detectors (double-sided silicon strip detectors, DSSDs) , $9\times9\times0.2$~cm$^3$, with 1~cm distance between the centers of two neighboring planes, while the absorber is composed of an array of $10\times10$ BGO (Bismuth Germanate - Bi$_12$GeO$_20$) blocks ($3.5\times3.5\times3.0$~cm$^3$ each) placed at 40~cm from the last silicon layer (center-to-center distance). The ion beam interacts with a cylindrical PMMA (PolyMethylMethAcrylate) phantom (15~cm diameter and 20~cm length) placed in front of the Compton camera as target. It is placed 20~cm far from the first silicon plane (center-to-center distance) in order to fit with realistic clinical conditions.\\
-The silicon detectors have a strip pitch of 1.4~mm, for a total of 64 strips per side (double-sided readout based on electron and hole pairs collection). The strips are not reproduced in the simulation code, and the transverse spatial resolution is set to 0.9~mm FWHM at the reference energy of 1~MeV, according to preliminary measurements performed on smaller detector prototypes. Concerning the parallel direction, the interaction position is set to the center of the involved silicon plane.\\
-Regarding the BGO blocks, their entrance surface is streaked in a 8$\times$8 matrix of pseudo-pixels, 4.4~mm$^{2}$ side, and the readout is performed via 4 photo-multiplier tubes. The position reconstruction is achieved via Anger logic for the real detector, but a mono-block crystal is simulated here for simplicity. The events are selected to be limited to a single block component based on spatial analysis, and the interaction position is reconstructed via center of gravity calculation if multiple interaction occur. An incertitude contribution, randomly extracted by a gaussian of 5~mm FWHM , is added to the reconstructed position to fit with the geometrical features. For what concerns the parallel direction, given the fact that the employed BGO blocks have not depth of interaction reconstruction capabilities, the interaction position is fixed to the center of the mono-block crystal.\\
-Preliminary characterization measurements allowed to estimate the energy resolution of the BGO blocks, which is accordingly set to 17\% FWHM at the reference energy of 667~keV (a 137-cesium source has been used for the measurements). The energy resolution of the silicon detector is set to 2.3~keV (RMS) according to the design expectations; no characterization data are yet available for an instrumental estimate.\\
-The time resolution has been set to 3.0~ns FWHM for the BGO blocks and to 15.0~ns FWHM for the silicon slabs, according to preliminary measurements performed on test detector modules at the GANIL (Grand Accelerateur National d'Ions Lourds) center in France.\\
-The detector resolutions play an important role in the Compton camera performances. The absorber spatial resolution influences the position of the apex of the Compton cone, as well as its axis orientation. The scatterer energy resolution determines the Compton cone aperture angle. The time resolution impacts the coincidence window between the absorber and the scatterer, and so its true/random coincidence discrimination capabilities.\\
-The CLaRyS project also includes the development of a beam tagging hodoscope, composed of scintillating fibers read out by multi-channel photomultipliers. This detector is used to synchronize the beam time and space structure to the prompt gamma detection in order to tune the detection window reducing the background contamination. This detector section is not included in the simulation, but its time resolution has to be taken into account for the time-of-flight discrimination. It is set to 1~ns FWHM.\\ 
+Like most of the Compton camera devices, the CLaRyS prototype includes a scatterer and an absorber. The scatterer consists of seven parallel planes of silicon detectors (double-sided silicon strip detectors, DSSDs), $9\times9\times0.2$~cm$^3$, with 1~cm distance between the centers of two neighboring planes, while the absorber is composed of an array of $10\times10$ BGO (Bismuth Germanate - Bi$_12$GeO$_20$) blocks ($3.5\times3.5\times3.0$~cm$^3$ each) placed at 40~cm from the last silicon layer (center-to-center distance). The ion beam interacts with a cylindrical PMMA (PolyMethylMethAcrylate) phantom (15~cm diameter and 20~cm length) placed in front of the Compton camera as target. It is placed 20~cm far from the first silicon plane (center-to-center distance) in order to fit with realistic clinical conditions.
+
+The silicon detectors have a strip pitch of 1.4~mm, for a total of 64 strips per side (double-sided readout based on electron and hole pairs collection). The strips are not reproduced in the simulation code, and the transverse spatial resolution is set to 0.9~mm FWHM at the reference energy of 1~MeV, according to preliminary measurements performed on smaller detector prototypes. Concerning the parallel direction, the interaction position is set to the center of the involved silicon plane.
+
+Regarding the BGO blocks, their entrance surface is streaked in a 8$\times$8 matrix of pseudo-pixels, 4.4~mm$^{2}$ side, and the readout is performed via 4 photo-multiplier tubes. The position reconstruction is achieved via Anger logic for the real detector, but a mono-block crystal is simulated here for simplicity. The events are selected to be limited to a single block component based on spatial analysis, and the interaction position is reconstructed via center of gravity calculation if multiple interaction occur. An incertitude contribution, randomly extracted by a gaussian of 5~mm FWHM , is added to the reconstructed position to fit with the geometrical features. For what concerns the parallel direction, given the fact that the employed BGO blocks have not depth of interaction reconstruction capabilities, the interaction position is fixed to the center of the mono-block crystal.
+
+Preliminary characterization measurements allowed to estimate the energy resolution of the BGO blocks, which is accordingly set to 17\% FWHM at the reference energy of 667~keV (a 137-cesium source has been used for the measurements). The energy resolution of the silicon detector is set to 2.3~keV (RMS) according to the design expectations; no characterization data are yet available for an instrumental estimate.
+
+The time resolution has been set to 3.0~ns FWHM for the BGO blocks and to 15.0~ns FWHM for the silicon slabs, according to preliminary measurements performed on test detector modules at the GANIL (Grand Accelerateur National d'Ions Lourds) center in France.
+
+The detector resolutions play an important role in the Compton camera performances. The absorber spatial resolution influences the position of the apex of the Compton cone, as well as its axis orientation. The scatterer energy resolution determines the Compton cone aperture angle. The time resolution impacts the coincidence window between the absorber and the scatterer, and so its true/random coincidence discrimination capabilities.
+
+The CLaRyS project also includes the development of a beam tagging hodoscope, composed of scintillating fibers read out by multi-channel photomultipliers. This detector is used to synchronize the beam time and space structure to the prompt gamma detection in order to tune the detection window reducing the background contamination. This detector section is not included in the simulation, but its time resolution has to be taken into account for the time-of-flight discrimination. It is set to 1~ns FWHM.
+ 
 The detectors spatial, energy and time resolutions are summarized in table \ref{table:table_resolution_detecteurs_CC_simulation_Hadronth}.
 
 \begin{table} [!htbp]
@@ -39,8 +46,10 @@ The detectors spatial, energy and time resolutions are summarized in table \ref{
 \label{table:table_resolution_detecteurs_CC_simulation_Hadronth}
 \end{table}
     
-The Monte Carlo simulation study is performed with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed at CERN (Counseil europ\'{e}en pour la recherche nucl\'{e}aire) for high energy physics experiments, but it has been shown that it can be used for ion beam therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements are still needed in order to extend the hadronic models to low energy applications~\cite{dedes_assessment_2014, Pinto:2016aa}.\\
-The particle interactions in matter are described in this work by means of different models, listed in table~\ref{table:table_modele_physic_CC_simulation_Hadronth}. Additionally, the Doppler broadening and the photon polarization effects are taken into account.\\ 
+The Monte Carlo simulation study is performed with the Geant4 toolkit, version 9.6 patch 02. Geant4 has been developed at CERN (Counseil europ\'{e}en pour la recherche nucl\'{e}aire) for high energy physics experiments, but it has been shown that it can be used for ion beam therapy studies \cite{cirrone_hadrontherapy_2011,toshito_new_2010}. However, some improvements are still needed in order to extend the hadronic models to low energy applications~\cite{dedes_assessment_2014, Pinto:2016aa}.
+
+The particle interactions in matter are described in this work by means of different models, listed in table~\ref{table:table_modele_physic_CC_simulation_Hadronth}. Additionally, the Doppler broadening and the photon polarization effects are taken into account.
+ 
 
 \definecolor{Gray}{gray}{0.9}
 
@@ -67,7 +76,8 @@ The particle interactions in matter are described in this work by means of diffe
 \label{table:table_modele_physic_CC_simulation_Hadronth}
 \end{table}
 
-The two main beam particles used in clinics are considered in this work: protons and carbon ions. The beam range of interest is 15.2~cm in the PMMA phantom, and the associated energy is 160~MeV for protons and 305~MeV/n for carbon ions.\\ 
+The two main beam particles used in clinics are considered in this work: protons and carbon ions. The beam range of interest is 15.2~cm in the PMMA phantom, and the associated energy is 160~MeV for protons and 305~MeV/n for carbon ions.
+ 
 In order to reproduce a realistic clinical beam, the beam transverse dimension is modeled with a gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The Compton camera setup does not change for the different incident particles. The beam intensity for a spot in pencil beam scanning (PBS) mode for protons is $10^8$~particles and $10^5$~particles for carbon ions. The beam time structure is applied in the data analysis stage, described below.\newline
 
 \subsection{Data treatment}
@@ -87,7 +97,8 @@ The mentioned measurements have shown that the spill phase changes during the ex
 	\end{figure}
 
 
-The coincidence window (between scatterer and absorber events) is set to 40~ns, centered on each absorber detected interaction. This value is adapted to the detectors time resolutions.\\ 
+The coincidence window (between scatterer and absorber events) is set to 40~ns, centered on each absorber detected interaction. This value is adapted to the detectors time resolutions.
+ 
 Table~\ref{table:definition_beam_structure_CC_hadrontherapy_Geant4} summarizes the presented beam time structures and coincidence reconstruction features.
 
 \begin{table} [!htbp]
@@ -131,7 +142,8 @@ As already explained in the introduction, the Compton detection principle is bas
 \item[-] quasi-simultaneous interaction from two secondary particles;
 \item[-] double interaction from the same particle different from a gamma.
 \end{itemize}
-In a real clinical environment there is no way to select the real coincidences, so that the collected data are affected by a certain number of the so-called random coincidences. The amount of random coincidences depends on the detector time resolutions, on the fixed time coincidence window and on the beam time structure, for fixed beam energy, phantom composition and camera prototype setup.\\
+In a real clinical environment there is no way to select the real coincidences, so that the collected data are affected by a certain number of the so-called random coincidences. The amount of random coincidences depends on the detector time resolutions, on the fixed time coincidence window and on the beam time structure, for fixed beam energy, phantom composition and camera prototype setup.
+
 
 In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} a schematic view of the different kinds of coincidences is presented.
 	\begin{figure} [!hbtp]	
@@ -142,7 +154,8 @@ In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth} a schemat
 	\end{figure}
 
 In addition to this, the prompt gamma measurement is contaminated by other secondary particles produced by the beam interaction with the patient/phantom, mainly massive and charged particles (protons, neutrons). 
-As already mentioned, it has been demonstrated by our group that a time-of-flight discrimination is possible and effective in reducing this source of background. In fact, the photons are moving at the speed of light while the massive particles approach the detector at a lowest speed. The time information coming from the hodoscope and from the absorber can be then combined to fix a detection time window and reject all the events outside the window. In this work, the time between the incident particle creation and the secondary particle detection in the absorber is considered as the time-of-flight. The hodoscope time resolution $u_{hodoscope}$ (1~ns FWHM) is applied to the primary particle creation time, with a contribution randomply extracted from a gaussian with $\sigma\,=$ 1/2.35~ns, while the detection time in the absorber is affected by the absorber time resolution.\\
+As already mentioned, it has been demonstrated by our group that a time-of-flight discrimination is possible and effective in reducing this source of background. In fact, the photons are moving at the speed of light while the massive particles approach the detector at a lowest speed. The time information coming from the hodoscope and from the absorber can be then combined to fix a detection time window and reject all the events outside the window. In this work, the time between the incident particle creation and the secondary particle detection in the absorber is considered as the time-of-flight. The hodoscope time resolution $u_{hodoscope}$ (1~ns FWHM) is applied to the primary particle creation time, with a contribution randomply extracted from a gaussian with $\sigma\,=$ 1/2.35~ns, while the detection time in the absorber is affected by the absorber time resolution.
+
  \begin{eqnarray}
 TOF_{theoretical} = t_{absorber}-t_{hodoscope} \\
 TOF_{simulation} = t_{absorber}+t_{creation} + u_{hodoscope}
@@ -162,7 +175,8 @@ In addition to the time-of-flight based selection, energy thresholds are also de
 
 \subsection{Reconstruction algorithm}
 
-Once the coincidences are defined and selected according to the fixed physical cuts, the prompt-gamma emission point has to be reconstructed for each event. This can be done via analytic or iterative algorithms based on the Compton kinematics (see section~\ref{section::Intro}), presented in the following sections.\\
+Once the coincidences are defined and selected according to the fixed physical cuts, the prompt-gamma emission point has to be reconstructed for each event. This can be done via analytic or iterative algorithms based on the Compton kinematics (see section~\ref{section::Intro}), presented in the following sections.
+
 
 \subsubsection{Line-cone algorithm}
 The reconstruction via line-cone algorithm exploits the energy deposit and position information collected by the camera in addition to the beam path information. Thanks to the deposited energies in the detectors and the interaction positions, a cone surface is analytically defined via the Compton equation~\ref{Compton_equation}.
@@ -171,7 +185,8 @@ We assume that the initial energy of the gamma ray is fully absorbed in the abso
 
 \subsubsection{LM-MLEM algorithm}	
 
-The iterative methods allow to get a 3D image reconstruction, potentially by taking into account the spatial resolution and the energy resolution of the detectors. Few iterative algorithms have been developed for Compton event reconstruction. \cite{schone_common_2010, zoglauer_design_2011,gillam_compton_2011,mackin_evaluation_2012,lojacono_low_2013}.\\
+The iterative methods allow to get a 3D image reconstruction, potentially by taking into account the spatial resolution and the energy resolution of the detectors. Few iterative algorithms have been developed for Compton event reconstruction. \cite{schone_common_2010, zoglauer_design_2011,gillam_compton_2011,mackin_evaluation_2012,lojacono_low_2013}.
+
 The \textit{List-Mode Maximum Likelihood Expectation Maximization} (LM-MLEM) algorithm is a MLEM version which allows to free from sinograms and to reconstruct the image directly from the list of detected events.
 The first step is to define the volume which includes the origin of the prompt gamma ray detected. This volume is divided into equal voxels and the emission intensity is assumed homogeneous for each voxel $j$, with a Poisson distribution of parameter $\lambda_j$ (a vector of the emissions intensities of all the voxels). The algorithm is based on a system matrix $T$ composed of the coefficients  $t_{ij}$ which represent the probability that a photon produced in the voxel $j$ is detected in coincidence by the Compton camera as an event $i$. The probability for a gamma detected in coincidence to be emitted from the voxel $j$ is denoted as $s_j$.
 The LM-MLEM algorithm starts with an initial value $\lambda^{(0)}$, which can be the simple back-projection reconstruction.
@@ -197,8 +212,10 @@ For each iteration, the matrix $T$ is stored and the reconstructed image can be 
 
 \subsection{Precision estimation}
 
-The camera precision is defined as the difference between the expected Bragg peak position (according to the treatment planning) and the Bragg peak position reconstructed through the data. This is a critical parameter which will be used to fix a decision threshold during a ion beam treatment.\\ 
-In this study a reference profile has been defined as the reconstructed emission vertex profile at high statistics, via analytic (line cone) and iterative (LM-MLEM) algorithms; this will be used to mimic the treatment planning. This Bragg peak position is compared to the ones reconstructed at lower statistics (close to clinical conditions) via analytic and iterative algorithms.\\
+The camera precision is defined as the difference between the expected Bragg peak position (according to the treatment planning) and the Bragg peak position reconstructed through the data. This is a critical parameter which will be used to fix a decision threshold during a ion beam treatment.
+ 
+In this study a reference profile has been defined as the reconstructed emission vertex profile at high statistics, via analytic (line cone) and iterative (LM-MLEM) algorithms; this will be used to mimic the treatment planning. This Bragg peak position is compared to the ones reconstructed at lower statistics (close to clinical conditions) via analytic and iterative algorithms.
+
 The high statistic profile has been obtained with $2\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) for the line-cone reconstruction and with $1\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}) for the LM-MLEM reconstruction method. The \textit{SmoothKern} method, with the Nadaraya-Watson regression, is used to smooth the reference profiles in order to reduce relative statistic fluctuations.\newline
 A region of interest (ROI) ranging from $y=0$ mm to $y=+100$ mm is defined around the expected Bragg peak position, located at $y=+50$~mm in the phantom. The reference profiles are modelled in the ROI by a linear combination named Non-Uniform Rational Basis Splines (NURBS). \newline
 A new independent profile should be simulated at low statistics for the precision calculation. However, with the aim to speed up the analysis, a random extraction from the NURBS profile (\ref {fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} and \ref {fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}) is performed following the Poisson law, in order to select reduced data sets. The desired low statistics ranges from $10^8$ to $5\times10^9$ incident protons.\newline
