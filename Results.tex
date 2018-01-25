@@ -58,7 +58,7 @@ Given the results presented in this paragraph, in the following the attention wi
 \subsection{Compton camera precision: comparaison LM-MLEM vs Line cone reconstruction}
 \label{Results::precision_reconstruction}
 
-The simulation setup shown in figure~\ref{fig:fig_setup_CC_simulation_Hadronth} has been implemented to test the line-cone analytic reconstruction method and compare it to the iterative LM-MLEM algorithm developed in Lyon by the CREATIS group~\cite{maxim_filtered_2014,hilaire_compton_2014}. A single data set has been collected, corresponding to the irradiation of the PMMA phatom with a proton 160~MeV monoenergetic beam, with a reduced intensity of 1 proton per bunch. A total of 10$^10$ protons has been simulated to define the reference Bragg peak, and then different sub-data sets have been extracted for the precision estimate at different statistics, as explained in section~\ref{MatMeth:precision}. 
+The simulation setup shown in figure~\ref{fig:fig_setup_CC_simulation_Hadronth} has been implemented to test the line-cone analytic reconstruction method and compare it to the iterative LM-MLEM algorithm developed in Lyon by the CREATIS group~\cite{maxim_filtered_2014,hilaire_compton_2014}. A single data set has been collected, corresponding to the irradiation of the PMMA phatom with a proton 160~MeV monoenergetic beam, with a reduced intensity of 1 proton per bunch. A total of 10$^{10}$ protons has been simulated to define the reference Bragg peak, and then different sub-data sets have been extracted for the precision estimate at different statistics, as explained in section~\ref{MatMeth:precision}. 
 Figure~\ref{fig:comparison} shows the results of the reconstruction of the data set obtained for the selection of 10$^8$ primary protons of 160~MeV, via the two reconstruction method already detailed before. To be noticed that the two reconstruction methods produce different results: the line-cone method is based on the beam direction information, so that it naturally produce a mono-dimensional image as result, while the MLEM method is able to reconstruct the prompt-gamma emission distribution in 3 dimensions. A projection along the beam direction is then extracted from the MLEM reconstructed image in order to allow a direct comparison.\\  
 
 \begin{figure} [!h]
@@ -70,8 +70,8 @@ Figure (a) represents the MLEM reconstructed 2D image in the plan (x,y), paralle
 \label{fig:comparison}
 \end{figure}
 
-Starting from the reference data setwith 10$^10$ primary protons, 11 subsets are extracted to mimic the dose profile falloff reconstruction fro different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. To be noticed that the delivered beam intensity is always fo 1 proton per bunch, as a consequence of the results presented in the previous paragraph.\\
-The analysis method described in section~\ref{MatMeth:precision} is then applied to the different data set to retrive the camera precision in the  dose profile falloff identification. The results are shown in figure~\ref{fig:precision}, where the two reconstruction methods are represented by different markers.\\
+Starting from the reference data setwith 10$^{10}$ primary protons, 11 subsets are extracted to mimic the dose profile falloff reconstruction fro different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. To be noticed that the delivered beam intensity is always fo 1 proton per bunch, as a consequence of the results presented in the previous paragraph.\\
+The analysis method described in section~\ref{MatMeth:precision} is then applied to the different data set to retrieve the camera precision in the  dose profile falloff identification. The results are shown in figure~\ref{fig:precision}, where the two reconstruction methods are represented by different markers.\\
 
 \begin{figure}[!hbtp]	
 \centering
