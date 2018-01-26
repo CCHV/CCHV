@@ -70,8 +70,8 @@ Figure (a) represents the MLEM reconstructed 2D image in the plan (x,y), paralle
 \label{fig:comparison}
 \end{figure}
 
-Starting from the reference data setwith 10$^{10}$ primary protons, 11 subsets are extracted to mimic the dose profile falloff reconstruction fro different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. To be noticed that the delivered beam intensity is always fo 1 proton per bunch, as a consequence of the results presented in the previous paragraph.\\
-The analysis method described in section~\ref{MatMeth:precision} is then applied to the different data set to retrieve the camera precision in the  dose profile falloff identification. The results are shown in figure~\ref{fig:precision}, where the two reconstruction methods are represented by different markers.\\
+Starting from the reference data set with 10$^{10}$ primary protons, 11 subsets are extracted to mimic the dose profile falloff reconstruction for different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. To be noticed that the delivered beam intensity is always of 1 proton per bunch, as a consequence of the results presented in section~\ref{Results::beamInt}.\\
+The analysis method described in section~\ref{MatMeth:precision} is applied to the different data set to retrieve the camera precision in the  dose profile falloff identification. The results are shown in figure~\ref{fig:precision}, where the two reconstruction methods are represented by different markers. \\
 
 \begin{figure}[!hbtp]	
 \centering
@@ -80,7 +80,6 @@ The analysis method described in section~\ref{MatMeth:precision} is then applied
 \label{fig:precision}
 \end{figure}
 
-COMMENTARE!
-
+At the expense of an increased calculation time, the iterative MLEM reconstruction method allows to achieve a better precision, with a reduction of about 3~mm of the falloff retrieval precision in the whole range of statistics explored. A linear behavior, highlighted by the performed linear fit of the two data sets, is verified with increasing number of primary protons, starting from the single spot scale of about 10$^8$ primaries, till 5$\times$10$^9$ protons, which can correspond to the monitoring of a group of spot with the same planned range. If we consider the important increase in the precision of the falloff identification given by the increased statistics, the spot grouping method seems to be promising for monitoring purpose when high accuracy is required, probably obtained in the post-treatment due to the long required reconstruction time. A sufficiently good precision is achieved on a spot basis, where the precision is about 2~mm with a MLEM reconstruction: a qualitative monitoring of each spot seems then possible. Given the long calculation time required by the MLEM algorithm, the line-cone reconstruction method, despite the reduced precision, can still be an option for on-line treatment check, when safety limit can be fixed in order to exclude severe deviation from the treatment planning and an interruption of the dose delivery in real time can be foreseen.          
 
 
