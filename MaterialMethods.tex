@@ -80,7 +80,7 @@ The particle interactions in matter are described in this work by means of the m
 
 The two main beam particles used in clinics are considered: protons and carbon ions. The beam range of interest is 15.2~cm in the PMMA phantom, and the associated energy is 160~MeV for protons and 305~MeV/n for carbon ions.
  
-The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The beam intensity for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.\newline
+The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The beam intensity for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.\newline
 
 %\subsection{Data processing}
 %\label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
@@ -139,7 +139,7 @@ The coincidence window (between scatterer and absorber events) is set to 40~ns, 
 \subsection{TOF and energy based data selection}
 \label{MatMeth::TOF_Ecut}
 
-The Compton detection principle is based on a double interaction in the scatterer and absorber section, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidences events can be distinguished and studied: 
+The Compton detection principle is based on a double interaction in the scatterer and absorber section, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidences events can be distinguished and studied: 
 \begin{itemize}
 \item[-] real coincidences: created by a single photon first interacting in a single scatterer plane and then in a single absorber block;
 \item[-] quasi-simultaneous interaction of two secondary particles;
@@ -243,7 +243,7 @@ The absolute efficiency $\epsilon$ is defined as:
 \epsilon =\frac{\mathrm{N}\gamma_{\mathrm{recons}}}{\mathrm{N}\gamma_{\mathrm{total}}},
 \end{equation}
 \label{eq:equation_efficacite_absolue}
-with $N\gamma_{recons}$ the number of gamma events in coincidences, $N\gamma_{total}$ the total number of gamma emitted: $10^8$.\newline
+with $N\gamma_{\mathrm{recons}}$ the number of gamma events in coincidences, $N\gamma_{\mathrm{total}}$ the total number of gamma emitted.\newline
 
 The setup is the same as figure \ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air.
 The point-like source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0) with a step of 20~mm close to the center of the camera, then increasing up to 1~cm for the most peripheral point. The movement followed the transverse axis of the camera. Different energies has been tested to mimic different prompt gamma spectroscopic lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part for the study.\newline
