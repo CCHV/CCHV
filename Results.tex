@@ -29,7 +29,7 @@ In figure~\ref{fig:coincidences}, the different components of the signal resulti
 \begin{figure} [!h]
   \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2017_06_28_Taux_coincidences_variation_protons_New_design_4EntreesLegend_LogXLogY.eps}}
   \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2017_06_28_Taux_coincidences_variation_carbonIons_New_design_4EntreesLegend_LogXLogY.eps}}
-  \caption{Coincidences yield for protons (left) and carbon ions (right) as a function of the beam intensity. The intensity is reported as number of incident particles per bunch. The filled markers correspond to the collected data without time-of-flight discrimination, while this cut is applied to the data reported with empty markers. Moreover, the yields are given before and after the profile reconstruction with the line cone algorithm.}
+  \caption{Coincidences yield for protons (left) and carbon ions (right) as a function of the beam intensity. The intensity is reported as number of incident particles per bunch. The filled markers correspond to the collected data without time-of-flight discrimination, while this cut is applied to the data reported with empty markers. Moreover, the yields are given before and after the profile reconstruction with the line-cone algorithm.}
   \label{fig:coincidences}
 \end{figure}
 
@@ -37,7 +37,7 @@ In figure~\ref{fig:coincidences}(a) and (b) the amount of true gamma coincidence
 The amount of background events (mainly random coincidences) increases with the increasing beam intensity: a factor of about 30 with respect to true gamma events is obtained for proton beams at  the intensity of 200 protons per bunch with no event selection, while a factor more than two times higher is reported for carbon ions in the same conditions. The time-of-flight selection can slightly improve the signal -over-noise ratio by reducing the amount of background events. The amount of true gamma events and background events becomes compatible at the intensity of about 1 proton per bunch. \newline
 
 
-\subsection{Compton camera precision: comparaison LM-MLEM vs Line cone reconstruction}
+\subsection{Compton camera precision: comparaison LM-MLEM vs line-cone reconstruction}
 \label{Results::precision_reconstruction}
 Given the results presented in the previous paragraph, the camera precision in the fall-off identification is investigated with proton beams at reduced intensities.\\
 The simulation setup shown in figure~\ref{fig:fig_setup_CC_simulation_Hadronth} has been implemented to test the line-cone analytic reconstruction method and compare it to the iterative LM-MLEM algorithm~\cite{maxim_filtered_2014,hilaire_compton_2014}. A single data set has been collected, corresponding to the irradiation of the PMMA phatom with a proton 160~MeV monoenergetic beam, with a reduced intensity of 1 proton per bunch. A total of 10$^{10}$ protons has been simulated to define the reference Bragg peak, and then different sub-data sets have been extracted for the precision estimate at different statistics, as explained in section~\ref{MatMeth:precision}. 
@@ -48,8 +48,8 @@ Figure~\ref{fig:comparison} shows the results of the reconstruction of the data 
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/projection2D_Z_corr_r20.png}}
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/profileY_corr_r20.png}}\\
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
-\caption{Line cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 1 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,mm$. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.\\
-Figure (a) represents the MLEM reconstructed 2D image in the plan (x,y), parallel to the camera entrance surface. The position $x=0\,mm$ corresponds to the center of the PMMA phantom and the y direction corresponds to the beam axis.  In figure (b) the mono-dimensional profile along the y axis is sketched. The profile peak is located at $y=+50\,mm$. Figure (c) shows the profile obtained by means of line-cone algorithm for the same time-of.flight selected data.}
+\caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 1 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,mm$. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.\\
+Figure (a) represents the MLEM reconstructed 2D image in the plan (x,y), parallel to the camera entrance surface. The position $x=0\,mm$ corresponds to the center of the PMMA phantom and the y direction corresponds to the beam axis.  In figure (b) the mono-dimensional profile along the y axis is sketched. The profile peak is located at $y=+50\,mm$. Figure (c) shows the profile obtained by means of line-cone algorithm for the same time-of-flight selected data.}
 \label{fig:comparison}
 \end{figure}
 
