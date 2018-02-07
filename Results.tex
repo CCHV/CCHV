@@ -1,24 +1,11 @@
 \section{Results}
-In the following paragraphs the results of the simulation study are presented and discussed with constant reference to the possible clinical application of the CLaRyS Compton camera system as particle therapy monitor. The clinical implementation of such a monitoring system has been tested with the simulation of clinical proton and carbon ion beams, with realistic spatial and time structure reproducing two accelerators at present employed for treatments~\ref{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}. As preliminary study, the detection efficiency of the camera has been tested with the simulation of the irradiation with point-like gamma sources in different position with respect to the center of the camera. After that, the beam exposure has been simulated with different beam intensities for an analysis of the clinical-like detection environment (background, random coincidence contamination), in order to focus in the end on the event reconstruction with the comparison of two different methods (line-cone analytical reconstruction and MLEM iterative algorithm) and on the estimate of the camera precision in the identification of the fall-off of the dose profile.
+%In the following paragraphs the results of the simulation study are presented and discussed with constant reference to the possible clinical application of the CLaRyS Compton camera system as particle therapy monitor. 
+The possible implementation of the ClaRyS Compton camera as a monitoring system for ion beam therapy has been tested. The detection efficiency of the camera has been tested with the irradiation with point-like gamma sources in different position with respect to the center of the camera. The beam exposure has been simulated with different beam intensities for an analysis of the detection environment (background, random coincidence contamination) and the camera precision in the identification of the fall-off of the dose profile has been investigated. For this purpose, the comparison of two different reconstruction methods (line-cone analytical reconstruction and MLEM iterative algorithm) is presented. 
 
 
 \subsection{Compton camera absolute efficiency}
 \label{Results::efficiency}
 
-The absolute efficiency is crucial for the Compton camera performances and for its possible application in treatment monitoring. As already mentioned in section~\ref{section::Intro}, an efficient monitoring system should be ideally in real time, in order to allow for a treatment adaptation or interruption in case of severe issues detected in the delivered dose profile with respect to the planned treatment. In order to achieve an online detection of such deviations, given the reduced prompt gamma emission rate per incident ion~\cite{Ortega:2015aa}, an high detection efficiency is required to perform a monitoring on, ideally, a beam spot basis. In addition to this, the absolute detection efficiency directly affects the image reconstruction quality, which is in general increased for increased statistics.
-
-In order to well define the expected camera efficiency, it has been studied with the irradiation from point-like monoenergetic gamma sources, set in different positions with respect to the center of the camera on the transverse plane.	
-
-The absolute efficiency $\epsilon$ is defined as:
-\begin{equation}
-\epsilon =\frac{N\gamma_{recons}}{N\gamma_{total}},
-\end{equation}
-\label{eq:equation_efficacite_absolue}
-with $N\gamma_{recons}$ the number of gamma events in coincidences,\newline
-\hspace*{1cm}$N\gamma_{total}$ the total number of gamma emitted: $10^8$.\newline
-
-The setup is the same as figure \ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air.
-The point source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0) with a step of 20~mm close to the center of the camera, then increasing up to 1~cm for the most peripheral point. The movement followed the transverse axis of the camera. Different energies has been tested to mimic different prompt gamma spectroscopic lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV.\newline
 The obtained results are shown in figure \ref{fig::efficiency_study}. On the left side, we show the results achieved with an ideal detector, while on the right side realistic energy cuts are applied on each detector section: the lower energy limit  has been set to 50~keV for the scatterer and 100~keV for the absorber.
 
 \begin{figure} [!hbtp]	
@@ -37,7 +24,7 @@ Regarding the applied energy cuts, figure~\ref{fig::efficiency_study}(b) clearly
 \subsection{Beam intensity}
 \label{Results::beamInt}
 
-As the Compton detection principle relies on time coincidences, in addition to the main importance played by the detectors energy resolutions, the beam intensity and time structure are important parameters to be studied in order to asses the possible clinical implementation of a Compton detection based monitoring of ion beam treatment. In the simulation, the beam intensity is modeled by an average number of particles per bunch. The exact number of particles in each bunch is given by a random extraction from a Poisson distribution, where the mean value is the selected beam intensity. The range of intensities is defined in order to cover a wide range of operation: from a very low beam intensity to a realistic, clinical particle rate. Therefore, for proton and carbon ions, the lowest beam intensity is set to 0.1 particles per bunch on average, while the upper limit is set to 217 protons or 70 carbon ions per bunch. For the analysis of the results, the coincidence yields are scaled to the number of incident ions and the beam intensity to the average number of ions per bunch.
+
  
 In figure~\ref{fig:coincidences} the different components of the resulting secondary signal are shown as a function of the beam intensity. The true coincidences represent detector time coincidences generated by the same gamma ray. All the other coincidence types compose the background. All the simulations are performed with $10^{8}$ primary protons and  $2\times10^{5}$ primary carbon ions. Those value correspond to realistic clinical values used for the treatment of a single spot. The collected data sets are reported with and without the applied time-of-flight discrimination, mainly employed for neutron rejection, as mentioned in section~\ref{MatMeth::TOF_Ecut}.
 
@@ -70,7 +57,7 @@ Figure (a) represents the MLEM reconstructed 2D image in the plan (x,y), paralle
 \label{fig:comparison}
 \end{figure}
 
-Starting from the reference data set with 10$^{10}$ primary protons, 11 subsets are extracted to mimic the dose profile falloff reconstruction for different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. To be noticed that the delivered beam intensity is always of 1 proton per bunch, as a consequence of the results presented in section~\ref{Results::beamInt}.\\
+
 The analysis method described in section~\ref{MatMeth:precision} is applied to the different data set to retrieve the camera precision in the  dose profile falloff identification. The results are shown in figure~\ref{fig:precision}, where the two reconstruction methods are represented by different markers. \\
 
 \begin{figure}[!hbtp]	

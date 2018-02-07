@@ -23,8 +23,6 @@ The energy resolution of the BGO blocks was estimated in preliminary measurement
 The time resolution has been set to 3.0~ns FWHM for the BGO blocks and to 15.0~ns FWHM for the silicon slabs, according to preliminary measurements performed on test detector modules at the GANIL %(Grand Accelerateur National d'Ions Lourds) 
 center in France.
 
-
-
 The detector resolutions play an important role in the Compton camera performances. The spatial resolution of the absorber influences the position of the apex of the Compton cone as well as its axis orientation. The energy resolution of the scatterer determines the Compton cone aperture angle. The time resolution impacts the coincidence window between the absorber and the scatterer, and therefore the detectors ability to distinguish between true and random coincidences.
 
 The CLaRyS project also includes the development of a beam tagging hodoscope, composed of scintillating fibers read out by multi-channel photomultipliers. This detector is used to synchronize the beam time and space structure to the prompt gamma detection in order to tune the detection window reducing the background contamination. The hodoscope is not included in the simulation, but its time resolution has to be taken into account for the time-of-flight discrimination (see section~\ref{MatMeth::TOF_Ecut}). It is set to 1~ns FWHM. \\
@@ -84,11 +82,11 @@ The two main beam particles used in clinics are considered: protons and carbon i
  
 The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The beam intensity for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.\newline
 
-\subsection{Data processing}
-\label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
+%\subsection{Data processing}
+%\label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
 
-\subsubsection{Time structure and processing}
-\label{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}
+\subsection{Beam time structure}
+\label{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}
  
 Two different beam time structures have been considered for this study, related to two kinds of accelerators used in clinical practice: the IBA C230 cyclotron for protons (used in 16 clinical centers worldwide) and the synchrotron installed in the Heidelberg Ion Therapy Center (HIT), Germany, for carbon ions. For protons at 160 MeV, the primary particles are grouped in bunches of 2~ns (this value may vary also according to the distance between the cyclotron and the treatment room, and energy spread selection) at a frequency of 106~MHz (9.42~ns)~\cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2~nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305~MeV/u, the estimated microstructure is composed of 30~ns duration bunches at a frequency of 5.9~MHz (170~ns period). The clinical beam intensity for carbon ions is $5\times10^7$~ions/s, corresponding to about 9~ions per bunch. This beam structure is extrapolated from measurements performed by our group in 2013 at HIT; the beam time structure was measured for 200~MeV/u and 400~MeV/u primary ion energy with a two-fiber hodoscope (basic prototype of the one at present under development) and the spill signal was given by the accelerator. Figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400~MeV/u. The pulses have a spill period of 150.2~ns and each bunch is approximately 21.5~ns.
 The mentioned measurements have shown that the spill phase changes during the extraction: this implies that the HF signal from the synchrotron can not be used to trigger the pulses, so that the use of an additional beam time stamp system like the hodoscope seems required for time-of-flight background rejection purposes.\newline
@@ -138,7 +136,7 @@ The coincidence window (between scatterer and absorber events) is set to 40~ns, 
 \newpage
 %---------------------------------------------------------------
 %---------------------------------------------------------------
-\subsubsection{TOF and energy based data selection}
+\subsection{TOF and energy based data selection}
 \label{MatMeth::TOF_Ecut}
 
 The Compton detection principle is based on a double interaction in the scatterer and absorber section, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsubsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidences events can be distinguished and studied: 
@@ -181,8 +179,8 @@ The time-of-flight spectrum resulting from the simulation shows that the coincid
 
 \end{itemize}
 
-\subsection{Reconstruction algorithm}
-
+\subsection{Reconstruction algorithms}
+\label{MatMeth:reconstruction}
 Once the coincidences are defined and selected according to the fixed physical cuts, the prompt-gamma emission point has to be reconstructed for each event. This can be done via analytic or iterative algorithms based on the Compton kinematics. Both are presented in the following sections.
 
 
@@ -214,7 +212,7 @@ where $N_{\gamma}$ is the number of detected events and $N_v$ is the number of v
 For each photon detected, the coefficients in column i are calculated by taking into account the uncertainties on the angle between the source and the involved scatterer plane and the angle between the scatterer plane and the absorber involved module.
 The matrix elements $t_{ij}$ are calculated as:
 \begin{equation}
- t_{ij} = K(\beta_i,E_{tot})\frac{|\rm{cos}(\theta_{{V_2V_1}}) |}{V_2V_1^2} \int\limits_{M\in v_j} \frac{|\rm{cos}(\theta_{\overrightarrow{V_1M})}| }{V_1M^2} h_i(M)dv,
+ t_{ij} = K(\beta_i,E_{tot})\frac{|\rm{cos}(\theta_{{V_2V_1}}) |}{V_2V_1^2} \int\limits_{M\in v_j} \frac{|\rm{cos}(\theta_{V_1M})|}{V_1M^2} h_i(M)dv,
  \label{eq:equation_tij_compton_med_nucleaire}\newline
 \end{equation}
 where $\beta_i$ is the Compton scattering angle, $V_1$ the interaction position in the scatterer, $V_2$ the interaction position in the absorber, $h_i$ the spatial kernel which models the uncertainties on the Compton angle for each voxel $M$, $K(\beta_i,E_{tot})$ the differential cross section and $v_j$ the reconstructed volume.\newline
@@ -222,28 +220,62 @@ where $\beta_i$ is the Compton scattering angle, $V_1$ the interaction position 
 In order to simplify and speed up the calculation of the $t_{ij}$ matrix, the voxels located far from the reconstructed cone are set to 0. The distance between the cone and the voxel is calculated by taking the voxel center as reference point. \newline%The spatial resolutions are not included in this version of the algorithm.\newline
 For each iteration, the matrix $T$ is stored and the reconstructed image can be produced.
 
-\subsection{Precision estimation}
+
+\subsection{Performance study}
+\label{MatMeth:performance}
+In this section the parameters studied for the camera performance evaluation are explained. The study is mainly divided into three sections:
+\begin{itemize}
+
+\item Absolute efficiency: the camera absolute efficiency for gamma detection is studied by means of mono-energetic irradiation with point-like sources;
+\item Rate of random coincidences: with proton and carbon beams interacting with the PMMA phantom, the rate of random and true detected coincidences is studied as a function of the beam intensity;
+\item Camera precision: the camera capability of identifying the fall-off of the prompt-gamma emission profile is tested and the two reconstruction methods presented above are compared. 
+
+\end{itemize}
+
+
+\subsubsection{Absolute detection efficiency}
+The absolute efficiency is crucial for the Compton camera performances and for its possible application in treatment monitoring. An efficient monitoring system should be ideally in real time, in order to allow for a treatment adaptation or interruption in case of severe issues detected in the delivered dose profile with respect to the planned treatment. In order to achieve an online detection of such deviations, given the reduced prompt gamma emission rate per incident ion~\cite{Ortega:2015aa}, an high detection efficiency is required to perform a monitoring on, ideally, a beam spot basis. In addition to this, the absolute detection efficiency directly affects the image reconstruction quality, which is in general increased for increased statistics.\\
+
+In order to well define the expected camera efficiency, it has been studied with the irradiation from point-like monoenergetic gamma sources, set in different positions with respect to the center of the camera on the transverse plane.	
+
+The absolute efficiency $\epsilon$ is defined as:
+\begin{equation}
+\epsilon =\frac{\mathrm{N}\gamma_{\mathrm{recons}}}{\mathrm{N}\gamma_{\mathrm{total}}},
+\end{equation}
+\label{eq:equation_efficacite_absolue}
+with $N\gamma_{recons}$ the number of gamma events in coincidences, $N\gamma_{total}$ the total number of gamma emitted: $10^8$.\newline
+
+The setup is the same as figure \ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air.
+The point-like source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0) with a step of 20~mm close to the center of the camera, then increasing up to 1~cm for the most peripheral point. The movement followed the transverse axis of the camera. Different energies has been tested to mimic different prompt gamma spectroscopic lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part for the study.\newline
+
+\subsubsection{Rate of random coincidences}
+
+As the Compton detection principle relies on time coincidences, in addition to the main importance played by the detectors energy resolutions, the beam intensity and time structure are important parameters to be studied in order to asses the possible clinical implementation of a Compton detection based monitoring of ion beam treatment. The ability of the detection system to distinguish between true and random coincidences, i.e the resulting signal over noise ratio, strongly depends on the primary particle time structure. The number of true and random coincidences (where the two cases listed in section~\ref{MatMeth::TOF_Ecut} are included in the random coincidences) is studied as a function of the beam intensity, before and after data reconstruction via line-cone algorithm~(see section~\ref{MatMeth:reconstruction}).\\
+In the simulation, the beam intensity is modeled by an average number of particles per bunch. The exact number of particles in each bunch is given by a random extraction from a Poisson distribution, where the mean value is the selected beam intensity. The range of intensities is defined in order to cover a wide range of operation: from a very low beam intensity to a realistic clinical particle rate. Therefore, for proton and carbon ions, the lowest beam intensity is set to 0.1 particles per bunch on average, while the upper limit is set to 217 protons or 70 carbon ions per bunch. For the analysis of the results, the coincidence yields are scaled to the number of incident ions and the beam intensity to the average number of ions per bunch.
+
+\subsubsection{Camera precision}
 \label{MatMeth:precision}
 
-The camera precision is defined as the difference between the expected Bragg peak position (according to the treatment planning) and the Bragg peak position reconstructed through the data. This is a critical parameter which will be used to fix a decision threshold during a ion beam treatment.
+The camera precision is defined as the difference between the predicted Bragg peak position (according to the treatment planning) and the detected Bragg peak position.\\
  
-In this study a reference profile has been defined as the reconstructed emission vertex profile at high statistics, via analytic (line cone) and iterative (LM-MLEM) algorithms; this will be used to mimic the treatment planning. This Bragg peak position is compared to the ones reconstructed at lower statistics (close to clinical conditions) via analytic and iterative algorithms.
+In this study, a reference profile has been defined as the reconstructed emission vertex profile at high statistics. This Bragg peak position is used as reference and compared to the ones reconstructed at lower statistics.
 
-The high statistic profile has been obtained with $2\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) for the line-cone reconstruction and with $1\times10^{10}$ incident protons (figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}) for the LM-MLEM reconstruction method. The \textit{SmoothKern} method, with the Nadaraya-Watson regression, is used to smooth the reference profiles in order to reduce relative statistic fluctuations.\newline
-A region of interest (ROI) ranging from $y=0$ mm to $y=+100$ mm is defined around the expected Bragg peak position, located at $y=+50$~mm in the phantom. The reference profiles are modelled in the ROI by a linear combination named Non-Uniform Rational Basis Splines (NURBS). \newline
-A new independent profile should be simulated at low statistics for the precision calculation. However, with the aim to speed up the analysis, a random extraction from the NURBS profile (\ref {fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} and \ref {fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}) is performed following the Poisson law, in order to select reduced data sets. The desired low statistics ranges from $10^8$ to $5\times10^9$ incident protons.\newline
-The minimal distance between the NURBS reference profile and the low statistic reconstructed profiles is estimated thanks to the $\chi^2$ method. For the $\chi^2$ estimate, the low statistics profile is defined around the fall-off position from $y=+30$ mm to $y=+70$ mm. The minimization process tests the profiles at low statistics on a 60 mm variation range, between $-30$~mm and $+30$~mm with respect to the initial position, with a step of $0.1$~mm. The      $\chi^2$ is calculated as follows:
+The high statistic profile has been obtained with $\mathrm{10^{10}}$ incident protons and reconstructed via line-cone algorithm~(figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) and with the LM-MLEM reconstruction method~(figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}). The \textit{SmoothKern} method, with the Nadaraya-Watson regression~\cite{Nadaraya_regression, Watson_regression}, is used to smooth the reference profiles in order to reduce relative statistic fluctuations.\newline
+A region of interest (ROI) ranging from $y=0$ mm to $y=+100$ mm is defined around the expected Bragg peak position, located at $y=+50$~mm in the phantom. The reference reconstructed profiles are modeled in the ROI by a linear combination of Non-Uniform Rational Basis Splines (NURBS)~\cite{NURBS}. \newline
+Starting from the reference data set, data subsets at lower statistics are randomly extracted to mimic the dose profile falloff reconstruction for different primary particle statistics, in the range 1$\times$10$^8$ to 5$\times$10$^9$. The data subsets are directly extracted following a Poisson law from the reconstructed and smoothed reference profile, so that no further reconstruction is required.\\
+For each chosen statistics, 1000 data subsets are extracted and the Migrad minimization method is applied to deduce the minimal shift between the reference profile and the one obtained from the data subset. The minimization algorithm shifts the reference profile in a 60~mm range, between $-30$~mm and $+30$~mm with respect to the initial position, with a step of $0.1$~mm, and for each position it compares its position to the low statistics profile by calculating the $\chi^2$ as follows:
 
 \begin{eqnarray}
-\chi^2 = \sum\limits_{i=1} {(y_{sample,i}-y_{NURBS,i})^2},
+\chi^2 = \sum\limits_{i=1} {(y_{\mathrm{sample,i}}-y_{\mathrm{NURBS,i}})^2},
 \end{eqnarray}
 
-where $y_{sample}$ is the number of coincidences for the low statistics profile, $y_{NURBS}$ is the number of coincidences for the reference profile NURBS (scaled at the same low statistic) and i the step number.\newline
-The global minimum of all the reconstructed profiles is then retrieved. The figures \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and  \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons.\newline
-A total of a thousand profiles at the low statistic are generated (named realizations) and the $\chi^2$ minimization is applied to each of them. The standard deviation of the distribution resulting of the thousand results gives the precision of the camera for a given number of incident protons. The figure~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distributions at $10^8$ incident protons for the line-cone and LM-MLEM algorithms.
+where $y_{\mathrm{sample}}$ is the number of coincidences for the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of coincidences for the reference profile NURBS (scaled at the same low statistic) and i the step number.\newline
+Figures~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons.\newline
+The global minimum of all the calculated $\chi^2$ is then retrieved and the shift associated to this value is used to create the shift distributions shown in figure~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} for the line-cone and LM-MLEM algorithm respectively, for $10^8$ incident protons. The standard deviation of the distribution resulting of the thousand results gives the precision of the camera for a given number of incident protons. 
 
 
-\begin{figure} [!h]
+\begin{figure}
+\centering
 \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.33\textwidth]{./Figure/profile_high_stat_linecone.pdf}}
 \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.32\textwidth]{./Figure/profileY_corr_r15.png}}\\
  %\subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Poisson_Nurbs_1e8_Article_LC.eps}}
@@ -258,6 +290,6 @@ A total of a thousand profiles at the low statistic are generated (named realiza
   \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.33\textwidth]{./Figure/deviation_linecone.png}}
  %\subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8_Article_MLEM.eps}}
  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.33\textwidth]{./Figure/deviation_MLEM.png}}
-\caption{Treatment comparison for the same proton simulation with the line cone algorithm (left column: figures \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}, \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}, \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}, \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC}) and the LM-MLEM algorithm (right column: figures \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}, \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}, \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}, \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM}). The first row gives the reconstructed profile for $2\times10^{10}$ incident protons (figure \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}) and for $1\times10^{10}$ incident protons (figure \ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}) respectively. The figures \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} and \ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM} are showing the reference curve (blue) and the estimated curve with Poisson's law at $1\times10^8$ incident protons. The figures \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and \ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} are the $\chi^2$ minimization results for one realization. The minimum of the curve gives the best fit between the reference curve and the low statistics one. Finally, the figures  \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and \ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} represents the results for 1000 $\chi^2$ minimizations. The Compton camera precision is estimated thanks to the standard deviation of the distribution. }
+\caption{Data processing comparison for the same proton simulation with the line cone algorithm (left column) and the LM-MLEM algorithm (right column). The first row gives the reconstructed profile for $10^{10}$ incident protons. The second row shows the reference curve (blue) and the curve obtained with a $10^8$ incident protons subset. The third row shows the $\chi^2$ distribution for one data subset. The last row represents the distribution of the minimal calculated shifts for 1000 subsets at the same statistics of $10^8$ incident protons.}
 \end{figure}
 
