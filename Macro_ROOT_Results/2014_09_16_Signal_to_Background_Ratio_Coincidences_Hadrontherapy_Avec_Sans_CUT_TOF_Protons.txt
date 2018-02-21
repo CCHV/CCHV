@@ -1,0 +1,390 @@
+Ratio_Background_Signal_proton_absolu 
+num 0.001 value 1.28826
+num 0.01 value 1.27142
+num 0.1 value 1.25441
+num 0.5 value 1.13713
+num 1 value 1.04467
+num 2 value 0.876061
+num 3 value 0.758655
+num 4 value 0.665356
+num 5 value 0.595351
+num 6 value 0.530498
+num 7 value 0.491176
+num 8 value 0.447196
+num 9 value 0.418136
+num 10 value 0.388482
+num 15 value 0.290147
+num 20 value 0.237604
+num 30 value 0.168661
+num 50 value 0.109947
+num 80 value 0.0772137
+num 100 value 0.0629473
+num 150 value 0.0440639
+num 200 value 0.0344741
+num 217 value 0.0318895
+
+
+Ratio_Background_Signal_proton_relatif 
+num 0.001 value 1.28826
+num 0.01 value 1.27142
+num 0.1 value 1.25442
+num 0.5 value 1.13713
+num 1 value 1.04467
+num 2 value 0.87606
+num 3 value 0.758656
+num 4 value 0.665357
+num 5 value 0.595352
+num 6 value 0.530498
+num 7 value 0.491177
+num 8 value 0.447195
+num 9 value 0.418136
+num 10 value 0.388482
+num 15 value 0.290148
+num 20 value 0.237604
+num 30 value 0.168661
+num 50 value 0.109947
+num 80 value 0.0772137
+num 100 value 0.0629473
+num 150 value 0.0440639
+num 200 value 0.0344741
+num 217 value 0.0318895
+
+
+Ratio_Background_Signal_proton_histo 
+num 0.001 value 1.82892
+num 0.01 value 1.82024
+num 0.1 value 1.75648
+num 0.5 value 1.63871
+num 1 value 1.48467
+num 2 value 1.29193
+num 3 value 1.14879
+num 4 value 1.01433
+num 5 value 0.913569
+num 6 value 0.818937
+num 7 value 0.769049
+num 8 value 0.702899
+num 9 value 0.646226
+num 10 value 0.610506
+num 15 value 0.458621
+num 20 value 0.373708
+num 30 value 0.268102
+num 50 value 0.172137
+num 80 value 0.121654
+num 100 value 0.0982573
+num 150 value 0.0687665
+num 200 value 0.0533355
+num 217 value 0.050185
+
+
+Ratio_Background_Signal_proton_absolu_sans_cut 
+num 0.001 value 0.867281
+num 0.01 value 0.851041
+num 0.1 value 0.83778
+num 0.5 value 0.777833
+num 1 value 0.714286
+num 2 value 0.628387
+num 3 value 0.552962
+num 4 value 0.49436
+num 5 value 0.450327
+num 6 value 0.403495
+num 7 value 0.377246
+num 8 value 0.344946
+num 9 value 0.326314
+num 10 value 0.307882
+num 15 value 0.232439
+num 20 value 0.190496
+num 30 value 0.138416
+num 50 value 0.0915184
+num 80 value 0.0638312
+num 100 value 0.0522487
+num 150 value 0.0376238
+num 200 value 0.029268
+num 217 value 0.0272347
+
+
+Ratio_Background_Signal_proton_relatif_sans_cut 
+num 0.001 value 0.867281
+num 0.01 value 0.85104
+num 0.1 value 0.837779
+num 0.5 value 0.777831
+num 1 value 0.714287
+num 2 value 0.628386
+num 3 value 0.552961
+num 4 value 0.49436
+num 5 value 0.450326
+num 6 value 0.403495
+num 7 value 0.377245
+num 8 value 0.344946
+num 9 value 0.326313
+num 10 value 0.307882
+num 15 value 0.232438
+num 20 value 0.190496
+num 30 value 0.138415
+num 50 value 0.0915184
+num 80 value 0.0638311
+num 100 value 0.0522487
+num 150 value 0.0376237
+num 200 value 0.0292681
+num 217 value 0.0272347
+
+
+Ratio_Background_Signal_proton_histo_sans_cut 
+num 0.001 value 1.20906
+num 0.01 value 1.20115
+num 0.1 value 1.16401
+num 0.5 value 1.10151
+num 1 value 1.01097
+num 2 value 0.915837
+num 3 value 0.828642
+num 4 value 0.749437
+num 5 value 0.686111
+num 6 value 0.615865
+num 7 value 0.583777
+num 8 value 0.532567
+num 9 value 0.50052
+num 10 value 0.481019
+num 15 value 0.365272
+num 20 value 0.304144
+num 30 value 0.219558
+num 50 value 0.145197
+num 80 value 0.101928
+num 100 value 0.0835659
+num 150 value 0.0594059
+num 200 value 0.0459079
+num 217 value 0.0435792
+
+
+Ratio_Background_Signal_proton_absolu_comparaison_gamma 
+num 0.001 value 1.00629
+num 0.01 value 1.00378
+num 0.1 value 1.00448
+num 0.5 value 1.00385
+num 1 value 0.995533
+num 2 value 1.00388
+num 3 value 1.00391
+num 4 value 1.00722
+num 5 value 1.00199
+num 6 value 1.00131
+num 7 value 1.00599
+num 8 value 1.004
+num 9 value 1.00602
+num 10 value 1.00809
+num 15 value 1.00417
+num 20 value 1.00214
+num 30 value 1.00231
+num 50 value 1.01236
+num 80 value 0.998981
+num 100 value 1.00812
+num 150 value 1.02329
+num 200 value 1.01273
+num 217 value 1.02559
+
+
+Ratio_Background_Signal_proton_relatif_comparaison_gamma 
+num 0.001 value 0.824996
+num 0.01 value 0.821378
+num 0.1 value 0.819273
+num 0.5 value 0.822274
+num 1 value 0.815518
+num 2 value 0.826384
+num 3 value 0.825411
+num 4 value 0.82802
+num 5 value 0.83204
+num 6 value 0.829423
+num 7 value 0.831579
+num 8 value 0.829998
+num 9 value 0.834427
+num 10 value 0.841366
+num 15 value 0.838614
+num 20 value 0.833463
+num 30 value 0.842475
+num 50 value 0.846442
+num 80 value 0.837081
+num 100 value 0.838477
+num 150 value 0.859144
+num 200 value 0.85328
+num 217 value 0.857902
+
+
+Ratio_Background_Signal_proton_histo_comparaison_gamma 
+num 0.001 value 0.846576
+num 0.01 value 0.845482
+num 0.1 value 0.84413
+num 0.5 value 0.844009
+num 1 value 0.841338
+num 2 value 0.84805
+num 3 value 0.847602
+num 4 value 0.850723
+num 5 value 0.852337
+num 6 value 0.84654
+num 7 value 0.847889
+num 8 value 0.841881
+num 9 value 0.849737
+num 10 value 0.856789
+num 15 value 0.850914
+num 20 value 0.857267
+num 30 value 0.851532
+num 50 value 0.86334
+num 80 value 0.85285
+num 100 value 0.862011
+num 150 value 0.871512
+num 200 value 0.866851
+num 217 value 0.873869
+
+
+Ratio_Background_Signal_proton_absolu_comparaison_bad 
+num 0.001 value 1.49474
+num 0.01 value 1.4996
+num 0.1 value 1.50401
+num 0.5 value 1.46754
+num 1 value 1.456
+num 2 value 1.39955
+num 3 value 1.37735
+num 4 value 1.35561
+num 5 value 1.32467
+num 6 value 1.31649
+num 7 value 1.3098
+num 8 value 1.30161
+num 9 value 1.28911
+num 10 value 1.27199
+num 15 value 1.25348
+num 20 value 1.24996
+num 30 value 1.22133
+num 50 value 1.21621
+num 80 value 1.20842
+num 100 value 1.21455
+num 150 value 1.19845
+num 200 value 1.19287
+num 217 value 1.20088
+
+
+Ratio_Background_Signal_proton_relatif_comparaison_bad 
+num 0.001 value 1.22545
+num 0.01 value 1.2271
+num 0.1 value 1.22671
+num 0.5 value 1.2021
+num 1 value 1.19272
+num 2 value 1.1521
+num 3 value 1.13245
+num 4 value 1.11443
+num 5 value 1.1
+num 6 value 1.09049
+num 7 value 1.08272
+num 8 value 1.07602
+num 9 value 1.06923
+num 10 value 1.06163
+num 15 value 1.04683
+num 20 value 1.03957
+num 30 value 1.02657
+num 50 value 1.01688
+num 80 value 1.01258
+num 100 value 1.01017
+num 150 value 1.00621
+num 200 value 1.00506
+num 217 value 1.00453
+
+
+Ratio_Background_Signal_proton_histo_comparaison_bad 
+num 0.001 value 1.2806
+num 0.01 value 1.28126
+num 0.1 value 1.27378
+num 0.5 value 1.25562
+num 1 value 1.23556
+num 2 value 1.19631
+num 3 value 1.17507
+num 4 value 1.15142
+num 5 value 1.1349
+num 6 value 1.12567
+num 7 value 1.11698
+num 8 value 1.11114
+num 9 value 1.0971
+num 10 value 1.08743
+num 15 value 1.06837
+num 20 value 1.05334
+num 30 value 1.0398
+num 50 value 1.02352
+num 80 value 1.0179
+num 100 value 1.01356
+num 150 value 1.00884
+num 200 value 1.0071
+num 217 value 1.00633
+
+
+Ratio_Background_Signal_proton_absolu_comparaison 
+num 0.001 value 1.4854
+num 0.01 value 1.49396
+num 0.1 value 1.49731
+num 0.5 value 1.46192
+num 1 value 1.46253
+num 2 value 1.39414
+num 3 value 1.37198
+num 4 value 1.34589
+num 5 value 1.32204
+num 6 value 1.31476
+num 7 value 1.30201
+num 8 value 1.29642
+num 9 value 1.28139
+num 10 value 1.26179
+num 15 value 1.24827
+num 20 value 1.24729
+num 30 value 1.21851
+num 50 value 1.20136
+num 80 value 1.20965
+num 100 value 1.20476
+num 150 value 1.17117
+num 200 value 1.17788
+num 217 value 1.17091
+
+
+Ratio_Background_Signal_proton_relatif_comparaison 
+num 0.001 value 1.4854
+num 0.01 value 1.49396
+num 0.1 value 1.49731
+num 0.5 value 1.46192
+num 1 value 1.46253
+num 2 value 1.39414
+num 3 value 1.37199
+num 4 value 1.3459
+num 5 value 1.32205
+num 6 value 1.31476
+num 7 value 1.30201
+num 8 value 1.29642
+num 9 value 1.2814
+num 10 value 1.26179
+num 15 value 1.24828
+num 20 value 1.24729
+num 30 value 1.21851
+num 50 value 1.20136
+num 80 value 1.20966
+num 100 value 1.20476
+num 150 value 1.17117
+num 200 value 1.17788
+num 217 value 1.17092
+
+
+Ratio_Background_Signal_proton_histo_comparaison 
+num 0.001 value 1.51268
+num 0.01 value 1.51542
+num 0.1 value 1.50899
+num 0.5 value 1.48769
+num 1 value 1.46857
+num 2 value 1.41066
+num 3 value 1.38635
+num 4 value 1.35345
+num 5 value 1.33152
+num 6 value 1.32973
+num 7 value 1.31737
+num 8 value 1.31983
+num 9 value 1.29111
+num 10 value 1.26919
+num 15 value 1.25556
+num 20 value 1.22872
+num 30 value 1.2211
+num 50 value 1.18554
+num 80 value 1.19353
+num 100 value 1.17581
+num 150 value 1.15757
+num 200 value 1.16179
+num 217 value 1.15158
+
+

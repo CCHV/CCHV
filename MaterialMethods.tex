@@ -37,7 +37,7 @@ The detector's spatial, energy, and time resolutions are summarized in table \re
 \caption{Estimations of reachable resolutions with the detectors. Those resolutions are applied during the simulations.}
 \begin{tabular}{cccc}
 \hline
-\textbf{Resolution (FWHM) at 1 MeV} & \textbf{Scatterer} & \textbf{Absorber} & \textbf{Hodoscope}\\
+\textbf{Resolution (FWHM) at 1~MeV} & \textbf{Scatterer} & \textbf{Absorber} & \textbf{Hodoscope}\\
 \hline 
 \textbf{spatial [mm]	}			 &     0.9		 &  5 &	 1\\
 %\hline
@@ -69,10 +69,10 @@ The particle interactions in matter are described in this work by means of the m
 \textbf{Process} & \textbf{Protons} & \textbf{Ions} & \textbf{Neutrons} \\ \hline 
 \textbf{Electromagnetic} & \multicolumn{3}{c}{standard$_{\rm{option3}}$} \\ %\hline
 \textbf{Inelastic} & G4BinaryCascade & G4QMDReaction  &  G4BinaryCascade  \\ 
- & & (G4IonsShenCrossSection)&+ G4NeutronHPInelastic ($<$19 MeV)\\ %\hline
-\textbf{Elastic} & G4LElastic & G4LElastic & G4LElastic + G4NeutronHPElastic ($<$19 MeV)\\ %\hline
-\textbf{Fission} & / & / & G4LFission + G4NeutronHPFission($<$19 MeV) \\ %\hline
-\textbf{Capture} & / & / & G4LCapture +  G4NeutronHPCapture ($<$19 MeV) \\ %\hline
+ & & (G4IonsShenCrossSection)&+ G4NeutronHPInelastic ($<$19~MeV)\\ %\hline
+\textbf{Elastic} & G4LElastic & G4LElastic & G4LElastic + G4NeutronHPElastic ($<$19~MeV)\\ %\hline
+\textbf{Fission} & / & / & G4LFission + G4NeutronHPFission($<$19~MeV) \\ %\hline
+\textbf{Capture} & / & / & G4LCapture +  G4NeutronHPCapture ($<$19~MeV) \\ %\hline
 \textbf{Radioactivedecay} & / & G4Radioactivedecay & / \\ \hline
 \end{tabular}
 \end{center}
@@ -80,9 +80,9 @@ The particle interactions in matter are described in this work by means of the m
 \label{table:table_modele_physic_CC_simulation_Hadronth}
 \end{table}
 
-The two main beam particles used in clinics are considered: protons and carbon ions. The beam range of interest is 15.2~cm in the PMMA phantom, and the associated energy is 160~MeV for protons and 305~MeV/n for carbon ions.
+The two main beam particles used in clinics are considered: protons and carbon ions. The beam range of interest is 15.2~cm in the PMMA phantom, and the associated energy is 160~MeV for protons and 305~MeV/u for carbon ions.
  
-The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The number of incident ions for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons (distal spot) and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.
+The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/u. The number of incident ions for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons (distal spot) and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.
 
 %\subsection{Data processing}
 %\label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
@@ -117,7 +117,7 @@ The coincidence window (between scatterer and absorber events) is set to 40~ns, 
 %\cline{2-4}%\hline
 \multirow{3}{*}\textbf{Clinical features}		&	Facility	& IBA Cyclotron C230 &   Synchrotron at HIT\\
 											& Clinical intensity& $  2\times10^{10}$ p/s  & $  5\times10^{7}$ ions/s\\
-											& Energy 			&160 MeV 			&    305 MeV/u\\
+											& Energy 			&160~MeV 			&    305~MeV/u\\
 %\cline{2-4}%
 \hline
 \multirow{3}{*}\textbf{Beam structure}		&	Bunch time [ns]	& 3.2				&  30\\
@@ -173,7 +173,7 @@ The time-of-flight spectrum resulting from the simulation shows that the coincid
 \begin{figure}	
   \centering
   \includegraphics[width=0.6\textwidth]{./Figure/TOFspectra_2}
-  \caption{Time of flight spectra of true gamma coincidences (blue) and background events (red) obtained with $10^{8}$ 160 MeV incident protons. The detection time for the absorber is given by the first deposit energy.}	
+  \caption{Time of flight spectra of true gamma coincidences (blue) and background events (red) obtained with $10^{8}$ 160~MeV incident protons. The detection time for the absorber is given by the first deposit energy.}	
   \label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 \end{figure}
 
