@@ -13,7 +13,7 @@ Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/EffVSpos.pdf}}
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/EffVSpos_withCut.pdf}}
 \caption{Absolute Compton camera efficiency as a function of the gamma source position for different gamma energies, in the range between 300~keV to 6~MeV. The left side shows the camera efficiency with no data selection. In the right side, detection energy thresholds are applied: the lower energy thresholds are set to 
-50~keV for the scatterer and 100~keV for the absorber, to reproduce realistic scenario. This values can change for the final configuration, according to the detector energy resolutions achieved.}
+50~keV for the scatterer and 100~keV for the absorber, to reproduce a realistic scenario. These values can change for the final configuration, according to the detector energy resolutions achieved.}
 \label{fig::efficiency_study}
 \end{figure}
 
@@ -35,18 +35,18 @@ In figure~\ref{fig:coincidences}, the different components of the signal resulti
 
 In figure~\ref{fig:coincidences}(a) and (b) the amount of true gamma coincidences and background events are reported before and after reconstruction via line-cone algorithm as a function of the beam intensity for proton (a) and carbon ion (b) beams. In addition to this, for each curve realized with the complete collected data set, the related one realized after time-of-flight selection of events is sketched. All the curves have been normalized to the number of incident ions.
 
-The amount of background events (mainly random coincidences) increases with the increasing beam intensity: a factor of about 30 with respect to true gamma events is obtained for proton beams at  the intensity of 200 protons per bunch with no event selection, while a factor more than two times higher is reported for carbon ions in the same conditions. The time-of-flight selection can slightly improve the signal -over-noise ratio by reducing the amount of background events. The amount of true gamma events and background events becomes compatible at the intensity of about 1 proton per bunch.
+The amount of background events (mainly random coincidences) increases with the increasing beam intensity: a factor of about 30 with respect to true gamma events is obtained for proton beams at  the intensity of 200 protons per bunch with no event selection, while a factor more than two times higher is reported for carbon ions in the same conditions. The time-of-flight selection can slightly improve the signal -over-noise ratio by reducing the amount of background events. The amount of true gamma events and background events becomes similar at the intensity of about 1 proton per bunch.
 
 
 \subsection{Camera precision}
 \label{Results::precision_reconstruction}
-Given the results presented in the previous paragraph, the camera precision in the fall-off identification is investigated with proton beams at reduced intensities.
+Given the results presented in the previous section, the camera precision in the fall-off identification is investigated with proton beams at reduced intensities.
 %The simulation setup shown in figure~\ref{fig:fig_setup_CC_simulation_Hadronth} has been implemented to test the line-cone analytic reconstruction method and compare it to the iterative LM-MLEM algorithm~\cite{maxim_filtered_2014,hilaire_compton_2014}. 
-A single data set has been collected, corresponding to the irradiation of the PMMA phatom with a proton 160~MeV monoenergetic beam, with a reduced intensity of 1 proton per bunch. A total of $10^{10}$ protons has been simulated to define the reference Bragg peak, and then different sub-data sets have been extracted for the precision estimate at different statistics, as explained in section~\ref{MatMeth:precision}. 
+A single data set has been collected, corresponding to the irradiation of the PMMA phantom with a proton 160~MeV monoenergetic beam, with a reduced intensity of 1 proton per bunch. A total of $10^{10}$ protons has been simulated to define the reference Bragg peak, and then different sub-data sets have been extracted for the precision estimate at different statistics, as explained in section~\ref{MatMeth:precision}. 
 
 The high statistics profile reconstructed via line-cone algorithm is shown in figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone} and via the LM-MLEM reconstruction method in figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}. A NURBS model of a low statistics subset sample ($10^8$ incident protons) is shown in figures~\ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} for the line cone and~\ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM} for the MLEM.
 Figures~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons. The retrieved optimal shift distribution is shown in figure~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} for the line-cone and LM-MLEM algorithm respectively, for $10^8$ incident protons as well.
-Figure~\ref{fig:comparison} shows the results of the reconstruction of the data set obtained for the selection of 10$^8$ primary protons of 160~MeV.
+Figure~\ref{fig:comparison} shows the results of the reconstruction of the data set obtained for the selection of 10$^8$ primary protons.
 
 
 \begin{figure}
@@ -79,7 +79,7 @@ Figure~\ref{fig:comparison} shows the results of the reconstruction of the data 
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/profileY_corr_r20.png}}\\
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
 \caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 1 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.
-Figure (a) represents the MLEM reconstructed 2D image in the plan $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis.  In figure (b) the mono-dimensional profile along the $y$ axis is sketched. The profile peak is located at $y=+50\,$mm. Figure (c) shows the profile obtained by means of line-cone algorithm for the same time-of-flight selected data.}
+Figure (a) represents the MLEM reconstructed 2D image in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  In figure (b) the mono-dimensional profile along the $y$ axis is sketched. The profile fall-off is located at $y=+50\,$mm. Figure (c) shows the profile obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
 \label{fig:comparison}
 \end{figure}
 
@@ -93,5 +93,5 @@ The analysis method described in section~\ref{MatMeth:precision} is applied to t
 \label{fig:precision}
 \end{figure}
 
-The iterative MLEM reconstruction method allows to achieve a better precision, with a reduction of about 3~mm of the falloff retrieval accuracy in the whole range of statistics explored. A linear behavior, highlighted by the performed linear fit of the two data sets, is verified with increasing number of primary protons, starting from the single spot scale of about 10$^8$ primaries, till $5\times10^9$ protons, which can correspond to the monitoring of a group of spot with the same planned range. 
+The iterative MLEM reconstruction method enables one to achieve a better precision, with a reduction of about 3~mm of the falloff retrieval accuracy in the whole range of statistics explored. A linear behavior, highlighted by the performed linear fit of the two data sets, is verified with increasing number of primary protons, starting from the single spot scale of about 10$^8$ primaries, till $5\times10^9$ protons, which can correspond to the monitoring of a group of spot with the same planned range. 
 

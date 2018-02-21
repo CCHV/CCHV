@@ -10,7 +10,7 @@ The scatterer consists of seven parallel planes of silicon detectors (double-sid
 \begin{figure}	
   \centering
   \includegraphics[width=0.7\textwidth]{./Figure/Compton_Camera_hadontherapy_PMMA_Cylinder_EN.pdf}
-  \caption{Scheme of the simulation setup: a PMMA cylindrical phantom is set in front of the Compton camera prototype. The Compton camera is composed of a stack of 7 double sided silicon strip detectors (scatterer) and a plan of 100 single BGO blocks. The set distances are realistic for clinical conditions. This geometrical configuration has been used for all the simulations presented in this work.}
+  \caption{Scheme of the simulation setup (not at scale): a PMMA cylindrical phantom is set in front of the Compton camera prototype. The Compton camera is composed of a stack of 7 double sided silicon strip detectors (scatterer) and a plan of 100 single BGO blocks. The set distances are realistic for clinical conditions. This geometrical configuration has been used for all the simulations presented in this work.}
   \label{fig:fig_setup_CC_simulation_Hadronth}
 \end{figure}
 
@@ -19,7 +19,7 @@ Regarding the BGO blocks, their entrance surface is streaked in a 8$\times$8 mat
 
 In the simulation setup, the ion beam interacts with a cylindrical PMMA (PolyMethylMethAcrylate) phantom (15~cm diameter and 20~cm length) placed in front of the Compton camera as target. It is placed 20~cm far from the first silicon plane (center-to-center distance) in order to exit to a patient in the treatment room. The distance between the last silicon layer and the absorber array (center-to-center) is set to 40~cm.
 
-The silicon detector strips are not reproduced in the simulation code, and the transverse spatial resolution is set to 0.9~mm FWHM at the reference energy of 1~MeV, according to preliminary measurements performed on smaller detector prototypes. Concerning the transverse direction (perpendicular to the beam line), the interaction position is set to the center of the involved silicon plane. A mono-block crystal is simulated for the absorber for simplicity. The events are selected to be limited to a single block component based on the interaction localization, and the interaction position is reconstructed via center of gravity calculation if multiple interaction occur. An incertitude contribution, randomly extracted by a Gaussian of 5~mm FWHM , is added to the reconstructed position to fit with the geometrical features. For what concerns the parallel direction, given the fact that the employed BGO blocks have not depth of interaction reconstruction capabilities, the interaction position is fixed to the center of the mono-block crystal.
+The silicon detector strips are not reproduced in the simulation code, and the transverse spatial resolution is set to 0.9~mm FWHM at the reference energy of 1~MeV, according to preliminary measurements performed on smaller detector prototypes. Concerning the transverse direction (perpendicular to the beam line), the interaction position is set to the center of the involved silicon plane. A mono-block crystal is simulated for the absorber for simplicity. The events are selected to be limited to a single block component based on the interaction localization, and the interaction position is reconstructed via center of gravity calculation if multiple interactions occur. An uncertainty contribution, randomly extracted by a Gaussian of 5~mm FWHM , is added to the reconstructed position to fit with the geometrical features. For what concerns the parallel direction, given the fact that the employed BGO blocks have not depth of interaction reconstruction capabilities, the interaction position is fixed to the center of the mono-block crystal.
 
 The energy resolution of the BGO blocks was estimated in preliminary measurements and is accordingly set to 17\% FWHM at the reference energy of 667~keV (a 137-cesium source has been used for the measurements). The energy resolution of the silicon detector is set to 2.3~keV (RMS) according to the design expectations; no characterization data are yet available for an instrumental estimate.
 
@@ -41,7 +41,7 @@ The detector's spatial, energy, and time resolutions are summarized in table \re
 \hline 
 \textbf{spatial [mm]	}			 &     0.9		 &  5 &	 1\\
 %\hline
-\textbf{energy}				&	2.3~keV		&  17~\%	&	/\\
+\textbf{energy}				&	5.4~keV		&  17~\%	&	/\\
 %\hline
 \textbf{timing [ns]}	        		&	15			&	3 	&  1\\
 \hline
@@ -82,7 +82,7 @@ The particle interactions in matter are described in this work by means of the m
 
 The two main beam particles used in clinics are considered: protons and carbon ions. The beam range of interest is 15.2~cm in the PMMA phantom, and the associated energy is 160~MeV for protons and 305~MeV/n for carbon ions.
  
-The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The beam intensity for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.
+The beam transverse dimension is modeled with a Gaussian distribution with a standard deviation of 5~mm for protons at 160~MeV and 3.5~mm for carbon ions at 305~MeV/n. The number of incident ions for a spot in pencil beam scanning (PBS) mode is $10^8$ for protons (distal spot) and $10^5$ for carbon ions. The beam time structure is applied at the data analysis stage and described in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}.
 
 %\subsection{Data processing}
 %\label{subsection:Treatment_data_CC_hadrontherapy_Geant4}
@@ -90,7 +90,7 @@ The beam transverse dimension is modeled with a Gaussian distribution with a sta
 \subsection{Beam time structure}
 \label{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}
  
-Two different beam time structures have been considered for this study, related to two kinds of accelerators used in clinical practice: the IBA C230 cyclotron for protons (used in 16 clinical centers worldwide) and the synchrotron installed in the Heidelberg Ion Therapy Center (HIT), Germany, for carbon ions. For protons at 160 MeV, the primary particles are grouped in bunches of 2~ns (this value may vary also according to the distance between the cyclotron and the treatment room, and energy spread selection) at a frequency of 106~MHz (9.42~ns)~\cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2~nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305~MeV/u, the estimated microstructure is composed of 30~ns duration bunches at a frequency of 5.9~MHz (170~ns period). The clinical beam intensity for carbon ions is $5\times10^7$~ions/s, corresponding to about 9~ions per bunch. This beam structure is extrapolated from measurements performed by our group in 2013 at HIT; the beam time structure was measured for 200~MeV/u and 400~MeV/u primary ion energy with a two-fiber hodoscope (basic prototype of the one at present under development) and the spill signal was given by the accelerator. Figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400~MeV/u. The pulses have a spill period of 150.2~ns and each bunch is approximately 21.5~ns.
+Two different beam time structures have been considered for this study, related to two kinds of accelerators used in clinical practice: the IBA C230 cyclotron for protons (used in 16 clinical centers worldwide) and the synchrotron installed in the Heidelberg Ion Therapy Center (HIT), Germany, for carbon ions. For protons at 160 MeV, the primary particles are grouped in bunches of 2~ns (this value may vary also according to the distance between the cyclotron and the treatment room, and energy spread selection) at a frequency of 106~MHz (9.42~ns)~\cite{f_roellinghoff_real-time_2014}. The clinical beam intensity is 3.2~nA which corresponds to about 200 protons per bunch. Concerning the carbon ion beam at 305~MeV/u, the estimated microstructure during the extraction phase is composed of 30~ns duration bunches at a frequency of 5.9~MHz (170~ns period). The clinical beam intensity for carbon ions is $5\times10^7$~ions/s during extraction, corresponding to about 9~ions per bunch. This beam structure is extrapolated from measurements performed by our group in 2013 at HIT; the beam time structure was measured for 200~MeV/u and 400~MeV/u primary ion energy with a two-fiber hodoscope (basic prototype of the one at present under development) and the spill signal was given by the accelerator. Figure \ref{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth} shows the beam structure for carbon ions at 400~MeV/u. The pulses have a spill period of 150.2~ns and each bunch is approximately 21.5~ns.
 The mentioned measurements have shown that the spill phase changes during the extraction: this implies that the HF signal from the synchrotron can not be used to trigger the pulses, so that the use of an additional beam time stamp system like the hodoscope seems required for time-of-flight background rejection purposes.
 
 \begin{figure} [!hbtp]	
@@ -126,7 +126,7 @@ The coincidence window (between scatterer and absorber events) is set to 40~ns, 
 %\cline{2-4}%
 \hline
 \multirow{2}{*}\textbf{Detectors}						& Coincidence window [ns]		& 40 	&  40 \\
-											&Time resolution [ns] & \multicolumn{2}{c}{Si: 15 and BGO: 3}\\
+											&Time resolution (FWHM) [ns] & \multicolumn{2}{c}{Si: 15 and BGO: 3}\\
 %\cline{2-4}%
 \hline
 \end{tabular}
@@ -141,14 +141,14 @@ The coincidence window (between scatterer and absorber events) is set to 40~ns, 
 \subsection{TOF and energy based data selection}
 \label{MatMeth::TOF_Ecut}
 
-The Compton detection principle is based on a double interaction in the scatterer and absorber section, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidences events can be distinguished and studied: 
+The Compton detection principle is based on a double interaction in the scatterer and absorber section, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidence events can be distinguished and studied: 
 \begin{itemize}
 \item[-] real coincidences: created by a single photon first interacting in a single scatterer plane and then in a single absorber block;
 \item[-] quasi-simultaneous interaction of two secondary particles;
 \item[-] double interaction of the same particle, not a photon (protons, neutrons).
 \end{itemize}
 
-In an experiment the collected data are affected by a certain number of the so-called random coincidences, which cannot be experimentally distinguished form true coincidences. The amount of random coincidences depends on the detector time resolutions, on the fixed time coincidence window and on the beam time structure, on the phantom composition and camera prototype setup. In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth}, a schematic view of the different kinds of coincidences is presented.
+In an experiment the collected data are affected by a certain number of the so-called random coincidences, which cannot be experimentally distinguished from true coincidences, from the timing coincidence point of view. The amount of random coincidences depends on the detector time resolutions, on the fixed time coincidence window and on the beam time structure, on the phantom composition and camera prototype setup. In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth}, a schematic view of the different kinds of coincidences is presented.
 
 \begin{figure}
   \centering
@@ -161,11 +161,11 @@ In addition to this, the prompt gamma measurement is contaminated by other secon
 Ad-hoc filtering methods are applied to reduce the above described contamination.
 
 \begin{itemize}
-\item Time-Of-Flight: it has been demonstrated by our group that a time-of-flight discrimination is possible and effective in reducing the background generated by massive particles interactions~\cite{Testa:2010aa}. The photons are moving at approximately the speed of light while the massive particles approach the detector at a lower speed. The time information provided by the hodoscope and the absorber can be combined to fix a detection time window and reject all the events outside the window. The time between the incident particle creation and the secondary particle detection in the absorber is considered as the time-of-flight. The hodoscope time resolution $u_{\mathrm{hodoscope}}$ (1~ns FWHM) is applied to the primary particle creation time, with a contribution randomly extracted from a Gaussian with $\sigma\,=$ 1/2.35~ns. The detection time in the absorber is affected by the absorber time resolution.
+\item Time-Of-Flight: it has been demonstrated by our group that a time-of-flight discrimination is possible and effective in reducing the background generated by massive particles interactions~\cite{Testa:2010aa}. The massive particles approach the detector at a lower speed with respect to photons. The time information provided by the hodoscope and the absorber can be combined to fix a detection time window and reject all the events outside the window. The time elapsed between the incident particle creation and the secondary particle detection in the absorber is considered as the time-of-flight. The hodoscope time resolution $u_{\mathrm{hodoscope}}$ (1~ns FWHM) is applied to the primary particle creation time, with a contribution randomly extracted from a Gaussian with $\sigma\,=$ 1/2.35~ns. The detection time in the absorber is affected by the absorber time resolution.
 
  \begin{eqnarray}
-TOF_{\mathrm{theoretica}} = t_{\mathrm{absorber}}-t_{\mathrm{hodoscope}} \\
-TOF_{\mathrm{simulation}} = t_{\mathrm{absorber}}+t_{\mathrm{creation}} + u_{\mathrm{hodoscope}}
+TOF = t_{\mathrm{absorber}}-t_{\mathrm{hodoscope}} \\
+TOF_{\mathrm{simulation}} = t_{\mathrm{absorber}}-(t_{\mathrm{creation}} + u_{\mathrm{hodoscope}})
 \label{TOF_equation}
 \end{eqnarray} 
 
@@ -177,7 +177,8 @@ The time-of-flight spectrum resulting from the simulation shows that the coincid
   \label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 \end{figure}
 
-\item Energy selection: energy thresholds are defined for the event detection. 50~keV and 100~keV are set as lower threshold for the energy deposited in a single silicon layer and absorber, respectively. For a complete event, a total absorbed energy lower limit is set to 1~MeV. In addition to the effect of background rejection, this selection also reduces the impact of partially absorbed photons and events with Compton electron escape.
+\item Energy selection: energy thresholds are defined for the event detection. 50~keV and 100~keV are set as lower threshold for the energy deposited in a single silicon layer and absorber, respectively. For a complete event, a total absorbed energy lower limit is set to 1~MeV. In addition to the effect of background rejection, this selection also reduces the impact of partially absorbed photons and events with Compton electron escape.\newline
+Further energy selections, assuming for instance E1+E2 equal to one of the strong gamma lines, have been applied by other authors. Also, filters checking the possibility of reconstructing a Compton cone could be used. At this stage we did not consider such approaches, in order to cope with simple considerations on signal to noise on raw data.
 
 \end{itemize}
 
@@ -187,12 +188,12 @@ Once the coincidences are defined and selected according to the fixed physical c
 
 
 \subsubsection{Line-cone algorithm}
-The reconstruction via line-cone algorithm exploits the energy deposit and position information collected by the camera in addition to the beam planned path. Thanks to the deposited energies in the detectors and the interaction positions, a cone surface is analytically defined via the Compton equation~\ref{Compton_equation}. Figure~\ref{fig:reconstruction_scheme} shows a sketch of the reconstruction principle. The interaction position in the scatter gives the cone apex and the line connecting the interaction position in scatterer and absorber gives the cone axis. We assume that the initial energy of the gamma ray is fully absorbed in the absorber. In order to constrain the reconstruction, the beam direction is used to limit the possible solutions (lying on the reconstructed cone surface) to two points (intersection of the beam direction and the reconstructed cone). The set of all the reconstructed points gives the emission source distribution. The final image is the mono-dimensional projection of the prompt gamma emission spectrum. 
+The reconstruction via line-cone algorithm exploits the energy deposit and position information collected by the camera in addition to the beam planned path. Thanks to the deposited energies in the detectors and the interaction positions, a cone surface is analytically defined via the Compton equation~\ref{Compton_equation}. Figure~\ref{fig:reconstruction_scheme} shows a sketch of the reconstruction principle. The interaction position in the scatter gives the cone apex and the line connecting the interaction positions in scatterer and absorber gives the cone axis. We assume that the initial energy of the gamma ray is fully absorbed in the absorber. In order to constrain the reconstruction, the beam direction is used to limit the possible solutions (lying on the reconstructed cone surface) to two points (intersection of the beam direction and the reconstructed cone). The set of all the reconstructed points gives the emission source distribution. The final image is the mono-dimensional projection of the prompt gamma emission spectrum. 
 
 \begin{figure}
 \centering
   \includegraphics[width=0.8\textwidth]{./Figure/reconstruction_scheme}
-  \caption{Scheme of the reconstruction principle for Compton events. For line-cone reconstruction methods, two points are extracted for each event (diamonds in the figure), provided by the intersection between the reconstructed Compton cone and the beam line. The reconstructed image is strictly mono-dimensional. For the iterative MLEM algorithm, each algorithm iteration adds constraints to the reconstructed cone surfaces, leading to  a three dimensional image.}	
+  \caption{Scheme of the reconstruction principle for Compton events. For line-cone reconstruction methods, two points are extracted for each event (diamonds in the figure), provided by the intersection between the reconstructed Compton cone and the beam line. The reconstructed image is strictly 1D. For the iterative MLEM algorithm, each algorithm iteration adds constraints to the reconstructed cone surfaces, leading to  a 3D image.}	
   \label{fig:reconstruction_scheme}
 \end{figure}
 
@@ -237,7 +238,7 @@ In this section the parameters studied for the camera performance evaluation are
 
 
 \subsubsection{Absolute detection efficiency}
-The absolute efficiency is crucial for the Compton camera performances and for its possible application in treatment monitoring. An efficient monitoring system should be ideally in real time, in order to allow for a treatment adaptation or interruption in case of severe issues detected in the delivered dose profile with respect to the planned treatment. In order to achieve an online detection of such deviations, given the reduced prompt gamma emission rate per incident ion~\cite{Ortega:2015aa}, an high detection efficiency is required to perform a monitoring on, ideally, a beam spot basis. In addition to this, the absolute detection efficiency directly affects the image reconstruction quality, which is in general increased for increased statistics.
+The absolute efficiency is crucial for the Compton camera performances and for its possible application in treatment monitoring. An efficient monitoring system should be ideally in real time, in order to allow for a treatment adaptation or interruption in case of severe issues detected in the delivered dose profile with respect to the planned treatment. In order to achieve an online detection of such deviations, given the reduced prompt gamma emission rate per incident ion~\cite{Ortega:2015aa}, a high detection efficiency is required to perform a monitoring on, ideally, a beam spot basis. In addition to this, the absolute detection efficiency directly affects the image reconstruction quality, which is in general increased for increased statistics.
 
 In order to well define the expected camera efficiency, it has been studied with the irradiation from point-like mono-energetic gamma sources, set in different positions with respect to the center of the camera on the transverse plane.	
 
@@ -246,25 +247,25 @@ The absolute efficiency $\epsilon$ is defined as:
 \epsilon =\frac{\mathrm{N}\gamma_{\mathrm{recons}}}{\mathrm{N}\gamma_{\mathrm{total}}},
 \end{equation}
 \label{eq:equation_efficacite_absolue}
-with $N\gamma_{\mathrm{recons}}$ the number of gamma events in coincidences, $N\gamma_{\mathrm{total}}$ the total number of gamma emitted.
+with $N\gamma_{\mathrm{recons}}$ the number of gamma events corresponding to true coincidences, $N\gamma_{\mathrm{total}}$ the total number of gamma emitted.
 
 The setup is the same as figure \ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air.
-The point-like source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0) with a step of 20~mm close to the center of the camera, then increasing up to 1~cm for the most peripheral point. The movement followed the transverse axis of the camera. Different energies has been tested to mimic different prompt gamma spectroscopic lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part for the study.
+The point-like source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0) with a step of 20~mm close to the center of the camera, then increasing up to 1~cm for the most peripheral point. The movement followed the transverse axis of the camera. Different energies have been tested to mimic different prompt gamma spectroscopic lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part for the study.
 
 \subsubsection{Rate of random coincidences}
 
-As the Compton detection principle relies on time coincidences, in addition to the main importance played by the detectors energy resolutions, the beam intensity and time structure are important parameters to be studied in order to asses the possible clinical implementation of a Compton detection based monitoring of ion beam treatment. The ability of the detection system to distinguish between true and random coincidences, i.e.~the resulting signal over noise ratio, strongly depends on the primary particle time structure. The number of true and random coincidences (where the two cases listed in section~\ref{MatMeth::TOF_Ecut} are included in the random coincidences) is studied as a function of the beam intensity, before and after data reconstruction via line-cone algorithm~(see section~\ref{MatMeth:reconstruction}).
+As the Compton detection principle relies on time coincidences, in addition to the main importance played by the detectors energy resolutions, the beam intensity and time structure are important parameters to be studied in order to assess the possible clinical implementation of a Compton detection based monitoring of ion beam treatment. The ability of the detection system to distinguish between true and random coincidences, i.e.~the resulting signal over noise ratio, strongly depends on the beam time structure. The number of true and random coincidences (where the two cases listed in section~\ref{MatMeth::TOF_Ecut} are included in the random coincidences) is studied as a function of the beam intensity, before and after data reconstruction via line-cone algorithm~(see section~\ref{MatMeth:reconstruction}).
 
 In the simulation, the beam intensity is modeled by an average number of particles per bunch. The exact number of particles in each bunch is given by a random extraction from a Poisson distribution, where the mean value is the selected beam intensity. The range of intensities is defined in order to cover a wide range of operation: from a very low beam intensity to a realistic clinical particle rate. Therefore, for proton and carbon ions, the lowest beam intensity is set to 0.1 particles per bunch on average, while the upper limit is set to 217 protons or 70 carbon ions per bunch. All the simulations are performed with a total of $10^{8}$ primary protons and  $2\times10^{5}$ primary carbon ions. Those value correspond to realistic clinical values used for the treatment of a single spot~\cite{Grevillot_2011}. For the analysis of the results, the coincidence yields are scaled to the number of incident ions and the beam intensity to the average number of ions per bunch.
 
 \subsubsection{Camera precision}
 \label{MatMeth:precision}
 
-The camera precision is defined as the difference between the predicted Bragg peak position (according to the treatment planning) and the detected one.
+The camera precision is defined as the difference between the predicted PG fall-off (according to the treatment planning) and the detected one.
 In this study, a reference profile has been defined as the reconstructed emission vertex profile at high statistics ($\mathrm{10^{10}}$ incident protons). This Bragg peak position is used as reference and compared to the ones at lower statistics, deduced as described in the following.
 
 For the LM-MLEM reconstruction, the reconstruction volume is set to $20\times40\times1$~cm$^3$ around the Bragg peak expected position, with a $100\times200\times5$ voxel matrix. To be noticed that the two reconstruction methods produce different results: the line-cone method is based on the beam direction information, so that it naturally returns a mono-dimensional image as result, while the LM-MLEM method is able to reconstruct the prompt-gamma emission distribution in three dimensions. A mono-dimensional projection along the beam direction is used for the falloff identification and for a direct comparison of the line-cone method.
-The \textit{SmoothKern} method, with the Nadaraya-Watson regression~\cite{Nadaraya_regression, Watson_regression}, is used to smooth the reference profiles in order to reduce relative statistic fluctuations.
+The \textit{SmoothKern} method, with the Nadaraya-Watson regression~\cite{Nadaraya_regression, Watson_regression}, is used to smooth the reference profiles in order to reduce relative statistical fluctuations.
 
 A region of interest (ROI) ranging from $y=0$ mm to $y=+100$ mm is defined around the expected Bragg peak position, located at $y=+50$~mm in the phantom. The reference reconstructed profiles are modeled in the ROI by a linear combination of Non-Uniform Rational Basis Splines (NURBS)~\cite{NURBS}. 
 
@@ -272,9 +273,9 @@ The reference data set is normalized in order to obtain lower statistics profile
 
 For each chosen statistics, 1000 data subsets are generated and a custom minimization method is applied to deduce the minimal shift between the reference profile and the one obtained from the data subset. The minimization algorithm shifts the reference profile in a 60~mm range, between $-30$~mm and $+30$~mm with respect to the initial position, with a step of $0.1$~mm, and for each position it compares its position to the low statistics profile by calculating the $\chi^2$ as follows:
 \begin{eqnarray}
-\chi^2 = \sum\limits_{i=1} {(y_{\mathrm{sample,i}}-y_{\mathrm{NURBS,i}})^2},
+\chi^2 = \sum\limits_{i=1}^{N_{bin}} {(y_{\mathrm{sample,i}}-y_{\mathrm{NURBS,i}})^2},
 \end{eqnarray}
-where $y_{\mathrm{sample}}$ is the number of coincidences for the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of coincidences for the reference profile NURBS (scaled at the same low statistic) and $i$ the step number. Several minimization algorithms are available, but in order to avoid artifacts at low statistic, a robust custom defined approach has been preferred.
+where for every bin $i$ $y_{\mathrm{sample}}$ is the number of events in the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of events for the reference profile NURBS (scaled at the same low statistic). Several minimization algorithms are available, but in order to avoid artifacts at low statistic, a robust custom defined approach has been preferred.
 
 %Figures~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons.
 
