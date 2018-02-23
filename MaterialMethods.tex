@@ -15,7 +15,7 @@ The scatterer consists of seven parallel planes of silicon detectors (double-sid
 \end{figure}
 
 The silicon detectors have a strip pitch of 1.4~mm, for a total of 64 strips per side (double-sided readout based on electron and hole pairs collection). 
-Regarding the BGO blocks, their entrance surface is streaked in a 8$\times$8 matrix of pseudo-pixels, 4.4$\times$4.4~mm$^{2}$ size, and the readout is performed via 4 photo-multiplier tubes. The position reconstruction is achieved via Anger logic.
+Regarding the BGO blocks, their entrance surface is streaked in a 8$\times$8 matrix of pseudo-pixels, $4.4\times4.4$~mm$^{2}$ size, and the readout is performed via 4 photo-multiplier tubes. The position reconstruction is achieved via Anger logic.
 
 In the simulation setup, the ion beam interacts with a cylindrical PMMA (PolyMethylMethAcrylate) phantom (15~cm diameter and 20~cm length) placed in front of the Compton camera as target. It is placed 20~cm far from the first silicon plane (center-to-center distance) in order to exit to a patient in the treatment room. The distance between the last silicon layer and the absorber array (center-to-center) is set to 40~cm.
 
@@ -177,8 +177,9 @@ The time-of-flight spectrum resulting from the simulation shows that the coincid
   \label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 \end{figure}
 
-\item Energy selection: energy thresholds are defined for the event detection. 50~keV and 100~keV are set as lower threshold for the energy deposited in a single silicon layer and absorber, respectively. For a complete event, a total absorbed energy lower limit is set to 1~MeV. In addition to the effect of background rejection, this selection also reduces the impact of partially absorbed photons and events with Compton electron escape.\newline
-Further energy selections, assuming for instance E1+E2 equal to one of the strong gamma lines, have been applied by other authors. Also, filters checking the possibility of reconstructing a Compton cone could be used. At this stage we did not consider such approaches, in order to cope with simple considerations on signal to noise on raw data.
+\item Energy selection: energy thresholds are defined for the event detection. 50~keV and 100~keV are set as lower threshold for the energy deposited in a single silicon layer and absorber, respectively. For a complete event, a total absorbed energy lower limit is set to 1~MeV. In addition to the effect of background rejection, this selection also reduces the impact of partially absorbed photons and events with Compton electron escape.
+
+Further energy selections, assuming for instance $E_1+E_2$ equal to one of the strong gamma lines, have been applied by other authors. Also, filters checking the possibility of reconstructing a Compton cone could be used. At this stage we did not consider such approaches, in order to cope with simple considerations on signal to noise on raw data.
 
 \end{itemize}
 
