@@ -10,6 +10,7 @@
 #include "TStyle.h"
 #include "TLegend.h"
 #include "Riostream.h"
+#include "TGraph.h"
 
 //#include <math>
 #include <stdio.h>
@@ -28,7 +29,7 @@ void graphique_2D_Efficacite_CC()
 {
 
 TCanvas *c1 = new TCanvas("c1","c1",700,800); // Création du canvas
-
+TCanvas *c2 = new TCanvas("c2","c2",1000,800);
 //Double_t number_datas = 19;
 
 	Double_t Energy_abscisse [19]	= {-300,-200,-150,-100,-80,-60,-40,-20,-10,0,10,20,40,60,80,100,150,200,300};
@@ -59,6 +60,101 @@ Double_t datas_4Mev_cutSum [19]	=  {1106, 2482, 4525, 7823, 9410, 11176, 12375, 
 Double_t datas_6Mev_cutSum [19]	=  {958, 1861, 3418, 6378, 7540, 9086, 10262, 11034, 11274, 11287, 11403, 10989, 10236, 8968, 7634, 6398, 3266, 1799, 935}; // 6 MeV
 
 
+//////------------------Rate total absorption VS energy -------------------/////////
+TGraph *rate_energy = new TGraph(6);
+TGraph *rate_energy_40 = new TGraph(6);
+TGraph *rate_energy_100 = new TGraph(6);
+TGraph *rate_energy_300 = new TGraph(6);
+
+rate_energy->SetMarkerColor(kBlue);
+rate_energy->SetMarkerStyle(22);
+rate_energy->SetMarkerSize(1);
+
+rate_energy_40->SetMarkerColor(kRed);
+rate_energy_40->SetMarkerStyle(22);
+rate_energy_40->SetMarkerSize(1);
+
+rate_energy_100->SetMarkerColor(kGreen);
+rate_energy_100->SetMarkerStyle(22);
+rate_energy_100->SetMarkerSize(1);
+
+rate_energy_300->SetMarkerColor(kOrange);
+rate_energy_300->SetMarkerStyle(22);
+rate_energy_300->SetMarkerSize(1);
+
+
+rate_energy->SetPoint(0,300, datas_300keV_cutSum[9]/datas_300keV[9]);
+rate_energy->SetPoint(1,500, datas_500kev_cutSum[9]/datas_500kev[9]);
+rate_energy->SetPoint(2,1000, datas_1Mev_cutSum[9]/datas_1Mev[9]);
+rate_energy->SetPoint(3,2000, datas_2Mev_cutSum[9]/datas_2Mev[9]);
+rate_energy->SetPoint(4,4000, datas_4Mev_cutSum[9]/datas_4Mev[9]);
+rate_energy->SetPoint(5,6000, datas_6Mev_cutSum[9]/datas_6Mev[9]);
+
+rate_energy_40->SetPoint(0,300, (datas_300keV_cutSum[6]/datas_300keV[6] + datas_300keV_cutSum[12]/datas_300keV[12])/2);
+rate_energy_40->SetPoint(1,500, (datas_500kev_cutSum[6]/datas_500kev[6] + datas_500kev_cutSum[12]/datas_500kev[12])/2);
+rate_energy_40->SetPoint(2,1000,(datas_1Mev_cutSum[6]/datas_1Mev[6] + datas_1Mev_cutSum[12]/datas_1Mev[12])/2);
+rate_energy_40->SetPoint(3,2000,(datas_2Mev_cutSum[6]/datas_2Mev[6] + datas_2Mev_cutSum[12]/datas_2Mev[12])/2);
+rate_energy_40->SetPoint(4,4000, (datas_4Mev_cutSum[6]/datas_4Mev[6] + datas_4Mev_cutSum[12]/datas_4Mev[12])/2);
+rate_energy_40->SetPoint(5,6000, (datas_6Mev_cutSum[6]/datas_6Mev[6] + datas_6Mev_cutSum[12]/datas_6Mev[12])/2);
+
+rate_energy_100->SetPoint(0,300, (datas_300keV_cutSum[3]/datas_300keV[3] + datas_300keV_cutSum[15]/datas_300keV[15])/2);
+rate_energy_100->SetPoint(1,500, (datas_500kev_cutSum[3]/datas_500kev[3] + datas_500kev_cutSum[15]/datas_500kev[15])/2);
+rate_energy_100->SetPoint(2,1000, (datas_1Mev_cutSum[3]/datas_1Mev[3] + datas_1Mev_cutSum[15]/datas_1Mev[15])/2);
+rate_energy_100->SetPoint(3,2000, (datas_2Mev_cutSum[3]/datas_2Mev[3] + datas_2Mev_cutSum[15]/datas_2Mev[15])/2);
+rate_energy_100->SetPoint(4,4000, (datas_4Mev_cutSum[3]/datas_4Mev[3] + datas_4Mev_cutSum[15]/datas_4Mev[15])/2);
+rate_energy_100->SetPoint(5,6000, (datas_6Mev_cutSum[3]/datas_6Mev[3] + datas_6Mev_cutSum[15]/datas_6Mev[15])/2);
+
+rate_energy_300->SetPoint(0,300, (datas_300keV_cutSum[0]/datas_300keV[0] + datas_300keV_cutSum[18]/datas_300keV[18])/2);
+rate_energy_300->SetPoint(1,500, (datas_500kev_cutSum[0]/datas_500kev[0] + datas_500kev_cutSum[18]/datas_500kev[18])/2);
+rate_energy_300->SetPoint(2,1000, (datas_1Mev_cutSum[0]/datas_1Mev[0] + datas_1Mev_cutSum[18]/datas_1Mev[18])/2);
+rate_energy_300->SetPoint(3,2000, (datas_2Mev_cutSum[0]/datas_2Mev[0] + datas_2Mev_cutSum[18]/datas_2Mev[18])/2);
+rate_energy_300->SetPoint(4,4000, (datas_4Mev_cutSum[0]/datas_4Mev[0] + datas_4Mev_cutSum[18]/datas_4Mev[18])/2);
+rate_energy_300->SetPoint(5,6000, (datas_6Mev_cutSum[0]/datas_6Mev[0] + datas_6Mev_cutSum[18]/datas_6Mev[18])/2);
+
+
+TLegend * leg = new TLegend(0.7,0.6,0.9,0.9);
+leg->SetHeader("Source position");
+c2->cd();
+c2->SetLeftMargin(0.15);
+c2->SetGrid();
+
+TH1 *frame_2 = c2->DrawFrame(0, 0, 6800, 1);   //200,-180,130);
+	//frame->SetMinimum(0);
+	//frame->SetMaximum(300);//
+	frame_2->SetDirectory(0);
+	frame_2->SetStats(0);
+	frame_2->SetTitle("");
+	//frame->	GetXaxis()->SetRangeUser(-200, 200);
+	//frame->	GetYaxis()->SetRangeUser(0., 1e-7);
+	//	frame->	GetYaxis()->SetLabelSize(20);
+	//frame->GetYaxis()->SetLabelSize(0.001);
+	frame_2->GetXaxis()->SetTitleSize(0.05);
+	frame_2->GetXaxis()->SetTitle("Primary gamma energy [keV]");
+	frame_2->GetXaxis()->SetTickLength(0.02);
+	frame_2->GetXaxis()->SetLabelSize(0.05);
+	frame_2->GetYaxis()->SetTitleSize(0.05);
+	frame_2->GetYaxis()->SetTitle("#splitline{Rate of 90 \%}{absorbed events}");
+	frame_2->GetYaxis()->SetLabelSize(0.05);
+	frame_2->GetYaxis()->SetTitleOffset(1.5);
+	//frame->Draw("");
+	rate_energy->SetLineColor(kBlue);
+	rate_energy->Draw("PL");
+	/*rate_energy_40->SetLineColor(kRed);
+	rate_energy_40->Draw("PL");
+	rate_energy_100->SetLineColor(kGreen);
+	rate_energy_100->Draw("PL");
+	rate_energy_300->SetLineColor(kOrange);
+	rate_energy_300->Draw("PL");
+*/
+	/*leg->AddEntry(rate_energy,"camera center","p");
+  leg->AddEntry(rate_energy_40,"+/- 40 mm","p");
+  leg->AddEntry(rate_energy_100,"+/- 100 mm","p");
+	leg->AddEntry(rate_energy_300,"+/- 300 mm","p");
+	leg->Draw();*/
+
+	c2->Modified();
+	c2->Update();
+}
 //Avec Cut sum energy Si + BGO 90% of tot
 /*Double_t datas_300keV_cutSumSingle [19]	= {} ; //300 keV
 Double_t datas_500kev_cutSumSingle [19]		={};// 500 kev
@@ -66,7 +162,7 @@ Double_t datas_1Mev_cutSumSingle[19]	= {}   ; // 1 MeV
 Double_t datas_2Mev_cutSumSingle [19]	=  {}; // 2 MeV
 Double_t datas_4Mev_cutSumSingle [19]	=  {}; // 4 MeV
 Double_t datas_6Mev_cutSumSingle [19]	=  {}; // 6 MeV
-*/
+
 Double_t ratio_noCut_cutSum[6][19];
 Double_t ratio_cutSingle_cutSingleSum[6][19];
 
@@ -80,13 +176,13 @@ Double_t ratio_cutSingle_cutSingleSum[6][19];
 		ratio_noCut_cutSum[4][rat]=datas_4Mev_cutSum[rat]/datas_4Mev[rat];
 		ratio_noCut_cutSum[5][rat]=datas_6Mev_cutSum[rat]/datas_6Mev[rat];
 
-		/*ratio_cutSingle_cutSingleSum[0][rat]=datas_300keV_cutSumSingle[rat]/datas_300keV_cutSingle[rat];
+		ratio_cutSingle_cutSingleSum[0][rat]=datas_300keV_cutSumSingle[rat]/datas_300keV_cutSingle[rat];
 		ratio_cutSingle_cutSingleSum[1][rat]=datas_500kev_cutSumSingle[rat]/datas_500kev_cutSingle[rat];
 		ratio_cutSingle_cutSingleSum[2][rat]=datas_1Mev_cutSumSingle[rat]/datas_1Mev_cutSingle[rat];
 		ratio_cutSingle_cutSingleSum[3][rat]=datas_2Mev_cutSumSingle[rat]/datas_2Mev_cutSingle[rat];
 		ratio_cutSingle_cutSingleSum[4][rat]=datas_4Mev_cutSumSingle[rat]/datas_4Mev_cutSingle[rat];
 		ratio_cutSingle_cutSingleSum[5][rat]=datas_6Mev_cutSumSingle[rat]/datas_6Mev_cutSingle[rat];
-*/
+
 	}
 
 	std::ofstream out_txt("output_efficiency_ratio_sumCut.txt", std::ios::out);
@@ -107,7 +203,7 @@ out_txt.close();
 out_txt_1.close();
 
     //Différence de cut  à 300 keV
-   /* Double_t datas_LYSO [19]	= { 15613, 29301, 39674, 52957, 58117, 62280, 66329, 68280, 69533, 69090, 68703, 68353, 65598, 62375, 57524, 52683, 40086, 29266, 15623} ; // sans cut
+    Double_t datas_LYSO [19]	= { 15613, 29301, 39674, 52957, 58117, 62280, 66329, 68280, 69533, 69090, 68703, 68353, 65598, 62375, 57524, 52683, 40086, 29266, 15623} ; // sans cut
     Double_t datas_BGO [19]		={ 8744, 9943, 8927, 7086, 6351, 5894, 5521, 5447, 5462, 5371, 5338, 5276, 5676, 5886, 6407, 7113, 8954, 10001, 8717}; // cut Si 50 keV BGO 0 KeV
     Double_t datas_LaBr3[19]	= {15345, 28885, 39205, 52289, 57435, 61605, 65566, 67470, 68725, 68313, 67964, 67590, 64865, 61651, 56858, 52067, 39602, 28856, 15353}   ; //cut Si 0 keV BGO 100 KeV
     Double_t datas_LYSO1 [19]	=  {6551, 13305, 20377, 30405, 34491, 38189, 41996, 44327, 44630, 45210, 45163, 44350, 42573, 39127, 34372, 30274, 20471, 13334, 6543}; // rien en rapport*/
@@ -122,7 +218,7 @@ out_txt_1.close();
 
 
 	// Calcul des incertitudes
-		Double_t incertitude_300kev [20];
+	/*	Double_t incertitude_300kev [20];
     Double_t incertitude_500kev [20];
     Double_t incertitude_1Mev [20];
     Double_t incertitude_2Mev [20];
@@ -158,7 +254,7 @@ out_txt_1.close();
 	char name[80];	sprintf(name, "Detection efficiency vs source position"); // Nom du graphique
 	TLegend *leg;
 	TLegend *leg_cut;
-
+	c1->cd();
 	TH1 *frame = new TH1F("frame","",1000,-300,300);
 	frame->SetMinimum(1e-6);
 	frame->SetMaximum(5e-4);
@@ -330,9 +426,9 @@ out_txt_1.close();
 	//gr5_cutSingleSum->Draw("P"); // Dessine le graph
 */
 
-	leg = new TLegend(0.3,0.12,0.5,0.45);
+/*	leg = new TLegend(0.4,0.12,0.6,0.45);
 	//leg->SetHeader("#splitline{50 keV threshold on scatterer}{100 keV threshold on absorber}"); // option "C" allows to center the header
-	leg->SetHeader("No energy cut");
+	//leg->SetHeader("No energy cut");
 	leg->SetFillColor(10);
 	leg->SetTextSize(0.03);
 	leg_cut = new TLegend(0.5,0.12,0.7,0.45);
@@ -340,9 +436,9 @@ out_txt_1.close();
 	leg_cut->SetFillColor(10);
 	leg_cut->SetTextSize(0.03);
 
-  /*  leg->AddEntry(gr,"300 keV - No cuts","p");
-    leg->AddEntry(gr1,"300 keV - Cut Si 50 keV ","p");
-    leg->AddEntry(gr2,"300 keV - Cut BGO 100 keV ","p");*/
+    //leg->AddEntry(gr,"300 keV - No cuts","p");
+    //leg->AddEntry(gr1,"300 keV - Cut Si 50 keV ","p");
+    //leg->AddEntry(gr2,"300 keV - Cut BGO 100 keV ","p");
 
 		//Choose here what to plot
 		//no cut
@@ -361,40 +457,40 @@ out_txt_1.close();
 		gr4_cutSingle->Draw("P");
 		gr5_cutSingle->Draw("P");*/
 		//sum of energy deposit cut
-		c1->cd();
-		gr_cutSum->Draw("P");
+	//	c1->cd();
+		/*gr_cutSum->Draw("P");
 		gr1_cutSum->Draw("P");
 		gr2_cutSum->Draw("P");
 		gr3_cutSum->Draw("P");
 		gr4_cutSum->Draw("P");
 		gr5_cutSum->Draw("P");
 		//single layer and sum cut
-		/*gr_cutSingleSum->Draw("P");
+		gr_cutSingleSum->Draw("P");
 		gr1_cutSingleSum->Draw("P");
 		gr2_cutSingleSum->Draw("P");
 		gr3_cutSingleSum->Draw("P");
 		gr4_cutSingleSum->Draw("P");
-		gr5_cutSingleSum->Draw("P");*/
-
+		gr5_cutSingleSum->Draw("P");
+*/
 
 		//No cuts energie Si 0keV et BGO 0 keV
-	leg->AddEntry(gr,"300 keV","p");
+/*	leg->AddEntry(gr,"300 keV","p");
 	leg->AddEntry(gr1,"500 keV","p");
   leg->AddEntry(gr2,"1 MeV","p");
 	leg->AddEntry(gr3,"2 MeV","p");
   leg->AddEntry(gr4,"4 MeV","p");
   leg->AddEntry(gr5,"6 MeV","p");
-	leg_cut->AddEntry(gr_cutSum,"300 keV","p");
+	/*leg_cut->AddEntry(gr_cutSum,"300 keV","p");
 	leg_cut->AddEntry(gr1_cutSum,"500 keV","p");
 	leg_cut->AddEntry(gr2_cutSum,"1 MeV","p");
 	leg_cut->AddEntry(gr3_cutSum,"2 MeV","p");
   leg_cut->AddEntry(gr4_cutSum,"4 MeV","p");
-  leg_cut->AddEntry(gr5_cutSum,"6 MeV","p");
+  leg_cut->AddEntry(gr5_cutSum,"6 MeV","p");*/
 	//
 
-	leg->Draw();
-	leg_cut->Draw();
+/*	leg->Draw();
+	//leg_cut->Draw();
 	c1->Update();
 
 
-}
+}*/

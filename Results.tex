@@ -6,20 +6,32 @@ The possible implementation of the CLaRyS Compton camera as a monitoring system 
 \subsection{Absolute detection efficiency}
 \label{Results::efficiency}
 
-Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency as a function of the gamma source position with respect to the center of the camera in the transverse plane. On the left side, we show the results achieved with an ideal detector, with the empty markers corresponding to the selection of a total energy absorption of more than 90\% of the total primary energy. On the right side realistic energy cuts are applied on each detector section: the lower energy limit has been set to 50~keV for the scatterer and 100~keV for the absorber. 
+Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency as a function of the gamma source position with respect to the center of the camera in the transverse plane. On the left side, we show the results achieved with an ideal detector. On the right side realistic energy cuts are applied on each detector section: the lower energy limit has been set to 50~keV for the scatterer and 100~keV for the absorber. 
 
 \begin{figure} [!hbtp]	
 \centering
-\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_withSumCut.pdf}}
-\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_withSingleCut.pdf}}
+%\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_withSumCut.pdf}}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_noCut_simple.pdf}}
+%\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_withSingleCut.pdf}}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_CutSingle_simple.pdf}}
 \caption{Absolute Compton camera efficiency as a function of the gamma source position for different gamma energies, in the range between 300~keV to 6~MeV. The left side shows the camera efficiency with no data selection. In the right side, detection energy thresholds are applied: the lower energy thresholds are set to 
 50~keV for the scatterer and 100~keV for the absorber, to reproduce a realistic scenario. These values can change for the final configuration, according to the detector energy resolutions achieved.}
 \label{fig::efficiency_study}
 \end{figure}
 
-As expected according to the interaction probability energy dependency, the efficiency is higher for low gamma energies, and it lies in the range $4\times10^{-4}$ at 300~keV and $1.5\times10^{-4}$ at 6~MeV at the center of the camera. Moreover, it can be noticed how the efficiency slightly drops as the point source is shifted away from the camera center: efficiency reductions at 500~keV and 4~MeV are respectively of 25\% and 35\%. This effect is more important for high energies, for which the incident gamma is less deflected in the scatterer for the same energy deposited compared to a low energy gamma (see equation~\ref{Compton_equation}). The rate of almost fully absorbed events (absorbed energy $>$ 90\% of the primary energy) ranges between about 40\% and more than 80\% with decreasing energy in the analyzed range at the center of the camera. At 4 and 6~MeV, also the source position has an impact, with a 35\% reduction if moving from the center to a distance of 300~mm in the transverse plane. For lower energies, the rate of fully absorbed events slightly increases when the source is moving away from the camera center, with maximum variations of about 5\%. 
+As expected according to the interaction probability energy dependency, the efficiency is higher for low gamma energies, and it lies in the range $4\times10^{-4}$ at 300~keV and $1.5\times10^{-4}$ at 6~MeV at the center of the camera. Moreover, it can be noticed how the efficiency slightly drops as the point source is shifted away from the camera center: efficiency reductions at 500~keV and 4~MeV are respectively of 25\% and 35\%. This effect is more important for high energies, for which the incident gamma is less deflected in the scatterer for the same energy deposited compared to a low energy gamma (see equation~\ref{Compton_equation}).\\  
+Figure~\ref{fig::efficiency_study}(b) shows the effect of realistic camera detection thresholds as opposed to ideal detection. The gamma detection efficiency drops of a factor ranging from about 1.25 to more than an order of magnitude for the central detection area for energies in the range 300~keV - 2~MeV respectively. The effect is reduced by the distance of the source from the center of the camera. Negligible effects are detected for positions with a distance greater than 200~mm from the center of the camera, and for any distance at energies above 2~MeV, while the efficiency is reduced in the central area of the camera.\\
 
-Figure~\ref{fig::efficiency_study}(b) shows the effect of realistic camera detection thresholds as opposed to ideal detection. The gamma detection efficiency drops of a factor ranging from about 1.25 to more than an order of magnitude for the central detection area for energies in the range 300~keV - 2~MeV respectively. The effect is reduced by the distance of the source from the center of the camera. Negligible effects are detected for positions with a distance greater than 200~mm from the center of the camera, and for any distance at energies above 2~MeV, while the efficiency is reduced in the central area of the camera. 
+\begin{figure} [!hbtp]	
+\centering
+\includegraphics[width=0.5\textwidth]{./Figure/new/rate_90percent_energy_4distances.pdf}
+\caption{Ratio between coincidence events with more than 90\% of the primary photon energy absorbed in the detector layer and all detected coincidences for 4 source positions: center of the camera, 40, 100, 300~mm from the center.}
+\label{fig::rate_full_abs}
+\end{figure}
+
+
+Figure~\ref{fig::rate_full_abs} shows the rate of events with more than 90\% of the primary gamma energy deposited in the detector layers, for 4 different source positions (center of the camera, 40, 100, 300~mm far from the center) with no selection applied on a single detector layer basis. As expected, the rate of almost fully absorbed events decreases as the energy increases, in a range between more than 80\% and 40\% for 300~keV and 6~MeV primary photon energy, respectively, with the source at the center of the camera. Also the source position has an impact, with a 35\% reduction if moving from the center to a distance of 300~mm in the transverse plane. For lower energies, the rate of fully absorbed events slightly increases when the source is moving away from the camera center, with maximum variations of less than 10\%. 
+ 
 
 \subsection{Rate of random coincidences}
 \label{Results::beamInt}
