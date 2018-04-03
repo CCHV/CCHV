@@ -26,18 +26,18 @@ void plot_profile_sum(){
   TH1F *profile = new TH1F("prof", "prof", 63, -180., 130.);
   TH1F *profile_back = new TH1F("prof_back", "prof_back", 63, -180., 130.);
 TH1F *profile_sum = new TH1F("prof_sum", "prof_sum", 63, -180., 130.);
-
+Double_t bin_size = 310./63.;
   for(Int_t x = 0; x <63; x++){
-      profile->Fill(profile->GetBinCenter(x), true_gamma_1[x]*1e-6);
-      profile_back->Fill(profile->GetBinCenter(x), background[x]*1e-6);
-      profile_sum->Fill(profile->GetBinCenter(x), (true_gamma_1[x]+background[x])*1e-6);
+      profile->Fill(profile->GetBinCenter(x), true_gamma_1[x]*1e-6/bin_size);
+      profile_back->Fill(profile->GetBinCenter(x), background[x]*1e-6/bin_size);
+      profile_sum->Fill(profile->GetBinCenter(x), (true_gamma_1[x]+background[x])*1e-6/bin_size);
 
 
   }
 
   TCanvas *c = new TCanvas(" ", " ", 650, 500);
   c->SetLeftMargin(0.15);
-  TH1 *frame = c->DrawFrame(-180, 0, 120, 1.e-6);   //200,-180,130);
+  TH1 *frame = c->DrawFrame(-150, 0, 150, 0.2e-6);   //200,-180,130);
     //frame->SetMinimum(0);
     //frame->SetMaximum(300);//
     frame->SetDirectory(0);
@@ -50,7 +50,7 @@ TH1F *profile_sum = new TH1F("prof_sum", "prof_sum", 63, -180., 130.);
     frame->GetXaxis()->SetTickLength(0.02);
     frame->GetXaxis()->SetLabelSize(0.05);
     frame->GetYaxis()->SetTitleSize(0.05);
-    frame->GetYaxis()->SetTitle("#splitline{Number of events}{per incident proton}");
+    frame->GetYaxis()->SetTitle("#splitline{Number of events per}{incident proton / mm}");
     frame->GetYaxis()->SetLabelSize(0.05);
     frame->GetYaxis()->SetTitleOffset(1.5);
     //frame->Draw("");
@@ -66,5 +66,5 @@ TH1F *profile_sum = new TH1F("prof_sum", "prof_sum", 63, -180., 130.);
 
         c->Modified();
         c->Update();
-
+        
 }
