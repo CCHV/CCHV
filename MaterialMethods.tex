@@ -1,7 +1,7 @@
 
 \section{Material and methods}
 
-\subsection{Simulation setup}
+\subsection{Simulation setup}\label{SimuSetup}
 
 The monitoring system modeled in this simulation work is a Compton camera prototype under development within the French collaboration CLaRyS. The detectors detailed characteristics can be found in \cite{krimmer:hal-01101334}.\\
 %Like most of the Compton camera devices, the CLaRyS prototype includes a scatterer and an absorber. 
@@ -21,7 +21,7 @@ A scheme of the simulation setup is given in figure~\ref{fig:fig_setup_CC_simula
 
 The silicon detector strips are not reproduced in the simulation code, and the transverse spatial resolution is set to 0.9~mm FWHM at the reference energy of 1~MeV, according to preliminary measurements performed on smaller detector prototypes. Concerning the transverse direction (perpendicular to the beam line), the interaction position is set to the center of the involved silicon plane. A mono-block crystal is simulated for the absorber for simplicity. The events are selected to be limited to a single block component based on the interaction localization, and the interaction position is reconstructed via center of gravity calculation if multiple interactions occur within the same block. An uncertainty contribution, randomly extracted by a Gaussian of 5~mm FWHM (corresponding to an overestimation of the geometrical resolution given by the pseudo-pixel matrix, set to reproduce not yet tested experimental conditions), is added to the reconstructed position to mimic the pseudo-pixel-based readout. For what concerns the parallel direction, given the fact that the employed BGO blocks have not depth of interaction reconstruction capabilities, the interaction position is fixed to the center of the mono-block crystal.
 
-The energy resolution of the BGO blocks was estimated in preliminary measurements and is accordingly set to 17\% FWHM at the reference energy of 667~keV (a 137-cesium source has been used for the measurements). The energy resolution of the silicon detector is set to 5~keV (FWHM) according to the design expectations.
+The energy resolution of the BGO blocks was estimated in preliminary measurements and is accordingly set to 20\% FWHM at the reference energy of 667~keV (a 137-cesium source has been used for the measurements). The energy resolution of the silicon detector is set to 5~keV (FWHM) according to the design expectations.
 
 The time resolution has been set to 3.0~ns FWHM for the BGO blocks and to 15.0~ns FWHM for the silicon slabs, according to preliminary measurements performed on test detector modules at the GANIL %(Grand Accelerateur National d'Ions Lourds) 
 center in France.
@@ -60,9 +60,10 @@ The particle interactions in matter are described in this work by means of the m
 \begin{table}
 \label{physlist_ion}
 \caption{Hadronic models used in the Geant4 simulations.}
-\begin{scriptsize}
+%\begin{scriptsize}
 \begin{center}
-\renewcommand{\arraystretch}{1.2}
+%\renewcommand{\arraystretch}{1.2}
+\resizebox{\textwidth}{!}{%
 %\begin{tabular} {>{\columncolor[gray]{0.9}}cccc}\hline  
 \begin{tabular} {cccc}\hline
 %\rowcolor{Gray}
@@ -74,9 +75,9 @@ The particle interactions in matter are described in this work by means of the m
 \textbf{Fission} & / & / & G4LFission + G4NeutronHPFission($<$19~MeV) \\ %\hline
 \textbf{Capture} & / & / & G4LCapture +  G4NeutronHPCapture ($<$19~MeV) \\ %\hline
 \textbf{Radioactivedecay} & / & G4Radioactivedecay & / \\ \hline
-\end{tabular}
+\end{tabular}}
 \end{center}
-\end{scriptsize}
+%\end{scriptsize}
 \label{table:table_modele_physic_CC_simulation_Hadronth}
 \end{table}
 
@@ -93,7 +94,8 @@ The mentioned measurements have shown that the spill phase changes during the ex
 \begin{figure} [!hbtp]	
   \centering
   %\includegraphics[width=0.6\textwidth]{./Figure/2013_Structure_Time_Beam_400MeV.png}
-  \includegraphics[width=0.6\textwidth]{./Figure/fiber_vert_hor_run14.pdf}
+  %\includegraphics[width=0.6\textwidth]{./Figure/fiber_vert_hor_run14.pdf}
+	\includegraphics[width=0.6\textwidth]{./Figure/BeamTimeStruct.png} 
   \caption{Time micro-structure measured from a carbon ion beam at 400~MeV/u delivered at HIT (time difference between two crossed-scintillating fibers). The offset between the two fibers is arbitrarily set at 130~ns. The pulses have an extraction period of 150.2~ns and the bunches are 21.5~ns FWHM.  On the x axis the time has been measured with a two-scintillating-fiber hodoscope, with 1~ns FWHM time resolution.}
   \label{fig:fig_structure_temps_faisceau_HIT_2013_CC_simulation_Hadronth}
 \end{figure}
@@ -142,15 +144,28 @@ Table~\ref{table:definition_beam_structure_CC_hadrontherapy_Geant4} summarizes t
 %\newpage
 %---------------------------------------------------------------
 %---------------------------------------------------------------
-\subsection{TOF and energy based data selection}
-\label{MatMeth::TOF_Ecut}
+\subsection{Compton camera events}
+\label{MatMeth::events}
 
-The Compton detection principle is based on a double interaction in the scatterer and absorber section, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidence events can be distinguished and studied: 
+The Compton detection principle is based on the time coincidence of at least one scatterer and one absorber gamma interaction, where an interaction is defined as an energy deposit in a detector module. As discussed in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidence events can be distinguished and studied: 
 \begin{itemize}
-\item[-] real coincidences: created by a single photon first interacting in a single scatterer plane and then in a single absorber block;
+\item[-] real coincidences: created by a single photon first interacting in the scatterer stack and then in the absorber block array;
 \item[-] quasi-simultaneous interaction of two secondary particles;
 \item[-] double interaction of the same particle, not a photon (e.g. protons, neutrons).
 \end{itemize}
+As described in section~\ref{SimuSetup}, the simulation setup selects events with absorber interactions limited to a single BGO block; the employed blocks do not provide depth-of-interaction information, so that the inclusion of events with more than one block involved would degrade the spatial reconstruction accuracy.
+Concerning the scatterer section, among the real coincidences, three different kinds of events can be identified:
+\begin{itemize}
+\item[-] single Compton interaction in one silicon layer;
+\item[-] multiple gamma interactions in more than one silicon layers;
+\item[-] electron escape events.
+\end{itemize}
+As mentioned in the introduction, events involving more than one photon interaction in the scatterer layers are advantageous since the total absorption of the detected prompt gamma is not required to reconstruct the Compton cone. However, the actual selection of such kind of events with respect to background interactions in real conditions is hardly achievable.
+
+On the other hand, electron escape events can be in principle identified and exploited. They are characterized by two or more scatterer layers involved: if the first Compton interaction in one layer provide enough energy to the recoil electron, it can escape the silicon plane and be detected by one (or more), following planes. Thus, such events can be identified by the electron tracking, and carry additional information with respect to a Compton interaction with no electron escape. The electron tracking allows to reduce the reconstructed Compton cone to an arc, by the overlap of the cone with the electron tracking plane.      
+
+\subsection{TOF and energy based data selection}
+\label{MatMeth::TOF_Ecut}
 
 In an experiment the collected data are affected by a certain number of the so-called random coincidences, which cannot be experimentally distinguished from true coincidences, from the timing coincidence point of view. The amount of random coincidences depends on the detector time resolutions, the fixed time coincidence window and the beam time structure, the phantom composition and camera prototype setup. In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth}, a schematic view of the different kinds of coincidences is presented.
 
@@ -168,17 +183,19 @@ Ad-hoc filtering methods are applied to reduce the above described contamination
 \begin{itemize}
 \item Time-Of-Flight: it has been demonstrated that a time-of-flight discrimination is possible and effective in reducing the background generated by massive particles interactions~\cite{Testa:2010aa}. The massive particles approach the detector at a lower speed with respect to photons. The time information provided by the hodoscope and the absorber can be combined to fix a detection time window and reject all the events outside the window. The time elapsed between the incident particle creation ($\mathrm{t_{creation}}$) and the secondary particle detection in the absorber ($\mathrm{t_{absorber}}$) is considered as the time-of-flight. The particle creation time is modeled according to the beam time structure, as presented in section~\ref{beam_modeling}. The detection time in the absorber is calculated with the simulation local time of the hit in the detector layer. The hodoscope time resolution (1~ns FWHM) is applied to the primary particle creation time, with a contribution randomly extracted from a Gaussian with $\sigma\,=$ 1/2.35~ns ($u_{\mathrm{hodoscope}}$). The detection time in the absorber is affected by the absorber time resolution, already included in the simulation code.
 
+In order to define the appropriate time window, the TOF spectra of the collected events resulting from the irradiation of the PMMA target with 10$^{8}$ 160~MeV protons have been produced for true gamma coincidences and background events, identified in simulation. Only events with single Compton interactions ion the scatterer are included (given the results presented in section~\ref{Results::efficiency}). The results are shown in figure~\ref{fig:fig_TOF_distribution_CC_simulation_Hadronth}. For this study, no time structure have been applied to the primary protons. The detector resolutions have been included as described above.  
+
  \begin{eqnarray}
 %TOF = t_{\mathrm{absorber}}-t_{\mathrm{hodoscope}} \\
 TOF_{\mathrm{simulation}} = t_{\mathrm{absorber}}-(t_{\mathrm{creation}} + u_{\mathrm{hodoscope}})
 \label{TOF_equation}
 \end{eqnarray} 
 
-The time-of-flight spectrum resulting from the simulation shows that the coincidences of interest (produced by prompt-gamma rays) are included in a window between 0 and 8~ns (figure \ref{fig:fig_TOF_distribution_CC_simulation_Hadronth}). Therefore, all the coincidences with a TOF not included in this time window have been rejected.
+The time-of-flight spectrum resulting from the simulation shows that the coincidences of interest (produced by prompt-gamma rays) are included in a window between 0 and 8~ns. Therefore, all the coincidences with a TOF not included in this time window will be rejected when this selection is applied. The time-of-flight selection method limits the background events affecting the prompt-gamma coincidence measurements, but in the TOF window a comparable amount of true coincidences and background events is anyway expected. 
 \begin{figure}	
   \centering
-  \includegraphics[width=0.6\textwidth]{./Figure/TOFspectra_2}
-  \caption{Time of flight spectra of true gamma coincidences (blue) and background events (red) obtained with $10^{8}$ 160~MeV incident protons.}	
+  \includegraphics[width=0.6\textwidth]{./Figure/TOFspectrum.png}
+  \caption{Time of flight spectra of true gamma coincidences (blue) and background events (red) obtained with $10^{8}$ 160~MeV independent incident protons.}	
   \label{fig:fig_TOF_distribution_CC_simulation_Hadronth}
 \end{figure}
 
@@ -206,8 +223,8 @@ The reconstruction via line-cone algorithm exploits the energy deposit and posit
 \subsubsection{LM-MLEM algorithm}	
 The iterative methods allow to get a 3D image reconstruction, potentially by taking into account the spatial resolution and the energy resolution of the detectors. Several iterative algorithms have been developed for Compton event reconstruction~\cite{schone_common_2010, zoglauer_design_2011,gillam_compton_2011,mackin_evaluation_2012,lojacono_low_2013, Huang2018, Taya2017, Schoene2017}.
 
-The \textit{List-Mode Maximum Likelihood Expectation Maximization} (LM-MLEM) algorithm is an MLEM version which enables one to reconstruct the image directly from the list of detected events.
-The LM-MLEM algorithm used for this study is detailed in~\cite{hilaire_compton_2014}.%\cite{maxim_filtered_2014,hilaire_compton_2014}.%\cite{maxim_analytical_2009,lojacono_low_2013,maxim_filtered_2014,hilaire_compton_2014}.\newline
+The \textit{List-Mode Maximum Likelihood Expectation Maximization} (LM-MLEM) algorithm is a MLEM version which enables one to reconstruct the image directly from the list of detected events.
+The features of the LM-MLEM algorithm used for this study are detailed in~\cite{hilaire_compton_2014}.%\cite{maxim_filtered_2014,hilaire_compton_2014}.%\cite{maxim_analytical_2009,lojacono_low_2013,maxim_filtered_2014,hilaire_compton_2014}.\newline
 
 %The first step is to define the volume which includes the origin of the prompt gamma ray detected. This volume is divided into equal voxels and the emission intensity is assumed homogeneous for each voxel $j$, with a Poisson distribution of parameter $\lambda_j$ (a vector of the emissions intensities of all the voxels). The algorithm is based on a system matrix $T$ composed of the coefficients  $t_{ij}$ which represent the probability that a photon produced in the voxel $j$ is detected in coincidence by the Compton camera as an event $i$. The probability for a gamma detected in coincidence to be emitted from the voxel $j$ is denoted as $s_j$.
 %The LM-MLEM algorithm starts with an initial value $\lambda^{(0)}_j$, which can be the simple back-projection reconstruction.
@@ -243,21 +260,22 @@ In this section the parameters studied for the camera performance evaluation are
 \end{itemize}
 
 
-\subsubsection{Absolute detection efficiency}
+\subsubsection{Absolute detection efficiency}\label{absEff}
 The absolute efficiency is crucial for the Compton camera performances and for its possible application in treatment monitoring. An efficient monitoring system should be ideally in real time, in order to allow for a treatment adaptation or interruption in case of severe issues detected in the delivered dose profile with respect to the planned treatment. In order to achieve an online detection of such deviations, given the limited prompt gamma emission rate per incident ion~\cite{Ortega:2015aa}, a high detection efficiency is required to perform a monitoring on, ideally, a beam spot basis. In addition to this, the absolute detection efficiency directly affects the image reconstruction quality, which is in general increased for increased statistics.
 
-In order to well define the expected camera efficiency, it has been studied with the irradiation from point-like mono-energetic gamma sources, set in various positions with respect to the center of the camera on the transverse plane.	
+In order to well define the expected camera efficiency, it has been studied with the irradiation from point-like mono-energetic gamma sources. Different energies have been tested to mimic different prompt gamma lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part for the study.
+The absolute efficiency in the detection of specific kinds of events detailed in section has been estimated. The results of this preliminary study (see section~\ref{Results::efficiency}) determined the choice to limit the next investigations to single Compton interactions in the scatterer.
 
-The absolute efficiency $\epsilon$ is defined as:
+The absolute efficiency $\epsilon$ is therefore defined as:
 \begin{equation}
 \epsilon =\frac{\mathrm{N}\gamma_{\mathrm{coinc}}}{\mathrm{N}\gamma_{\mathrm{total}}},
 \end{equation}
 \label{eq:equation_efficacite_absolue}
-with $N\gamma_{\mathrm{coinc}}$ the number of gamma events corresponding to true coincidences, $N\gamma_{\mathrm{total}}$ the total number of emitted gammas.
+with $N\gamma_{\mathrm{coinc}}$ the number of gamma events corresponding to true coincidences of single photon interactions in the scatterer, $N\gamma_{\mathrm{total}}$ the total number of emitted gammas.
 
-The setup is the same as figure~\ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air.
-The point-like source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0), and moved with variable length steps, up to 1~cm. The movement followed the transverse axis of the camera. Different energies have been tested to mimic different prompt gamma lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part for the study.\\
-Moreover, the rate of events with a almost full primary energy absorption has been studied as a function of the primary gamma energy and the position in the range presented above. The threshold for the energy absorption has been set to 90\% of the primary gamma energy.\\ 
+The setup is the same as figure~\ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air. The absolute efficiency has been also studied as a function of the point-like source position. It is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0), and moved with variable length steps, up to 1~cm. The movement followed the transverse axis of the camera. 
+
+Moreover, the rate of events with a almost full primary energy absorption has been studied as a function of the primary gamma energy, with the point-like source set in the center of the camera. The threshold for the energy absorption has been set to 90\% of the primary gamma energy. The rate of absorption has been also evaluated for multiple gamma interactions and for electron escape events, for comparison. \\ 
 
 \subsubsection{Rate of random coincidences}
 
@@ -282,8 +300,9 @@ For each chosen statistics, 1000 PG profiles are generated and a custom minimiza
 \begin{eqnarray}
 \chi^2 = \sum\limits_{i=1}^{N_{bin}} {(y_{\mathrm{sample,i}}-y_{\mathrm{NURBS,i}})^2},
 \end{eqnarray}
-where for every bin $i$ $y_{\mathrm{sample}}$ is the number of events in the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of events for the reference profile NURBS (scaled at the same low statistic). Several minimization algorithms are available, but in order to avoid artifacts at low statistic, the following robust approach has been preferred.
-
+where for every bin $i$ $y_{\mathrm{sample}}$ is the number of events in the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of events for the reference profile NURBS (scaled at the same low statistic). 
+%Several minimization algorithms are available, but in order to avoid artifacts at low statistic, the following robust approach has been preferred.
+The described approach is robust and allows to avoid artifacts at low statistics.
 %Figures~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons.
 
 The global minimum of all the calculated $\chi^2$ is then retrieved and the shift associated to this value is added to the shift distributions. % shown in figure~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} for the line-cone and LM-MLEM algorithm respectively, for $10^8$ incident protons. 

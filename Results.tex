@@ -1,10 +1,18 @@
 \section{Results}
 
-The possible implementation of the CLaRyS Compton camera as a monitoring system for ion beam therapy has been investigated. The detection efficiency of the camera has been estimated with point-like gamma sources set in different positions with respect to the center of the camera. A PMMA cylindrical phantom has been simulated and exposed to proton and carbon beams at increasing intensities for an analysis of the prompt gamma detection environment (background, random coincidence contamination). The camera precision in the identification of the fall-off of the prompt gamma emission profile has been investigated. For this purpose, the comparison of two different reconstruction methods (line-cone analytical reconstruction and MLEM iterative algorithm) is presented. In the following sections we show the obtained results. 
+The possible implementation of the CLaRyS Compton camera as a monitoring system for ion beam therapy has been investigated. The detection efficiency of the camera has been estimated with point-like gamma sources, and the relative efficiency in detecting various kinds of coincidence events has been studied. Single Compton interaction events in the scatterer has been selected for the following part of the analysis, and the camera absolute efficiency has been estimated with the point-like source set in different positions with respect to the center of the camera. A PMMA cylindrical phantom has been simulated and exposed to proton and carbon beams at increasing intensities for an analysis of the prompt gamma detection environment (background, random coincidence contamination). The camera precision in the identification of the fall-off of the prompt gamma emission profile has been investigated. For this purpose, the comparison of two different reconstruction methods (line-cone analytical reconstruction and MLEM iterative algorithm) is presented. In the following sections we show the obtained results. 
 
 
 \subsection{Absolute detection efficiency}
 \label{Results::efficiency}
+Figure~\ref{fig::eff_evKind} shows the Compton camera efficiency in detecting the kinds of coincidence events described in section~\ref{MatMeth::events}, as a function of the gamma energy in the prompt-gamma energy range (between 300~keV and 6~MeV). The results show how the single events, consisting in the coincidence between an energy deposit in a single scatterer layer and in one single absorber block, decreases at increasing energy, in favor of an increase in the number of electron escape events (consisting in one primary photon Compton interaction in one scatterer layer, at least one interaction of the Compton escape electron in a different scatterer layer, and one primary photon interaction in one single absorber block). At the maximum investigated primary gamma energy,  the amount of electron escape collected events is more than 35\%. Anyway, the single events represent more than 60\% of the total amount of collected events in all the explored energy range, so that the results in the following paragraphs are focused on this kind of events (with the other kinds of events rejected at the analysis stage), as first approach for a feasibility study. The amount of multiple events is limited and negligible over the whole energy range.
+
+\begin{figure} [!hbtp]	
+\centering
+\includegraphics[width=0.7\textwidth]{./Figure/new/effVSenergy_trigger.png}
+\caption{Compton camera efficiency as a function of the gamma energy for the different kind of possible events (see section~\ref{MatMeth::events}).}
+\label{fig::eff_evKind}
+\end{figure}
 
 Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency as a function of the gamma source position with respect to the center of the camera in the transverse plane. On the left side, we show the results achieved with an ideal detector (i.e. without energy detection threshold). On the right side realistic energy thresholds are applied on each detector section.
 
@@ -14,7 +22,7 @@ Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_noCut_simple.pdf}}
 %\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_withSingleCut.pdf}}
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/EffVSpos_CutSingle_simple.pdf}}
-\caption{Absolute Compton camera efficiency as a function of the gamma source position for different gamma energies, in the range between 300~keV to 6~MeV. The left side shows the camera efficiency with no detection energy threshold. In the right side, detection energy thresholds are applied to reproduce a realistic scenario. These values can change for the final configuration, according to the detector energy resolutions achieved.}
+\caption{Absolute Compton camera efficiency as a function of the gamma source position for different gamma energies, in the range between 300~keV to 6~MeV. The left side shows the camera efficiency with no detection energy threshold. In the right side, detection energy thresholds are applied to reproduce a realistic scenario (lower limit of 50~keV for the scatterer, 100~keV for the absorber). These values can change for the final configuration, according to the detector energy resolutions achieved.}
 \label{fig::efficiency_study}
 \end{figure}
 
@@ -23,19 +31,18 @@ Figure~\ref{fig::efficiency_study}(b) shows the effect of realistic camera detec
 
 \begin{figure} [!hbtp]	
 \centering
-\includegraphics[width=0.7\textwidth]{./Figure/new/rate_90percent_energy_4distances.pdf}
+%\includegraphics[width=0.7\textwidth]{./Figure/new/rate_90percent_energy_4distances.pdf}
+\includegraphics[width=0.7\textwidth]{./Figure/new/90absFracVSenergy_hadronth.png}
 \caption{Ratio between coincidence events with more than 90\% of the primary photon energy absorbed in the detector layer and all detected coincidences for 4 source positions: center of the camera, 40, 100, 300~mm from the center.}
 \label{fig::rate_full_abs}
 \end{figure}
 
-
-Figure~\ref{fig::rate_full_abs} shows the rate of events with more than 90\% of the primary gamma energy deposited in the detector layers, for 4 different source positions (center of the camera, 40, 100, 300~mm far from the center) with no selection applied on a single detector layer basis. As expected, the rate of almost fully absorbed events decreases as the energy increases, in a range between more than 80\% and 40\% for 300~keV and 6~MeV primary photon energy, respectively, with the source at the center of the camera. Also the source position has an influence, with a 35\% reduction if moving from the center to a distance of 300~mm in the transverse plane for energies above 4~MeV. For lower energies, the rate of fully absorbed events slightly increases when the source is moving away from the camera center, with maximum variations of less than 10\%. 
+Figure~\ref{fig::rate_full_abs} shows the rate of events with more than 90\% of the primary gamma energy deposited in the detector layers; the source is placed in the center of the camera transverse surface, and no selection are applied on a single detector layer basis. The rate of 90\% absorbed events is reported for the different kinds of detected events. As expected, the rate of almost fully absorbed events decreases as the energy increases, in a range between more than 80\% and 40\% for 300~keV and 6~MeV primary photon energy, respectively. The most of the 90\% absorbed events single events, with the electron escape and multiple ones negligible for primary gamma energies above 1~MeV. At lower energy, the Compton recoil electron is often able to exit the scatterer layer were the Compton interaction takes place, but can be lost without further interactions, so that this kind of events is considered as single with an energy absorption below 90\%. This can explain the decrease of single almost full absorption at 300~keV. If the electron interacts with a scatterer layer, is more likely to be absorbed at low energy, explaining the increasing electron escape absorbed events below 1~MeV.  
  
-
 \subsection{Rate of random coincidences}
 \label{Results::beamInt}
  
-In figure~\ref{fig:coincidences}, the different components of the signal resulting from the PMMA exposure to proton and carbon ion beams are shown as a function of the beam intensity. The true coincidences represent scatterer-absorber time coincidences generated by the same gamma ray. All the other coincidence types compose the background. The collected data sets are reported with and without the applied time-of-flight discrimination, mainly employed for neutron rejection, as mentioned in section~\ref{MatMeth::TOF_Ecut}.
+In figure~\ref{fig:coincidences}, the different components of the signal resulting from the PMMA exposure to proton and carbon ion beams are shown as a function of the beam intensity. The true coincidences represent scatterer-absorber time coincidences generated by the same gamma ray (only single events). All the other coincidence types compose the background. The collected data sets are reported with and without the applied time-of-flight discrimination, mainly employed for neutron rejection, as mentioned in section~\ref{MatMeth::TOF_Ecut}.
 
 
 \begin{figure} [!h]
@@ -100,9 +107,19 @@ Figure~\ref{fig:comparison} shows the results of the reconstruction of the profi
 %\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/profileY_corr_r20.png}}\\
 \subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/reconstructed_lowStat_profile_norm.pdf}}
 %\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
-
-
 \caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 1 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.
+Figure (a) represents the MLEM reconstructed 2D image in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  In figure (b) the 1D profile along the $y$ axis is sketched. The profile fall-off is located at $y=+50\,$mm. Figure (c) shows the profile obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
+\label{fig:comparison}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=0.5\textwidth,clip=true,trim=0 70 130 90]{./Figure/projection2D_Z_corr_r20.png}}
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/recon_profile_line-cone_lowStat_norm.pdf}}\\
+%\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/profileY_corr_r20.png}}\\
+\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/new/reconstructed_lowStat_profile_norm.pdf}}
+%\subfloat[]{\includegraphics[width=0.5\textwidth]{./Figure/2015_02_16_Reconstruction_coinc_160MeVProton_TOF_6ns_file0to100_zoom.pdf}}
+\caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 200 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.
 Figure (a) represents the MLEM reconstructed 2D image in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  In figure (b) the 1D profile along the $y$ axis is sketched. The profile fall-off is located at $y=+50\,$mm. Figure (c) shows the profile obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
 \label{fig:comparison}
 \end{figure}
