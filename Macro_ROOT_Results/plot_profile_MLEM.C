@@ -9,7 +9,7 @@
 #include <Riostream.h>
 
 
-void plot_profile_sum(){
+void plot_profile_MLEM(){
 
   //double true_gamma_1[63] = {0.07, 0.07, 0.05, 0.03, 0.07, 0.06, 0.08, 0.05, 0.11, 0.09, 0.05, 0.12, 0.12, 0.08, 0.17, 0.13, 0.14, 0.18, 0.23, 0.23, 0.13, 0.2, 0.25, 0.22, 0.27, 0.33, 0.36, 0.44, 0.44, 0.35, 0.34, 0.3, 0.38, 0.43, 0.33, 0.41, 0.45, 0.435, 0.395, 0.376, 0.36, 0.48, 0.376, 0.46, 0.34, 0.35, 0.32, 0.35, 0.24, 0.28, 0.25, 0.28, 0.3, 0.28, 0.25, 0.22, 0.15, 0.16, 0.17, 0.22, 0.14, 0.15, 0.2};
 //vector <double> true_gamma (true_gamma_1, true_gamma_1+sizeof(true_gamma_1)/sizeof(double));
@@ -23,22 +23,25 @@ void plot_profile_sum(){
 //}
 
 //cout<<"true gamma size "<< true_gamma.size()<<endl;
-TFile *input = new TFile("reconstruction.root","READ");
-TH1F *profile;// = new TH1F("prof", "prof", 63, -180., 130.);
-TH1F *profile_back;// = new TH1F("prof_back", "prof_back", 63, -180., 130.);
+ifstream input("out_profile.txt");
+Double_t pos = 0.;
+Double_t value = 0.;
 
-profile = (TH1F*)input->Get("True gamma");
-profile_back = (TH1F*)input->Get("background");
-cout<<profile->GetXaxis()->GetXmin()<<endl;
-cout<<profile->GetXaxis()->GetXmax()<<endl;
+vector <Double_t> positions, values;
 
-Int_t nBin = profile_back->GetNbinsX();
-Double_t bin_size = Double_t(340./nBin);
+while(input>>pos>>value){
+  positions.push_back(pos);
+  values.push_back(value);
+}
+
+Int_t nBin = positions.size();
+
+Double_t bin_size = Double_t(368./nBin);
 cout<<nBin<<endl;
-TH1F *profile_sum = new TH1F("prof_sum", "prof_sum", nBin, -180., 160.);
+TH1F *profile_sum = new TH1F("prof_sum", "prof_sum", nBin, positions.at(0), positions.at(positions.size()-1));
 
   for(Int_t x = 0; x <nBin; x++){
-      profile_sum->Fill(profile->GetBinCenter(x), (profile->GetBinContent(x) + profile_back->GetBinContent(x))/bin_size);
+      profile_sum->Fill(positions.at(x), values.at(x)/(bin_size*1e8));
   }
 
   TCanvas *c = new TCanvas(" ", " ", 650, 500);
