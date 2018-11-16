@@ -1,4 +1,3 @@
-x
 \section{Material and methods}
 
 \subsection{Simulation setup}\label{SimuSetup}
@@ -149,17 +148,29 @@ Table~\ref{table:definition_beam_structure_CC_hadrontherapy_Geant4} summarizes t
 
 The Compton detection principle is based on the time coincidence of at least one scatterer and one absorber gamma interaction, where an interaction is defined as an energy deposit in a detector module, with the spatial selections detailed in section~\ref{SimuSetup}. As discussed in section~\ref{subsection:modelisation_fasceau_ions_CC_hadrontherapy_Geant4}, the coincidence reconstruction relies on a defined time window, fixed according to the detector resolution. In a simulation environment, different kinds of coincidence events can be distinguished and studied: 
 \begin{itemize}
-\item[-] real coincidences: created by a single photon first interacting in the scatterer stack and then in the absorber block array;
-\item[-] quasi-simultaneous interaction of two secondary particles;
+\item[-] true coincidences, created by a single photon first interacting in the scatterer stack and then in the absorber block array;
+\item[-] quasi-simultaneous interaction of two secondary particles (photons -- random coincidences -- or massive particles), from the same incident ion of from different incident ions;
 \item[-] double interaction of the same particle, not a photon (e.g. protons, neutrons).
 \end{itemize}
+A scheme representing the different kinds of Compton camera events is sketched in Figure~\ref{fig::coincidence_CC_simulation_Hadronth}.
+All the events not identified as true coincidences contribute to the signal background, and will be referred to background coincidences in the following.
+\begin{figure}
+  \centering
+  %\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter4_HTsimu/Schema_coincidence_EN.eps}
+  \includegraphics[width=0.7\textwidth]{./Figure/coinc_scheme.png}
+  \caption{Diagram showing the different definitions of coincidences in the Compton camera. The energy deposits are selected in the silicon scatterer to be limited to neighboring strips (3 strips maximum), and in the absorber blocks the events are selected to be limited to a single block.}
+ \label{fig::coincidence_CC_simulation_Hadronth}
+\end{figure}
+
+Also in the single detector sections, different kinds of events can be identified in a simulation environment.
 As described in section~\ref{SimuSetup}, the simulation setup selects events with absorber interactions limited to a single BGO block.
-Concerning the scatterer section, among the real coincidences, three different kinds of events can be identified:
+Focusing on the scatterer section, among the true coincidences, three different kinds of events can be identified:
 \begin{itemize}
-\item[-] single Compton interaction in one silicon layer;
-\item[-] multiple gamma interactions in more than one silicon layers;
-\item[-] electron escape events.
+\item[-] gamma undergoing one or more interactions in a single silicon layer, with no other layers hit;
+\item[-] gamma undergoing interactions in more than one silicon layer;
+\item[-] Compton electron escape events: gamma undergoing Compton interaction in one layer and providing enough energy to the recoil electron to make it escape the layer where it has been created and interact in one or more of the next ones.
 \end{itemize}
+
 As mentioned in the introduction, events involving more than one photon interaction in the scatterer layers are advantageous since the total absorption of the detected prompt gamma is not required to reconstruct the Compton cone. However, the actual selection of such kind of events with respect to background interactions in real conditions is hardly achievable.
 
 On the other hand, electron escape events can be in principle identified and exploited. They are characterized by two or more scatterer layers involved: if the first Compton interaction in one layer provides enough energy to the recoil electron, it can escape the silicon plane and be detected by one (or more), neighboring planes. Thus, such events can be identified by the electron tracking, and carry additional information with respect to a Compton interaction with no electron escape. The electron tracking allows to reduce the reconstructed Compton cone to an arch of the cone, by the overlap of the cone with the electron tracking plane.      
@@ -167,17 +178,12 @@ On the other hand, electron escape events can be in principle identified and exp
 \subsection{TOF and energy based data selection}
 \label{MatMeth::TOF_Ecut}
 
-In an experiment the collected data are affected by a certain number of the so-called random coincidences, which cannot be experimentally distinguished from true coincidences, from the timing coincidence point of view. Such a background level depends on the detector time resolutions, the fixed time coincidence window and the beam time structure, the phantom composition and the camera prototype setup.
-In addition to this, the prompt gamma measurement is contaminated by other secondary particles (mainly massive and charged particles like protons and neutrons, but also electrons in the low energy regime), produced by the interaction of the primary particles with the patient/phantom. In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth}, a schematic view of the different kinds of possible coincidences is presented.
+%In an experiment the collected data are affected by a certain number of the so-called random coincidences, which cannot be experimentally distinguished from true coincidences, from the timing coincidence point of view. Such a background level depends on the detector time resolutions, the fixed time coincidence window and the beam time structure, the phantom composition and the camera prototype setup.
+%In addition to this, the prompt gamma measurement is contaminated by other secondary particles (mainly massive and charged particles like protons and neutrons, but also electrons in the low energy regime), produced by the interaction of the primary particles with the patient/phantom. In figure~\ref{fig:fig_explication_coincidence_CC_simulation_Hadronth}, a schematic view of the different kinds of possible coincidences is presented.
 
-\begin{figure}
-  \centering
-  %\includegraphics[width=0.9\textwidth]{./Figure/Schema_coincidence_EN.eps}
-  \includegraphics[width=0.7\textwidth]{./Figure/coinc_scheme.png}
-  \caption{Diagram showing the different definitions of coincidences in the Compton camera. The energy deposits are selected in the silicon scatterer to be limited to neighboring strips (3 strips maximum), and in the absorber blocks the events are selected to be limited to a single block.}
-  \label{fig:fig_explication_coincidence_CC_simulation_Hadronth}
-\end{figure}
-Ad-hoc filtering methods are applied to reduce the above described contamination.
+In an experiment the collected data contain a certain number of the background coincidences (see Figure~\ref{fig:fig_TOF_distribution_CC_simulation_Hadronth}), which cannot be experimentally distinguished from true coincidences. Such a background level depends on the detector time resolutions, the fixed time coincidence window and the beam time structure, the phantom composition and the camera prototype setup.
+%In addition to this, the prompt gamma measurement is contaminated by other secondary particles (mainly massive and charged particles like protons and neutrons, but also electrons in the low energy regime), produced by the interaction of the primary particles with the patient/phantom. In \figurename~\ref{chap4::fig::coincidence_CC_simulation_Hadronth}, a schematic view of the different kinds of possible coincidences is presented.
+\textit{Ad-hoc} filtering methods are applied to reduce the above described contamination.
 
 \begin{itemize}
 \item Time-Of-Flight (TOF): it has been demonstrated that a time-of-flight discrimination is possible and effective in reducing the background generated by massive particles interactions~\cite{Testa:2010aa}. The massive particles approach the detector at a lower speed with respect to photons. The time information provided by the hodoscope and the absorber can be combined to fix a detection time window and reject all the events outside the window. The time elapsed between the incident particle detection in the hodoscope and the secondary particle detection in the absorber is considered as the time-of-flight. In order to define the appropriate time window, the TOF spectra of the collected events resulting from the irradiation of the PMMA target with 10$^{8}$ 160~MeV protons have been produced for true gamma coincidences and background events, taking into account the detector resolutions. The result is shown in figure~\ref{fig:fig_TOF_distribution_CC_simulation_Hadronth}. For this study, no time structure have been applied to the primary protons, thus only independent events have been considered. The time-of-flight spectrum resulting from the simulation shows that:
@@ -213,7 +219,7 @@ The reconstruction via line-cone algorithm exploits the energy deposit and posit
 \begin{figure}
 \centering
   \includegraphics[width=0.8\textwidth]{./Figure/reconstruction_scheme}
-  \caption{Scheme of the reconstruction principle for Compton events. For line-cone reconstruction methods, two points are extracted for each event (diamonds in the figure), provided by the intersection between the reconstructed Compton cone and the beam line. The reconstructed image is strictly 1D. For the iterative MLEM algorithm, each algorithm iteration adds constraints to the reconstructed cone surfaces, leading to  a 3D image.}	
+  \caption{Scheme of the reconstruction principle for Compton events. For line-cone reconstruction methods, two points are extracted for each event (diamonds in the figure), provided by the intersection between the reconstructed Compton cone and the beam line. The result is a mono-dimensional profile.}	
   \label{fig:reconstruction_scheme}
 \end{figure}
 
@@ -247,18 +253,18 @@ The features of the LM-MLEM algorithm used for this study are detailed in~\cite{
 
 \subsection{Performance study}
 \label{MatMeth:performance}
-In this section the parameters studied for the camera performance evaluation are explained. The study is mainly divided into four sections:
+In this section the factors studied to assess the camera performance are explained. The study is mainly divided into four sections:
 \begin{itemize}
-\item Detection efficiency of various types of true coincidences: the camera efficiency for the detection of the various kinds of true coincidences defined in section~\ref{MatMeth::events} is studied by means of mono-energetic irradiation with point-like sources as a function of the incident gamma energy;
-\item Absolute efficiency: the camera absolute efficiency for the detection of events with a single scatterer layer involved is studied by means of mono-energetic irradiation with point-like sources as a function of the incident gamma energy and the source position with respect to the camera;
-\item Rate of background coincidences: with proton and carbon beams interacting with the PMMA phantom, the rate of background and true detected coincidences (for events with a single scatterer layer involved) is studied as a function of the beam intensity;
-\item Camera precision: the camera capability of identifying the fall-off of the prompt-gamma emission profile is tested and the two reconstruction methods presented above are compared (for events with a single scatterer layer involved). 
+\item[-] the detection efficiency of the various types of true coincidences defined in section~\ref{MatMeth::events} is studied by means of mono-energetic irradiation with point-like sources as a function of the incident gamma energy;
+\item[-] the absolute camera efficiency for the detection of events with a single scatterer layer involved is studied by means of mono-energetic irradiation with point-like sources as a function of the incident gamma energy and the source position with respect to the camera. The absolute efficiency is defined as the ratio between the number of selected true coincidences and the total number of emitted gammas (see equation~\ref{eq:equation_efficacite_absolue}); 
+\item[-] the rate of background coincidences (for events with a single scatterer layer involved) is studied as a function of the beam intensity, with proton and carbon beams impinging on the PMMA phantom;
+\item[-] the camera precision, defined as its capability of identifying the fall-off of the prompt-gamma emission profile, is tested (for events with a single scatterer layer involved) with the analytic line-cone reconstruction algorithm. 
 \end{itemize}
 
 \subsubsection{Detection efficiency of various types of true coincidences}\label{relEff}
 The efficiency is crucial for the Compton camera performances and for its possible application in treatment monitoring. An efficient monitoring system should be ideally in real time, in order to allow for a treatment adaptation or interruption in case of severe issues detected in the delivered dose profile with respect to the planned treatment. In order to achieve an online detection of such deviations, given the limited prompt gamma emission rate per incident ion~\cite{Ortega:2015aa}, a high detection efficiency is required to perform a monitoring on, ideally, a beam spot basis. In addition to this, the absolute detection efficiency directly affects the image reconstruction quality, which is in general increased for increased statistics.
 
-The efficiency in the detection of specific kinds of events detailed in section~\ref{MatMeth::events} has been studied with the irradiation from point-like mono-energetic gamma sources. The setup is the same as figure~\ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air. Different energies have been tested to mimic different prompt gamma lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part of the study.
+The efficiency in the detection of various kinds of true coincidence events, with specific interaction patterns in the scatterer section, detailed in section~\ref{MatMeth::events}, has been studied with the irradiation from point-like mono-energetic gamma sources. The setup is the same as Figure~\ref{fig:fig_setup_CC_simulation_Hadronth}, with the exception of the PMMA phantom which is removed to leave the gamma source in air. Different energies have been tested to mimic different prompt gamma lines: 300~keV, 500~keV, 1~MeV, 2~MeV, 4~MeV, 6~MeV. No time structure is reproduced for this part of the study.
 In addition, the rate of events with an almost full primary energy absorption has been studied for the various kinds of coincidences as a function of the primary gamma energy. The threshold for the energy absorption has been set to 90\% of the primary gamma energy. 
 The results of this preliminary study (see section~\ref{Results::efficiency}) determined the choice to limit the next investigations to events with a single scatterer plane involved; all events with more than one scatterer layer hit have been rejected for the analysis described from section~\ref{absEff} and the results presented from section~\ref{Results::efficiency}.
 
@@ -270,7 +276,8 @@ The absolute efficiency $\epsilon$ for the detection of coincidences with a sing
 \end{equation}
 \label{eq:equation_efficacite_absolue}
 with $N\gamma_{\mathrm{coinc}}$ the number of gamma events corresponding to the selected true coincidences, $N\gamma_{\mathrm{total}}$ the total number of emitted gammas.
-In addition to its dependence on the gamma energy in the range 300~keV - 6~MeV (see section~\ref{relEff}), the absolute efficiency has been also studied as a function of the point-like source position. The source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0), and moved with variable length steps, up to 1~cm. The movement followed the transverse axis of the camera. 
+
+In addition to its dependence on the gamma energy in the range 300~keV -- 6~MeV (see section~\ref{relEff}), the absolute efficiency has been also studied as a function of the point-like source position. The source is set in the range $-300$~mm to $+300$~mm (with the center of the camera transverse section set in the position 0), and moved with variable length steps, up to 1~cm. The movement followed the transverse axis of the camera. 
 
 \subsubsection{Rate of background coincidences}
 
@@ -281,46 +288,21 @@ The range of intensities is defined in order to cover a wide range of operation:
 \subsubsection{Camera precision}
 \label{MatMeth:precision}
 
-The camera precision is defined as the difference between the predicted PG fall-off position - FOP - (according to the treatment planning) and the detected one.
-In this study, a reference profile has been defined as the reconstructed emission vertex profile at high statistics ($\mathrm{10^{10}}$ incident protons). This FOP is used as reference and compared to the ones at lower statistics, deduced as described in the following.
+The camera precision is defined as the difference between the predicted PG fall-off position - FOP - (according to the treatment planning) and the detected one. It has been studied with proton beams.
+A preliminary reconstruction test has been performed with the two algorithms (line-cone and LM-MLEM) and 10$^8$ incident protons, at two beam intensities: the clinical intensity -- 200 protons per bunch -- and a reduced intensity of 1 proton per bunch. For the LM-MLEM reconstruction, the volume is set to $20\times40\times1$~cm$^3$ around the expected FOP, with a $101\times201\times5$ voxel matrix. To be noticed that the two reconstruction methods produce different results: the line-cone method is based on the beam direction information, so that it naturally returns a mono-dimensional profile as result, while the LM-MLEM method is able to reconstruct the PG emission distribution in three dimensions. A mono-dimensional projection along the beam direction is used for the fall-off identification and for a direct comparison with the line-cone method. As shown in section~\ref{Results::precision_reconstruction}, as a result of this preliminary evaluation, the camera precision is evaluated with a beam intensity of 1 proton per bunch, with the analysis described in the following paragraphs.
 
-For the LM-MLEM reconstruction, the reconstruction volume is set to $20\times40\times1$~cm$^3$ around the expected FOP, with a $101\times201\times5$ voxel matrix. To be noticed that the two reconstruction methods produce different results: the line-cone method is based on the beam direction information, so that it naturally returns a mono-dimensional image as result, while the LM-MLEM method is able to reconstruct the prompt-gamma emission distribution in three dimensions. A mono-dimensional projection along the beam direction is used for the fall-off identification and for a direct comparison of the line-cone method.
-The \textit{SmoothKern} method, with the Nadaraya-Watson regression~\cite{Nadaraya_regression, Watson_regression}, is used to smooth the reference profiles in order to reduce relative statistical fluctuations.
+For the two reconstruction algorithms, a reference profile has been defined as the reconstructed (line-cone or LM-MLEM) distribution of emission positions at high statistics ($\mathrm{10^{10}}$ incident protons). The \textit{SmoothKern} method, with the Nadaraya-Watson regression~\cite{Nadaraya_regression, Watson_regression}, is used to smooth such a reference profile in order to reduce relative statistical fluctuations. A ROI ranging from $y=0$ mm to $y=+100$ mm is defined around the expected FOP, located at $y=+50$~mm in the phantom. The reference profiles are modeled in the ROI by a linear combination of Non-Uniform Rational Basis Splines (NURBS)~\cite{NURBS}. The retrieved FOP are used as reference and compared to the ones obtained for lower numbers of incident primaries, in the range 1$\times$10$^8$ to 5$\times$10$^9$. 
+\begin{itemize}
+\item For the line-cone reconstruction precision evaluation, the reference profile is normalized in order to obtain lower statistics distributions. Statistical fluctuations, randomly extracted following a Poisson law, are generated on the obtained PG profiles in the expected fall-off region ([30,70]~mm) to mimic realistic reconstructed distributions. For each chosen incident proton statistics, 1000 PG profiles are generated.
+\item For the LM-MLEM reconstruction precision evaluation, the data selected for the reference profiles are divided into subsets with random extractions. The number of events composing each subset is in accord with the desired incident proton statistics (considering the total amount of data collected for 10$^{10}$ incident protons), and a statistical fluctuation is added with a random extraction from a Gaussian distribution centered in the defined statistics. For each number of incident primaries, 100 data subsets are extracted with this method and reconstructed with the LM-MLEM algorithm.
+\end{itemize}
+To be noticed that for the LM-MLEM algorithm, a preliminary study has been necessary to define the optimal reconstruction parameters, in particular the number of iterations required. The iterative algorithm, indeed, tends to concentrate the reconstructed emission vertexes in \enquote{hot-spots}, creating artifacts which bias the precision evaluation. This effect is all the more significant at low statistics. The reconstructed profiles have been studied for a number of algorithm iterations ranging from 1 to 20, and for four incident proton equivalent statistics. The results presented in section~\ref{Results::precision_reconstruction} determined the choice of selecting the profiles after two iterations as the optimal trade-off to implement a common method for the precision evaluation in the whole explored primary statistics range. In order to increase the contrast in the fall-off region, 10 iterations have been selected to define the reference profile for 10$^{10}$ incident protons. For what concerns the reconstruction volume, two configurations have been tested: $20\times40\times1$~cm$^3$, with a $101\times201\times5$ voxel matrix, and $20\times40\times10$~cm$^3$, with a $101\times201\times50$ voxel matrix. In the second case, a 1~cm slice in the direction perpendicular to the camera entrance surface has been selected after reconstruction to compare the two configurations. No significant results emerged from this test, so that the 1~cm volume extension in the perpendicular direction, with 5 voxels, has been chosen to avoid the loss of statistics determined by the larger reconstruction volume.
 
-A region of interest (ROI) ranging from $y=0$ mm to $y=+100$ mm is defined around the expected FOP, located at $y=+50$~mm in the phantom. The reference reconstructed profiles are modeled in the ROI by a linear combination of Non-Uniform Rational Basis Splines (NURBS)~\cite{NURBS}. 
-
-The reference data set is normalized in order to obtain lower statistics profiles, in the range 1$\times$10$^8$ to 5$\times$10$^9$. Statistical fluctuations, randomly extracted following a Poisson law, are added to the obtained PG profiles to mimic realistic reconstructed profiles. This method is used to reduce the analysis time.
-
-For each chosen statistics, 1000 PG profiles are generated and a custom minimization method is applied to deduce the minimal shift between the reference profile and the one at lower statistics. The minimization algorithm shifts the reference profile in a 60~mm range, between $-30$~mm and $+30$~mm with respect to the initial position, with a step of $0.1$~mm, and for each position it compares its position to the low statistics profile by calculating the $\chi^2$ as follows:
+Once all the low statistics profiles are obtained for the two reconstruction methods, a custom minimization technique is applied to deduce the minimal shift between the reference profile and the one at lower statistics. The minimization algorithm shifts the reference profile in a 60~mm range, between $-30$~mm and $+30$~mm with respect to the initial position, with a step of $1$~mm, and for each position it compares its position to the low statistics profile by calculating the $\chi^2$ as follows:
 \begin{eqnarray}
 \chi^2 = \sum\limits_{i=1}^{N_{bin}} {(y_{\mathrm{sample,i}}-y_{\mathrm{NURBS,i}})^2},
 \end{eqnarray}
-where for every bin $i$ $y_{\mathrm{sample}}$ is the number of events in the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of events for the reference profile NURBS (scaled at the same low statistic). 
-%Several minimization algorithms are available, but in order to avoid artifacts at low statistic, the following robust approach has been preferred.
+where for every bin $i$, $y_{\mathrm{sample}}$ is the number of events in the low statistics profile, $y_{\mathrm{NURBS}}$ is the number of events for the reference profile NURBS (scaled at the same low statistic). 
 The described approach is robust and allows to avoid artifacts at low statistics.
-%Figures~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM} show the distribution of $\chi^2$ calculated for a low statistic profile at $10^8$ incident protons.
-
-The global minimum of all the calculated $\chi^2$ is then retrieved and the shift associated to this value is added to the shift distributions. % shown in figure~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} for the line-cone and LM-MLEM algorithm respectively, for $10^8$ incident protons. 
-The standard deviation of the distribution resulting of the thousand results gives the precision of the camera for a given number of incident protons. 
-
-
-
-% \begin{figure}
-% \centering
-% \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.33\textwidth]{./Figure/profile_high_stat_linecone_2.pdf}}
-% \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.32\textwidth]{./Figure/profileY_corr_r15.png}}\\
-%  %\subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Poisson_Nurbs_1e8_Article_LC.eps}}
-%  \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/line_cone_NURBS.png}}
-%  %\subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Nurbs_Poisson_1e8_Article_MLEM.eps}}\\
-%  \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/MLEM_NURBS.png}}\\
-%   %\subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_Chi2_1e8_LC.pdf}}
-%   \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_LC}]{\includegraphics[width=0.33\textwidth]{./Figure/chi2_linecone.png}}
-%  %\subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_Chi2_Results_binning_1mm_ShiftNurbs0_1mm_1e8_article_MLEM.eps}}\\
-%  \subfloat[\label{fig:fig_Results_Chi2_Distribution_Variation_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.33\textwidth]{./Figure/chi2_MLEM.png}}\\
-%   %\subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_Distribution_finale_1e8_Article_LC.pdf}}
-%   \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.33\textwidth]{./Figure/deviation_linecone.png}}
-%  %\subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.33\textwidth]{./Figure/2017-08-02_FallOff_Results_binning_1mm_ShiftNurbs0_1mm_1e8_Article_MLEM.eps}}
-%  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.33\textwidth]{./Figure/deviation_MLEM.png}}
-% \caption{Data processing comparison for the same proton simulation with the line cone algorithm (left column) and the LM-MLEM algorithm (right column). The first row gives the reconstructed profile for $10^{10}$ incident protons. The second row shows the reference curve (blue) and the curve obtained with a $10^8$ incident protons subset. The third row shows the $\chi^2$ distribution for one data subset. The last row represents the distribution of the minimal calculated shifts for 1000 subsets at the same statistics of $10^8$ incident protons.}
-% \end{figure}
-
+The global minimum of all the calculated $\chi^2$ is then retrieved and the shift associated to this value is added to the shift distributions. 
+The standard deviation of the distribution gives the precision of the camera for a given number of incident protons. 

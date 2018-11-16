@@ -10,6 +10,7 @@
 #include "TStyle.h"
 #include "TLegend.h"
 #include "Riostream.h"
+#include "TGraph.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -35,9 +36,11 @@ TCanvas *c1 = new TCanvas("c1","c1",700,800); // Création du canvas
 
 
 	Double_t number_protons[11]	= {1.e8, 2.e8,3.e8,4.e8, 5.e8,7.e8,1.e9,2.e9,3.e9,4.e9,5.e9};
+	Double_t number_protons_MLEM[4]	= {1.e8, 5.e8,1.e9,5.e9};
 
     //bin 1 mm shift Nurbs 0.1 mm correction Moyenne Up and Down
-    Double_t datas_MLEM_0_1mm_Moyenne[11]		={2.05293, 1.40637, 1.16388, 1.0135, 0.898718, 0.767922, 0.643808, 0.432282, 0.364576, 0.333195, 0.285363};
+    //Double_t datas_MLEM_0_1mm_Moyenne[11]		={2.05293, 1.40637, 1.16388, 1.0135, 0.898718, 0.767922, 0.643808, 0.432282, 0.364576, 0.333195, 0.285363};
+		Double_t datas_MLEM_0_1mm_Moyenne[4]		={3.79, 2.43, 2.07, 0.46};
 
    //
     //bin 1 mm shift Nurbs 0.1 mm correction Moyenne Up and Down LINE CONE
@@ -50,8 +53,8 @@ TCanvas *c1 = new TCanvas("c1","c1",700,800); // Création du canvas
 
 
     //bin 1 mm shift Nurbs 0.1 mm correction Moyenne Up and Down
-    Double_t datas_error_MLEM_0_1mm_Moyenne[11]		={0.0459049, 0.0314474, 0.0260252, 0.0226625, 0.0200959, 0.0171713, 0.014396, 0.00966612, 0.00815217, 0.00745047, 0.0063809};
-
+    //Double_t datas_error_MLEM_0_1mm_Moyenne[11]		={0.0459049, 0.0314474, 0.0260252, 0.0226625, 0.0200959, 0.0171713, 0.014396, 0.00966612, 0.00815217, 0.00745047, 0.0063809};
+Double_t datas_error_MLEM_0_1mm_Moyenne[4]		={0.01, 0.01, 0.01, 0.01};
     //bin 1 mm shift Nurbs 0.1 mm correction Moyenne Up and Down LINE CONE
     Double_t datas_error_LineCone_0_1mm_Moyenne[11]		={0.122041, 0.081882, 0.0646093, 0.054836, 0.0485044, 0.0413621, 0.0348118, 0.0243323, 0.01977, 0.0171827, 0.0155029};
 
@@ -69,11 +72,12 @@ TCanvas *c1 = new TCanvas("c1","c1",700,800); // Création du canvas
 	frame->GetXaxis()->SetTitle("Number of incident protons");
 	frame->GetXaxis()->SetTickLength(0.02);
 	frame->GetXaxis()->SetLabelSize(0.04);
-	frame->GetXaxis()->SetTitleSize(0.05);
+	frame->GetXaxis()->SetTitleSize(0.04);
 	frame->GetYaxis()->SetTitle("FRP [mm]");
+	frame->GetYaxis()->SetTitleOffset(1);
 
 	frame->GetYaxis()->SetLabelSize(0.04);
-	frame->GetYaxis()->SetTitleSize(0.05);
+	frame->GetYaxis()->SetTitleSize(0.04);
 
 	frame->Draw(" ");
 
@@ -90,7 +94,7 @@ TCanvas *c1 = new TCanvas("c1","c1",700,800); // Création du canvas
 
 
 
-    TGraph *gr7 = new TGraphErrors(number_datas,number_protons,datas_MLEM_0_1mm_Moyenne,0,datas_error_MLEM_0_1mm_Moyenne); // Création du graphique
+    TGraph *gr7 = new TGraphErrors(4,number_protons_MLEM,datas_MLEM_0_1mm_Moyenne,0,datas_error_MLEM_0_1mm_Moyenne); // Création du graphique
 
     gr7->SetMarkerColor(4); // Options de mise en forme  du graphique
     gr7->SetMarkerStyle(21);//25
@@ -125,16 +129,11 @@ TCanvas *c1 = new TCanvas("c1","c1",700,800); // Création du canvas
 
     gr8->Fit(f2);
 
-
-
-
-
-
-    leg = new TLegend(0.65,0.75,0.9,0.9);
+    TLegend *leg = new TLegend(0.65,0.75,0.9,0.9);
     leg->SetFillColor(10);
 
-    // leg->AddEntry(gr8,"Line cone - bin 1mm - shift 0.1 mm","p");
-   // leg->AddEntry(gr7,"MLEM - bin 1mm - shift 0.1 mm","p");
+    //leg->AddEntry(gr8,"Line cone - bin 1mm - shift 0.1 mm","p");
+   	//leg->AddEntry(gr7,"MLEM - bin 1mm - shift 0.1 mm","p");
 
     leg->AddEntry(gr8,"Line cone","p");
     leg->AddEntry(gr7,"MLEM","p");
