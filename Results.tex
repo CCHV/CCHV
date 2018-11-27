@@ -76,15 +76,15 @@ Figure~\ref{fig:comparison} shows the results of the line-cone and LM-MLEM recon
 
 \begin{figure}
 \centering
-\hspace{-0.7cm}\subfloat[]{\includegraphics[width=0.42\textwidth,clip=true,trim=0 70 130 90]{./Figure/new/recon_200pBunch/projection2D_Z_corr_r20.png}}
-\subfloat[]{\includegraphics[width=0.42\textwidth,clip=true,trim=0 70 130 90]{./Figure/projection2D_Z_corr_r20.png}}\\
-\vspace{-0.6cm}
-\subfloat[]{\includegraphics[width=0.42\textwidth]{./Figure/new/profile_MLEM_200pBunch.pdf}}
-\subfloat[]{\includegraphics[width=0.42\textwidth]{./Figure/new/reconstructed_lowStat_profile_norm_mod.png}}\\
-\vspace{-0.6cm}
-\subfloat[]{\includegraphics[width=0.42\textwidth]{./Figure/new/profile_lineCone_200pBunch.pdf}}
-\subfloat[]{\includegraphics[width=0.42\textwidth]{./Figure/new/recon_profile_line-cone_lowStat_norm.pdf}}
-\caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. In the left column, the beam intensity is 200 proton per bunch on average; in the right one, the beam intensity is 1 proton per bunch on average. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 10 iterations are performed for the LM-MLEM reconstruction. The top row shows the MLEM reconstructed 2D images in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  The center row shows the 1D profiles along the $y$ axis. The expected profile fall-off is located at $y=+50\,$mm. The bottom row shows the profiles obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
+\hspace{-0.7cm}\subfloat[]{\includegraphics[width=0.41\textwidth,clip=true,trim=0 70 130 90]{./Figure/new/recon_200pBunch/projection2D_Z_corr_r20.png}}
+\subfloat[]{\includegraphics[width=0.41\textwidth,clip=true,trim=0 70 130 90]{./Figure/projection2D_Z_corr_r20.png}}\\
+\vspace{-0.45cm}
+\subfloat[]{\includegraphics[width=0.41\textwidth]{./Figure/new/profile_MLEM_200pBunch.pdf}}
+\subfloat[]{\includegraphics[width=0.41\textwidth]{./Figure/new/reconstructed_lowStat_profile_norm_mod.png}}\\
+\vspace{-0.45cm}
+\subfloat[]{\includegraphics[width=0.41\textwidth]{./Figure/new/profile_lineCone_200pBunch.pdf}}
+\subfloat[]{\includegraphics[width=0.41\textwidth]{./Figure/new/recon_profile_line-cone_lowStat_norm.pdf}}
+\caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. In the left column, the beam intensity is 200 proton per bunch on average; in the right one, the beam intensity is 1 proton per bunch on average. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 2 iterations are performed for the LM-MLEM reconstruction. The top row shows the MLEM reconstructed 2D images in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  The center row shows the 1D profiles along the $y$ axis. The expected profile fall-off is located at $y=+50\,$mm. The bottom row shows the profiles obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
 \label{fig:comparison}
 \end{figure}
 
@@ -105,17 +105,17 @@ Figure~\ref{fig::profilesOverlap} shows the PG profiles obtained for four incide
 
 The presented profiles show the effect of the increasing number of iterations of the reconstruction algorithm, which tends to concentrate the emission vertexes in \enquote{hot-spots} creating artifacts which bias the identification of the profile fall-off, mainly at the lowest explored primary statistics. The profile fall-off can be identified with minimized artifacts after 2 iterations of the LM-MLEM algorithm. For this reason, 2 iterations are used for the precision study.
 
-A total of $10^{10}$ protons has been simulated to define the reference PG profile, with a beam intensity of 1 proton per bunch on average, and then different low statistics profiles have been produced for the precision estimate as explained in section~\ref{MatMeth:precision} for both the line-cone and the LM-MLEM reconstructions. 
+A total of 2$\times10^{10}$ protons has been simulated to define the reference PG profile, with a beam intensity of 1 proton per bunch on average, and then different low statistics profiles have been produced for the precision estimate as explained in section~\ref{MatMeth:precision} for both the line-cone and the LM-MLEM reconstructions. 
 The high statistics profile reconstructed via line-cone algorithm is shown in figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone} and via the LM-MLEM reconstruction method in figure~\ref{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM} with the related NURBS fit. A NURBS fit of a low statistics sample ($10^8$ incident protons) is shown in figures~\ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC} for the line-cone and~\ref{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM} for the LM-MLEM. Poisson extracted fluctuations have been added to the fit curve in the range 30-70~mm (where the fall-off position is expected to be located) for the line-cone case, while the low statistic profile for the LM-MLEM case is obtained with the extraction of a data subset from the reference profile data set and shown together with the reference profile related NURBS.
 The retrieved optimal shift distribution is shown in figure~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} and~\ref{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} for the line-cone and LM-MLEM algorithm respectively, for $10^8$ incident protons as well.
 
 \begin{figure}
 \centering
 \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.48\textwidth]{./Figure/Results_forHadronthPaper/RefProfile_lineCone_plusNurbs.pdf}} 
-\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.48\textwidth]{./Figure/reference_MLEM.pdf}}\\
+\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.48\textwidth]{./Figure/reference_MLEM_2it.pdf}}\\
 \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.48\textwidth]{./Figure/Results_forHadronthPaper/profile_Poisson_lineCone_green.pdf}}
 \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.48\textwidth]{./Figure/profiles_MLEM.pdf}}\\
-\caption{Top row: line-cone (a) and LM-MLEM (b) reconstructed reference profile (blue histogram) for $10^{10}$ incident protons, at a beam intensity of 1 proton per bunch, with the NURBS related curves (green solid lines). Bottom row: NURBS curve (green) obtained after the normalization to a $10^8$ incident protons statistics, and Poisson generated statistical fluctuations (red) in the expected fall-off region, for the line-cone precision evaluation method (c), and profile realization for the LM-MLEM precision analysis (red -- d) obtained with the reconstruction of a data subset (for 10$^{8}$ incident protons) extracted from the reference profile data set.}
+\caption{Top row: line-cone (a) and LM-MLEM (b) reconstructed reference profile (blue histogram) for 2$\times10^{10}$ incident protons, at a beam intensity of 1 proton per bunch, with the NURBS related curves (green solid lines). Bottom row: NURBS curve (green) obtained after the normalization to a $10^8$ incident protons statistics, and Poisson generated statistical fluctuations (red) in the expected fall-off region, for the line-cone precision evaluation method (c), and profile realization for the LM-MLEM precision analysis (red -- d) obtained with the reconstruction of a data subset (for 10$^{8}$ incident protons) extracted from the reference profile data set.}
 \end{figure}
 
 \begin{figure}
@@ -130,7 +130,6 @@ The analysis method described in section~\ref{MatMeth:precision} is applied to t
 \begin{figure}	
 \centering
 \includegraphics[width=0.6\textwidth]{./Figure/precision_2it.pdf}
-%{./Figure/2017-10-21_Precision_Comparaison_linecone_MLEM_Article_Fit.eps}
 \caption{Fall-off retrieval precision (FRP) for two different reconstruction algorithms: line-cone and LM-MLEM. The precision is shown as a function of the total number of incident protons, in the range [$10^{8}$, $5\times10^{9}$].}	
 \label{fig:precision}
 \end{figure}
