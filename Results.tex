@@ -34,7 +34,7 @@ As mentioned, these results led to the choice of limiting the further analysis (
  
  \subsection{Absolute detection efficiency}
 \label{Results::efficiency}
-Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency as a function of the gamma source position with respect to the center of the camera in the transverse plane. On the left side, we show the results achieved with an ideal detector (i.e. without energy detection threshold). On the right side realistic energy thresholds (50~keV for the scatterer layers and 100~keV for the absorber) are applied on each detector section.
+Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency as a function of the gamma source position with respect to the center of the camera in the transverse plane. On the left side, we show the results achieved without energy detection thresholds. On the right side realistic energy thresholds are applied on each detector section (50~keV for the scatterer layers and 100~keV for the absorber).
 
 \begin{figure} [!hbtp]	
 \centering
@@ -47,7 +47,7 @@ Figure~\ref{fig::efficiency_study} shows the absolute gamma detection efficiency
 \end{figure}
 
 As expected according to the interaction probability energy dependency, the efficiency is higher for low gamma energies, and it lies in the range $4\times10^{-4}$ at 300~keV and $1.5\times10^{-4}$ at 6~MeV at the center of the camera. Moreover, it can be noticed how the efficiency drops as the point source is shifted away from the camera center: efficiency reductions of a factor approximately 4 and 8 at 500~keV and 4~MeV, respectively, are detected with the source at 300~mm distance from the camera center, with respect to the value detected in central position. This effect is more important for high energies, for which the incident gamma is less deflected in the scatterer for the same energy deposited compared to a low energy gamma.   
-Figure~\ref{fig::efficiency_study}(b) shows the effect of realistic camera detection thresholds as opposed to ideal detection. The gamma detection efficiency drops of a factor ranging from about 1.25 to more than an order of magnitude for the central detection area for energies in the range 300~keV to 2~MeV respectively. The effect is reduced by the distance of the source from the center of the camera. Negligible effects are detected for positions with a distance greater than 200~mm from the center of the camera, and for any distance at energies above 2~MeV, while the efficiency is reduced in the central area of the camera for energies below 4~MeV.\\
+Figure~\ref{fig::efficiency_study}(b) shows the effect of realistic camera detection thresholds as opposed to the detection without energy thresholds. The gamma detection efficiency drops of a factor ranging from about 1.25 to more than an order of magnitude for the central detection area for energies in the range 300~keV to 2~MeV respectively. The effect is reduced by the distance of the source from the center of the camera. Negligible effects are detected for positions with a distance greater than 200~mm from the center of the camera, and for any distance at energies above 2~MeV, while the efficiency is reduced in the central area of the camera for energies below 4~MeV.\\
  
 \subsection{Rate of background coincidences}
 \label{Results::beamInt}
@@ -111,16 +111,19 @@ The retrieved optimal shift distribution is shown in Figure~\ref{fig:fig_Results
 
 \begin{figure}
 \centering
-\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.48\textwidth]{./Figure/Results_forHadronthPaper/RefProfile_lineCone_plusNurbs.pdf}} 
+%\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.48\textwidth]{./Figure/Results_forHadronthPaper/RefProfile_lineCone_plusNurbs.pdf}} 
+\subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_LineCone}]{\includegraphics[width=0.48\textwidth]{./Figure/reference_LC.pdf}} 
 \subfloat[\label{fig:fig_Results_Estimation_Camera_Profil_highStat_CC_simulation_Hadronth_MLEM}]{\includegraphics[width=0.48\textwidth]{./Figure/reference_MLEM_2it.pdf}}\\
-\subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.48\textwidth]{./Figure/Results_forHadronthPaper/profile_Poisson_lineCone_green.pdf}}
+%\subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.48\textwidth]{./Figure/Results_forHadronthPaper/profile_Poisson_lineCone_green.pdf}}
+\subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_LC}]{\includegraphics[width=0.48\textwidth]{./Figure/referenceVSlowstat_LC.pdf}}
 \subfloat[\label{fig:fig_Estimation_Camera_CC_NURBS_Poisson_MLEM}]{\includegraphics[width=0.48\textwidth]{./Figure/profiles_MLEM.pdf}}\\
 \caption{Top row: line-cone (a) and LM-MLEM (b) reconstructed reference profile (blue histogram) for 2$\times10^{10}$ incident protons, at a beam intensity of 1 proton per bunch, with the NURBS related curves (green solid lines). Bottom row: NURBS curve (green) obtained after the normalization to a $10^8$ incident protons statistics, and Poisson generated statistical fluctuations (red) in the expected fall-off region, for the line-cone precision evaluation method (c), and profile realization for the LM-MLEM precision analysis (red -- d) obtained with the reconstruction of a data subset (for 10$^{8}$ incident protons) extracted from the reference profile data set.}
 \end{figure}
 
 \begin{figure}
   \centering
-  \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.48\textwidth, height = 5cm]{./Figure/new/LC_histo_deviations.pdf}}
+ % \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.48\textwidth, height = 5cm]{./Figure/new/LC_histo_deviations.pdf}}
+ \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_LC} ]{\includegraphics[width=0.48\textwidth, height = 5cm]{./Figure/deviations_LC.pdf}}  
   \subfloat[\label{fig:fig_Results_Precision_Distribution_Variation_CC_simulation_Hadronth_MLEM} ]{\includegraphics[width=0.48\textwidth, height = 5cm]{./Figure/deviation_MLEM.pdf}}
   \caption{Distributions of the fall-off position deviation with respect to the fall-off position of the high statistics reference profile for 1000 realizations with 10$^8$ primary protons obtained with line-cone reconstruction (left) and for 100 realizations with 10$^8$ primary protons obtained with the LM-MLEM reconstruction (right). The standard deviation of these distributions represents the Compton camera precision for the selected statistics.}
 \end{figure}
@@ -129,10 +132,11 @@ The analysis method described in section~\ref{MatMeth:precision} is applied to t
 
 \begin{figure}	
 \centering
-\includegraphics[width=0.6\textwidth]{./Figure/precision_2it.pdf}
+%\includegraphics[width=0.6\textwidth]{./Figure/precision_2it.pdf}
+\includegraphics[width=0.6\textwidth]{./Figure/precision_LC_MLEM.pdf}
 \caption{Fall-off retrieval precision (FRP) for two different reconstruction algorithms: line-cone and LM-MLEM. The precision is shown as a function of the total number of incident protons, in the range [$10^{8}$, $5\times10^{9}$].}	
 \label{fig:precision}
 \end{figure}
 
-The iterative MLEM reconstruction method enables one to achieve a better precision with respect to the line-cone algorithm: the fall-off retrieval precision (FRP) is improved by a factor between 1.4 and 2 in the whole range of statistics explored. A linear behavior, highlighted by the performed linear fit of the two data sets, is verified with increasing number of primary protons, starting from the single spot scale of about 10$^8$ primaries, till $5\times10^9$ protons, which can correspond to the monitoring of a group of spots with the same planned range. 
+The iterative MLEM reconstruction method enables one to achieve a better precision with respect to the line-cone algorithm: the fall-off retrieval precision (FRP) is improved by a factor between 2.6 and 5 in the whole range of statistics explored. A linear behavior, highlighted by the performed linear fit of the two data sets, is verified with increasing number of primary protons, starting from the single spot scale of about 10$^8$ primaries, till $5\times10^9$ protons, which can correspond to the monitoring of a group of spots with the same planned range. 
 
