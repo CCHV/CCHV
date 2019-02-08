@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300mm"
+   height="230mm"
+   viewBox="0 0 1062.9921 814.96063"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="coinc_scheme.svg"
+   inkscape:export-filename="/Users/fontana/PhD/Work/MyPapers/CC_Hadrontherapy/CCHV_master/CCHV/Figure/coinc_scheme.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4344"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#005bcb;stroke-width:1pt;stroke-opacity:1;fill:#005bcb;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4338"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#005bcb;stroke-width:1pt;stroke-opacity:1;fill:#005bcb;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4335"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="280.08926"
+     inkscape:cy="490.4248"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="948"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-237.40157)">
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#0000c3;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3336"
+       width="634.28564"
+       height="231.42854"
+       x="210"
+       y="265.21933"
+       ry="60" />
+    <path
+       style="fill:none;stroke:#0000c3;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 208.57143,339.50506 632.85714,0"
+       id="path4178"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#0000c3;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 7.1428571,728.07651 495.7142829,0"
+       id="path4180"
+       inkscape:connector-curvature="0" />
+    <image
+       y="725.07654"
+       x="553.42859"
+       id="image4199"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfAAAAAGCAYAAAA8EMxWAAAABHNCSVQICAgIfAhkiAAAAD5JREFU aIHt1TENACAQBMGHHj/4xw4eQAMVuWRGwXbbqtYpACDGnGP33xEAwDsDB4BABg4AgQwcAAIZOAAE ur1TAze98h/kAAAAAElFTkSuQmCC "
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="6"
+       width="496" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#005bcb;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="388.75488"
+       y="315.21936"
+       id="text4202"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4204"
+         x="388.75488"
+         y="315.21936">COINCIDENCE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#005bcb;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="128.57143"
+       y="700.93359"
+       id="text4227"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4229"
+         x="128.57143"
+         y="700.93359">True gamma</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#005bcb;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="698.57141"
+       y="701.54883"
+       id="text4231"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4233"
+         x="698.57141"
+         y="701.54883">Background</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="220"
+       y="382.36221"
+       id="text4235"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4237"
+         x="220"
+         y="382.36221">At least 1 energy deposit in the scatterer</tspan><tspan
+         sodipodi:role="line"
+         x="220"
+         y="419.86221"
+         id="tspan4239" /><tspan
+         sodipodi:role="line"
+         x="220"
+         y="457.36221"
+         id="tspan4241">At least 1 energy deposit in the absorber</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="491.02539"
+       y="423.79077"
+       id="text4243"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4245"
+         x="491.02539"
+         y="423.79077"
+         style="font-size:35px;fill:#ff0000">AND</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="258.75836"
+       y="785.21936"
+       id="text4247"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4249"
+         x="258.75836"
+         y="785.21936">Coincidence for 1 gamma</tspan><tspan
+         sodipodi:role="line"
+         x="258.75836"
+         y="822.71936"
+         id="tspan4251">(Compton scattering)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="575.71423"
+       y="762.36218"
+       id="text4262"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4272"
+         x="575.71423"
+         y="762.36218">• Coincidence between </tspan><tspan
+         sodipodi:role="line"
+         id="tspan4274"
+         x="575.71423"
+         y="799.86218">   2 secondary particles:</tspan><tspan
+         sodipodi:role="line"
+         x="575.71423"
+         y="837.36218"
+         id="tspan4302">   * from different incident ions </tspan><tspan
+         sodipodi:role="line"
+         x="575.71423"
+         y="874.86218"
+         id="tspan4305">   * from the same incident ion </tspan><tspan
+         sodipodi:role="line"
+         id="tspan4278"
+         x="575.71423"
+         y="912.36218">• Coincidence generated by </tspan><tspan
+         sodipodi:role="line"
+         x="575.71423"
+         y="949.86218"
+         id="tspan4292">   a secondary particle: </tspan><tspan
+         sodipodi:role="line"
+         x="575.71423"
+         y="987.36218"
+         id="tspan4308">   e-, proton, neutron, etc.</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0000c3;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4329"
+       width="497.14285"
+       height="357.14285"
+       x="551.42859"
+       y="651.50507"
+       ry="60" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="501.78568"
+       y="588.2193"
+       id="text4628"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4630"
+         x="501.78568"
+         y="588.2193">OR</tspan></text>
+    <path
+       style="fill:none;stroke:#005bcb;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 350,517.45359 0,97.14285"
+       id="path4632"
+       inkscape:connector-curvature="0" />
+    <image
+       y="517.25507"
+       x="688.78571"
+       id="image4697"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAABtCAYAAABZRLrzAAAABHNCSVQICAgIfAhkiAAAAxBJREFU aIHt2k9PE0EYBvBnp1sotN0mGKiJF+RPIgSpYJTECzURLeVL+BmM0ZsXbiSkB48cvKjx4IFDQ2Ni 4smjBxO+ARBA46GY2DShrYdmS3c7Ozvv7JbT+57oZmd/s+/O09mQWp1OpwNCpZ7/QPNycEjj3SpS SUG51ATp7LiLccYZZ5xxxhlnnHHGGWecccYZZ5xxxhlnnHHGGWecccYJ+N6339eOvv/+Byd/IcTh cQOvPx1fG1ypnePr4QVuZdEWm4Ucdqpn1zKBSu0cLz4cYbOQAwCI4kIW4yNi6BNw4YSw8GTJ6eKp pEBxMQsA2Kme4c3nk9jh3YMuDABrs2ncyNhdHABKy7neidv7p7FOYPfgHC8/HvU+uy3v4f0H4pyA HwaAUsHx4nP5UczlRwcmEGUNVGqD8KRjY3U67cUBoHzPe/cAjBehu7j8VS7kIKyrzz3c33rTCQTB MqOHr9/JYmxE/m2rm4L+Ve2vhLCwseR4jtnuH2MjAsWFLGo/69LB2/un0p8ruPX2yy+8UnRobTaN iYztOea51aDWu7VTPcNlWz4BFRx0bQ++5V90EqfVVhrm+MzUKOZvpq4OuCuT9HuSwcrnkliZHlfj 3Rk6AyfBGjxEqdKy44mYAlc8d8MO9H99K3FV5GDRJ5AQFp7elXRThruRCyziI5BFLBAHwiMHQLsD qmtJcZ3I6XaAjM9M+XY5w9U+6djSiClxQL7LUcu/i2njWs89pMKuEYi7L5am1f+iSMZTSYF1VeRC qv9FkYwD0VqvM1aJa0VuWLhp5MIipoUDZq3fXFZHbLi45phQ/PEiLXIJYWEjYBcj49TI6URMGwdo raecq4VTIhc7rhs53YiRcEDvjnQjNhycGEttPCxylIiR8bDIPZjRjxgZB9RtfUa861jxrRX61zAJ l/37BOhG7P7ttGREjDggv3tqxOLFDd94yLg/ciYRM8b9kXtI2MUi44C3zVFeMo3w/l2uHAE36pe7 y9UbLdIuFgsOdNtd/9cyilhseJSyAeyZDHw0n7EvGq0EgKah3fwPJv/FomDRJ4oAAAAASUVORK5C YII= "
+       style="image-rendering:optimizeSpeed;fill:none;stroke:none"
+       preserveAspectRatio="none"
+       height="109"
+       width="31" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0000c3;stroke-width:5.46901464;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4190"
+       width="500.53098"
+       height="220.53099"
+       x="5.1630793"
+       y="651.23956"
+       ry="49.797321" />
+  </g>
+</svg>

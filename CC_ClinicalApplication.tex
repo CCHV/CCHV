@@ -60,6 +60,7 @@
 \usepackage{lscape}
 \usepackage{pdflscape}
 \usepackage{footnote}
+\usepackage{csquotes}
 
 
 \usepackage{hyperref}
@@ -85,11 +86,14 @@ citecolor=blue, %couleur des références
 
 \title{Monitoring ion beam therapy with a Compton Camera: simulation studies of the clinical feasibility}
 
-\author{M.~Fontana$^1$ and J.-L.~Ley$^1$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~L\'etang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, and \'E.~Testa$^1$}
+\author{M.~Fontana$^1$ and J.-L.~Ley$^1$, S.Brons$^4$, D.~Dauvergne$^3$, N.~Freud$^2$, J.~Krimmer$^1$, J.~M.~L\'etang$^2$, V.~Maxim$^2$, M.-H.~Richard$^1$, I.~Rinaldi$^5$, and \'E.~Testa$^1$}
 
 \address{$^1$Univ Lyon, Universit\'e Claude Bernard Lyon 1, CNRS/IN2P3, Institut de Physique Nucl\'eaire de Lyon, 69622 Villeurbanne, France}
 \address{$^2$Univ Lyon, INSA-Lyon, Universit\'e Claude Bernard Lyon 1, UJM-Saint \'Etienne, CNRS, Inserm, Centre L\'eon B\'erard, CREATIS UMR 5220 U1206, F-69373, Lyon, France}
 \address{$^3$Universit\'e Grenoble Alpes, CNRS, Grenoble INP, LPSC-IN2P3, 38000 Grenoble, France}
+\address{$^4$Heidelberg ion therapy center - Heidelberger Ionenstrahl-Therapiezentrum (HIT), Im Neuenheimer Feld 450, 69120 Heidelberg}
+\address{$^5$Department of Radiation Therapy and Oncology, Heidelberg University Hospital, Im Neuenheimer Feld 400, 69120 Heidelberg, Germany, now at MAASTRO Clinic, Dr. Tanslaan 12, 6229 ET Maastricht, The Netherlands}
+
 \ead{m.fontana@ipnl.in2p3.fr}
 
 \begin{abstract}
@@ -97,7 +101,7 @@ citecolor=blue, %couleur des références
 
 As more and more particle therapy centers are being built world-wide, there is increasing need in treatment monitoring methods, ideally in real-time.
 %The ClaRyS French collaboration is developing a Compton camera prototype based on silicon detectors and BGO scintillator blocks. %~\cite{krimmer:hal-01101334}, 
-The present work investigates the clinical applicability of a Compton camera prototype %this 
+The present work investigates the clinical applicability of a Compton camera %this 
 design by means of Monte Carlo simulations. The Compton camera performance has been studied with the simulation of point-like source and beam irradiation of a PMMA phantom. The system absolute photon detection efficiency, measured via source irradiation, varies in the range [1,4] $\times 10^{-4}$ with energy variations in the prompt gamma energy range and source position shifts with respect to the center of the camera. With proton and carbon beams impinging on a PMMA cylindrical phantom, the number of detected prompt-gamma coincidences related to various beam time structure has been studied. Finally, the accuracy of the camera in identifying the dose profile fall-off position has been estimated and two different event reconstruction methods have been compared for this purpose; one based on analytical calculation with a line-cone technique, the second relying on an iterative MLEM algorithm. Both methods showed the possibility to reconstruct the beam depth-dose profile and to retrieve the dose fall-off with millimeter precision on a spot basis.
 \end{abstract}
 
@@ -121,6 +125,7 @@ design by means of Monte Carlo simulations. The Compton camera performance has b
 \input{Introduction}
 \input{MaterialMethods}
 \input{Results}
+\newpage
 \input{Discussion}
 % 
 \section*{Acknowledgments}
